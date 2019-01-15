@@ -1,0 +1,21 @@
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\bin\Debug\netstandard2.0\xamarinformsquickstart.deps.json
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\bin\Debug\netstandard2.0\xamarinformsquickstart.dll
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\bin\Debug\netstandard2.0\xamarinformsquickstart.pdb
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\obj\Debug\netstandard2.0\TodoList.xaml.g.cs
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.AssemblyInfoInputs.cache
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.AssemblyInfo.cs
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.dll
+C:\Users\Daniel\Desktop\New folder\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.pdb
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\bin\Debug\netstandard2.0\xamarinformsquickstart.deps.json
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\bin\Debug\netstandard2.0\xamarinformsquickstart.dll
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\bin\Debug\netstandard2.0\xamarinformsquickstart.pdb
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.csprojAssemblyReference.cache
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\TodoList.xaml.g.cs
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.AssemblyInfoInputs.cache
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.AssemblyInfo.cs
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.dll
+C:\Users\Daniel\Documents\Code\Project\Xamarin.Forms-Azure\xamarinformsquickstart\obj\Debug\netstandard2.0\xamarinformsquickstart.pdb
