@@ -2249,10 +2249,11 @@
       ]
     },
     "System.Linq.Queryable/4.3.0": {
-      "sha512": "XeuhzDnMp4nqUkeW4c5ILsKQk4+15RVaHm8LQdKWiGqIAgC12y2vuJUkkNhqjqi3K6LNmV9tzEfAZrarwWMsKA==",
+      "sha512": "wdbQgzMijyDkBQySuqYnDcK/V70V6KIUUQdXpkXShHbgQRn0bn9wY3ar0VnsDwCcwu8ig6XBrpC2EU2xK+TuQg==",
       "type": "package",
       "path": "system.linq.queryable/4.3.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
@@ -3975,23 +3976,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daniel\\.nuget\\packages\\": {},
+    "C:\\Users\\dnlma\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj",
+      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj",
       "projectName": "xamarinformsquickstart",
-      "projectPath": "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj",
-      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\obj\\",
+      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj",
+      "packagesPath": "C:\\Users\\dnlma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dnlma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

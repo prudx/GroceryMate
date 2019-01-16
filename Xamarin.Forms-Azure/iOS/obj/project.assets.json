@@ -1544,20 +1544,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daniel\\.nuget\\packages\\": {}
+    "C:\\Users\\dnlma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\iOS\\xamarinformsquickstart.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\iOS\\xamarinformsquickstart.iOS.csproj",
       "projectName": "xamarinformsquickstart.iOS",
-      "projectPath": "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\iOS\\xamarinformsquickstart.iOS.csproj",
-      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\iOS\\obj\\",
+      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\iOS\\xamarinformsquickstart.iOS.csproj",
+      "packagesPath": "C:\\Users\\dnlma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dnlma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1570,8 +1570,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj": {
-              "projectPath": "C:\\Users\\Daniel\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj"
+            "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj": {
+              "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Xamarin.Forms-Azure\\xamarinformsquickstart\\xamarinformsquickstart.csproj"
             }
           }
         }
