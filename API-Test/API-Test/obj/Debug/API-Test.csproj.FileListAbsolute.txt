@@ -5,3 +5,10 @@ C:\Users\Daniel\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.cspr
 C:\Users\Daniel\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.csproj.CoreCompileInputs.cache
 C:\Users\Daniel\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.exe
 C:\Users\Daniel\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.pdb
+C:\Users\dnlma\Documents\Code\Project\API-Test\API-Test\bin\Debug\API-Test.exe.config
+C:\Users\dnlma\Documents\Code\Project\API-Test\API-Test\bin\Debug\API-Test.exe
+C:\Users\dnlma\Documents\Code\Project\API-Test\API-Test\bin\Debug\API-Test.pdb
+C:\Users\dnlma\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.csprojAssemblyReference.cache
+C:\Users\dnlma\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.csproj.CoreCompileInputs.cache
+C:\Users\dnlma\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.exe
+C:\Users\dnlma\Documents\Code\Project\API-Test\API-Test\obj\Debug\API-Test.pdb
