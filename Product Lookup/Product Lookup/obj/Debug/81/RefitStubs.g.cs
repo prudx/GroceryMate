@@ -4,18 +4,9 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Refit;
-using Product_Lookup.Quicktype;
-using Result =  Product_Lookup.Quicktype.Result;
-using Newtonsoft.Json;
+using Product_Lookup.JsonData;
 
 /* ******** Hey You! *********
  *
@@ -62,11 +53,11 @@ namespace Product_Lookup.API
         }
 
         /// <inheritdoc />
-        public virtual Task<Welcome> GetUsers()
+        public virtual Task<RootObject> GetUsers(string query,int offset,int limit)
         {
-            var arguments = new object[] {  };
-            var func = requestBuilder.BuildRestResultFuncForMethod("GetUsers", new Type[] {  });
-            return (Task<Welcome>)func(Client, arguments);
+            var arguments = new object[] { query,offset,limit };
+            var func = requestBuilder.BuildRestResultFuncForMethod("GetUsers", new Type[] { typeof(string),typeof(int),typeof(int) });
+            return (Task<RootObject>)func(Client, arguments);
         }
 
     }

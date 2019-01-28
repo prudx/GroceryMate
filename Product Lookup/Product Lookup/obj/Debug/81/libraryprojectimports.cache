@@ -10,6 +10,11 @@
     <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\16\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\17\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\18\jl\bin\classes.jar</Jar>
+    <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\19\jl\classes.jar</Jar>
+    <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\20\jl\classes.jar</Jar>
+    <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\21\jl\classes.jar</Jar>
+    <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\22\jl\classes.jar</Jar>
+    <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\23\jl\classes.jar</Jar>
     <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\4\jl\arch-core-common.jar</Jar>
     <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\5\jl\arch-lifecycle-common.jar</Jar>
     <Jar>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\6\jl\bin\classes.jar</Jar>
@@ -25,6 +30,8 @@
     <ResolvedResourceDirectory>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\15\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\16\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\17\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\19\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\20\jl\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\81\lp\0\jl\assets</ResolvedAssetDirectory>
@@ -38,5 +45,7 @@
     <ResolvedResourceDirectoryStamp>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\15.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\16.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\17.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\19.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\lp\20.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

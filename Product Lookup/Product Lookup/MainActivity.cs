@@ -1,32 +1,28 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
-using Android.Runtime;
 using Android.Widget;
-using ProductAPI;
+using Android.Views;
+using Android.Views.InputMethods;
 using Product_Lookup.API;
-//using Product_Lookup.Model;
-//using Result = Product_Lookup.Model.Result;
-using Product_Lookup.Quicktype;
-using Result = Product_Lookup.Quicktype.Result;
+using Product_Lookup.JsonData;
 using Refit;
 using EDMTDialog;
 using System.Collections.Generic;
-using System.Globalization;
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json.Converters;
-
+using Android.Content;
 
 namespace Product_Lookup
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "MainActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
 
         Button btn_SearchProducts;
+        Button btn_Camera;
         ListView list_Products;
+        EditText editText;
+        string queryString;
 
         ITescoAPI tescoAPI;
 
@@ -36,19 +32,14 @@ namespace Product_Lookup
             SetContentView(Resource.Layout.activity_main);
 
             btn_SearchProducts = FindViewById<Button>(Resource.Id.btn_SearchProduct);
+            btn_Camera = FindViewById<Button>(Resource.Id.btn_Camera);
+
             list_Products = FindViewById<ListView>(Resource.Id.list_Products);
 
-            /*
-            //trying to fix the json to json array problem
-            JsonConvert.DefaultSettings =
-                () => new JsonSerializerSettings()
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                    Converters = { new StringEnumConverter() }
-                };
-            */
-
-
+            editText = FindViewById<EditText>(Resource.Id.queryInput);
+            editText.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
+                queryString = e.Text.ToString();
+            };            
 
             try
             {
@@ -59,24 +50,26 @@ namespace Product_Lookup
             {
                 Toast.MakeText(this, "" + ex.Message, ToastLength.Long).Show();
             }
-            
+
             btn_SearchProducts.Click += async delegate
             {
                 try
                 {
+                    //https://dev.tescolabs.com/grocery/products/?query=milk&offset=0&limit=10
+                    //hardcoded instead of httpUtil obj
+                    //queryString = "query=orange&offset=0&limit=10";
+                    
+                    
                     Android.Support.V7.App.AlertDialog dialog = new EDMTDialogBuilder()
                     .SetContext(this)
-                    .SetMessage("Loading...")
+                    .SetMessage("Searching for " + queryString)
                     .Build();
 
                     if (!dialog.IsShowing)
                         dialog.Show();
-                    
-                    //JsonObjectAttribute json = await tescoAPI.GetUsers();  //JsonConvert.DeserializeObject<List<Result>>(response); 
-                    Welcome results = await tescoAPI.GetUsers();//JsonConvert.DeserializeObject<List<Welcome>>(json);
-                    List<string> result_name = new List<string>();
 
-                    //result_name = results.Uk.Ghs.Products.Results;
+                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 10);
+                    List<string> result_name = new List<string>();
                     
                     foreach (var result in results.Uk.Ghs.Products.Results)
                         result_name.Add(result.Name);
@@ -88,19 +81,32 @@ namespace Product_Lookup
 
                     if (dialog.IsShowing)
                         dialog.Dismiss();
+
+                    
                 }
                 catch (Exception ex)
                 {
                     Toast.MakeText(this, "" + ex.Message, ToastLength.Long).Show();
                 }
+
+            };
+
+            btn_Camera.Click += (s, e) =>
+            {
+                Intent cameraActivity = new Intent(this, typeof(CameraActivity));
+                StartActivity(cameraActivity);
             };
         }
+        
+        /*
+         * hide keyboard after search
+         * 
+        public override bool OnTouchEvent(MotionEvent e)
+        {
+            InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
+            imm.HideSoftInputFromWindow(editText.WindowToken, 0);
+            return base.OnTouchEvent(e);
+        }
+        */
     }
 }
-
-/*
-string[] result_name = new string[10];
-
-for (var i = 0; i < results.Count; i++)
-    result_name[i] = results[i].name;
-*/

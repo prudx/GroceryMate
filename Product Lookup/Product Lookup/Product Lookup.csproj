@@ -32,9 +32,12 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -59,26 +62,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\ITescoAPI.cs" />
+    <Compile Include="CameraActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model-deprecated\Address.cs" />
     <Compile Include="Model-deprecated\Company.cs" />
     <Compile Include="Model-deprecated\Geo.cs" />
     <Compile Include="Model-deprecated\User.cs" />
-    <Compile Include="Model-test\Quicktype.cs" />
-    <Compile Include="Model\Filters.cs" />
-    <Compile Include="Model\Ghs.cs" />
-    <Compile Include="Model\Products.cs" />
-    <Compile Include="Model\Result.cs" />
-    <Compile Include="Model\RootObject.cs" />
-    <Compile Include="Model\Totals.cs" />
-    <Compile Include="Model\Uk.cs" />
+    <Compile Include="Model\Quicktype.cs" />
     <Compile Include="ProductAPI.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +117,14 @@
       <Version>4.6.58</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Vision">
+      <Version>60.1142.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_camera.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

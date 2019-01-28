@@ -41,7 +41,7 @@ namespace CSHttpClientSample
 
             var response2 = await client.GetStringAsync(uri);
 
-            Console.WriteLine(response2);
+            Console.WriteLine(uri);
         }
     }
 }
