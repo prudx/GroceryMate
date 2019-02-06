@@ -13,18 +13,21 @@ using Android.Support.V4.App;
 using Android.Content.PM;
 using static Android.Gms.Vision.Detector;
 using System.Text;
+using Product_Lookup.Model;
 
 namespace Product_Lookup
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]
     public class CameraActivity : AppCompatActivity, ISurfaceHolderCallback, IProcessor
-
     {
         private SurfaceView cameraView;
-        private TextView textView;
+        private TextView cameraText;
         private CameraSource cameraSource;
+        private Button btn_Capture;
+        private string capture;
         private const int RequestCameraPermissionID = 1001;
 
+        public TextView CameraText { get => cameraText; set => cameraText = value; }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
@@ -41,18 +44,16 @@ namespace Product_Lookup
 
             }
         }
-
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_camera);
 
-            
-
-
             //Permission issue displaying camera in app
             cameraView = FindViewById<SurfaceView>(Resource.Id.camera_View1); 
-            textView = FindViewById<TextView>(Resource.Id.camera_TextSense1);
+            CameraText = FindViewById<TextView>(Resource.Id.camera_TextSense1);
+            btn_Capture = FindViewById<Button>(Resource.Id.btn_Capture);
 
             TextRecognizer textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
             if (!textRecognizer.IsOperational)
@@ -69,6 +70,16 @@ namespace Product_Lookup
                 cameraView.Holder.AddCallback(this);
                 textRecognizer.SetProcessor(this);
             }
+
+            btn_Capture.Click += (s, e) =>
+            {
+                capture = CameraText.Text;
+                if (capture.Contains("TESCO"))
+                {
+                    SurfaceDestroyed(cameraView.Holder);
+                    CameraText.Text = capture;
+                }
+            };
         }
 
         public void SurfaceChanged(ISurfaceHolder holder, [GeneratedEnum] Format format, int width, int height)
@@ -99,7 +110,7 @@ namespace Product_Lookup
             SparseArray items = detections.DetectedItems;
             if (items.Size() != 0)
             {
-                textView.Post(() =>
+                CameraText.Post(() =>
                 {
                     StringBuilder strBuilder = new StringBuilder();
                     for (int i = 0; i < items.Size(); i++)
@@ -108,7 +119,7 @@ namespace Product_Lookup
                         strBuilder.Append("\n");
 
                     }
-                    textView.Text = strBuilder.ToString();
+                    CameraText.Text = strBuilder.ToString();
                 });
             }
         }

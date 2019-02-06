@@ -64,11 +64,10 @@
     <Compile Include="API\ITescoAPI.cs" />
     <Compile Include="CameraActivity.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Model-deprecated\Address.cs" />
-    <Compile Include="Model-deprecated\Company.cs" />
-    <Compile Include="Model-deprecated\Geo.cs" />
-    <Compile Include="Model-deprecated\User.cs" />
+    <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Quicktype.cs" />
+    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\TescoReceipt.cs" />
     <Compile Include="ProductAPI.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

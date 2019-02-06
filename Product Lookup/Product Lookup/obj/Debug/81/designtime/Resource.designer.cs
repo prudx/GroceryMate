@@ -4887,11 +4887,11 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0015
 			public const int add = 2131492885;
 			
-			// aapt resource value: 0x7F010157
-			public const int adjust_height = 2130772311;
+			// aapt resource value: 0x7F010159
+			public const int adjust_height = 2130772313;
 			
-			// aapt resource value: 0x7F010156
-			public const int adjust_width = 2130772310;
+			// aapt resource value: 0x7F010158
+			public const int adjust_width = 2130772312;
 			
 			// aapt resource value: 0x1
 			public const int ad_container = 1;
@@ -4920,11 +4920,11 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int android_pay_light_with_border = 1;
 			
-			// aapt resource value: 0x7F010155
-			public const int app_name = 2130772309;
+			// aapt resource value: 0x7F010165
+			public const int APP_NAME = 2130772325;
 			
-			// aapt resource value: 0x7F010163
-			public const int APP_NAME = 2130772323;
+			// aapt resource value: 0x7F010157
+			public const int app_name = 2130772311;
 			
 			// aapt resource value: 0x7F0C0006
 			public const int async = 2131492870;
@@ -4953,11 +4953,14 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C001A
 			public const int bottom = 2131492890;
 			
-			// aapt resource value: 0x7F010008
-			public const int btn_Camera = 2130771976;
+			// aapt resource value: 0x7F010010
+			public const int btn_Camera = 2130771984;
 			
-			// aapt resource value: 0x7F010007
-			public const int btn_SearchProduct = 2130771975;
+			// aapt resource value: 0x7F010003
+			public const int btn_Capture = 2130771971;
+			
+			// aapt resource value: 0x7F010009
+			public const int btn_SearchProduct = 2130771977;
 			
 			// aapt resource value: 0x1
 			public const int button = 1;
@@ -4992,8 +4995,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int buy_with_google = 1;
 			
-			// aapt resource value: 0x7F010003
-			public const int camera_TextSense1 = 2130771971;
+			// aapt resource value: 0x7F010004
+			public const int camera_TextSense1 = 2130771972;
 			
 			// aapt resource value: 0x7F010002
 			public const int camera_View1 = 2130771970;
@@ -5082,8 +5085,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0024
 			public const int customPanel = 2131492900;
 			
-			// aapt resource value: 0x7F010161
-			public const int dark = 2130772321;
+			// aapt resource value: 0x7F010163
+			public const int dark = 2130772323;
 			
 			// aapt resource value: 0x1
 			public const int date = 1;
@@ -5190,8 +5193,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C000B
 			public const int icon_group = 2131492875;
 			
-			// aapt resource value: 0x7F010160
-			public const int icon_only = 2130772320;
+			// aapt resource value: 0x7F010162
+			public const int icon_only = 2130772322;
 			
 			// aapt resource value: 0x1
 			public const int icon_uri = 1;
@@ -5238,8 +5241,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int large_icon_uri = 1;
 			
-			// aapt resource value: 0x7F010006
-			public const int layout_Nav = 2130771974;
+			// aapt resource value: 0x7F010008
+			public const int layout_Nav = 2130771976;
 			
 			// aapt resource value: 0x7F0C003D
 			public const int left = 2131492925;
@@ -5256,8 +5259,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int license_list = 1;
 			
-			// aapt resource value: 0x7F010162
-			public const int light = 2130772322;
+			// aapt resource value: 0x7F010164
+			public const int light = 2130772324;
 			
 			// aapt resource value: 0x7F0C000E
 			public const int line1 = 2131492878;
@@ -5271,8 +5274,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0041
 			public const int list_item = 2131492929;
 			
-			// aapt resource value: 0x7F010004
-			public const int list_Products = 2130771972;
+			// aapt resource value: 0x7F010006
+			public const int list_Products = 2130771974;
 			
 			// aapt resource value: 0x1
 			public const int live_stream_indicator = 1;
@@ -5286,8 +5289,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int logo_only = 1;
 			
-			// aapt resource value: 0x7F010010
-			public const int marker_progress = 2130771984;
+			// aapt resource value: 0x7F010012
+			public const int marker_progress = 2130771986;
 			
 			// aapt resource value: 0x7F0C0042
 			public const int masked = 2131492930;
@@ -5313,8 +5316,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0046
 			public const int multiply = 2131492934;
 			
-			// aapt resource value: 0x7F010009
-			public const int my_text_view = 2130771977;
+			// aapt resource value: 0x7F010011
+			public const int my_text_view = 2130771985;
 			
 			// aapt resource value: 0x7F0C0047
 			public const int navigation_header_container = 2131492935;
@@ -5394,8 +5397,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0052
 			public const int progress_horizontal = 2131492946;
 			
-			// aapt resource value: 0x7F010005
-			public const int queryInput = 2130771973;
+			// aapt resource value: 0x7F010007
+			public const int queryInput = 2130771975;
 			
 			// aapt resource value: 0x7F0C0053
 			public const int radio = 2131492947;
@@ -5514,8 +5517,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0072
 			public const int src_over = 2131492978;
 			
-			// aapt resource value: 0x7F010158
-			public const int standard = 2130772312;
+			// aapt resource value: 0x7F010160
+			public const int standard = 2130772320;
 			
 			// aapt resource value: 0x7F0C0073
 			public const int start = 2131492979;
@@ -5579,6 +5582,9 @@ namespace Product_Lookup
 			
 			// aapt resource value: 0x1
 			public const int textTitle = 1;
+			
+			// aapt resource value: 0x7F010005
+			public const int textView1 = 2130771973;
 			
 			// aapt resource value: 0x7F0C007D
 			public const int text_input_password_toggle = 2131492989;
@@ -5646,8 +5652,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C008F
 			public const int visible = 2131493007;
 			
-			// aapt resource value: 0x7F010159
-			public const int wide = 2130772313;
+			// aapt resource value: 0x7F010161
+			public const int wide = 2130772321;
 			
 			// aapt resource value: 0x7F0C0090
 			public const int wrap_content = 2131493008;

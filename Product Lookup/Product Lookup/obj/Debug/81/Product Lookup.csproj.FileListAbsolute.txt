@@ -4,7 +4,6 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\Pr
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\Product_Lookup.Product_Lookup-Signed.apk
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\Product Lookup.nuget.stamp
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\Product Lookup.csprojAssemblyReference.cache
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\Xamarin.GooglePlayServices.Base.dll.stamp
