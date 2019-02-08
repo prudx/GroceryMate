@@ -74,9 +74,13 @@ namespace Product_Lookup
             btn_Capture.Click += (s, e) =>
             {
                 capture = CameraText.Text;
+                //seperate determination to receipt class by sending to receipt, initiallize type of receipt in constructor? 
+                //good code seperation for architecture diagram etc
                 if (capture.Contains("TESCO"))
                 {
+                    Receipt r = new TescoReceipt();
                     SurfaceDestroyed(cameraView.Holder);
+                    capture = r.GetItems(capture);
                     CameraText.Text = capture;
                 }
             };
