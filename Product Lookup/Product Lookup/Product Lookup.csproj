@@ -67,8 +67,10 @@
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Quicktype.cs" />
     <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Controller\Sorter.cs" />
     <Compile Include="Model\TescoReceipt.cs" />
-    <Compile Include="ProductAPI.cs" />
+    <Compile Include="ProductAPI-DEPRECATED.cs" />
+    <Compile Include="ReceiptActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,7 +117,7 @@
     <PackageReference Include="Refit">
       <Version>4.6.58</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.Vision">
       <Version>60.1142.1</Version>
     </PackageReference>

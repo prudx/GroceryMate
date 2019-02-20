@@ -62,8 +62,8 @@ namespace Product_Lookup
             {
                 cameraSource = new CameraSource.Builder(ApplicationContext, textRecognizer)
                     .SetFacing(CameraFacing.Back)
-                    .SetRequestedPreviewSize(1280, 1024)
-                    .SetRequestedFps(2.0f)
+                    .SetRequestedPreviewSize(1920, 1080)
+                    .SetRequestedFps(30.0f)
                     .SetAutoFocusEnabled(true)
                     .Build();
 
@@ -73,9 +73,15 @@ namespace Product_Lookup
 
             btn_Capture.Click += (s, e) =>
             {
-                capture = CameraText.Text;
-                //seperate determination to receipt class by sending to receipt, initiallize type of receipt in constructor? 
-                //good code seperation for architecture diagram etc
+                //capture = CameraText.Text;
+                capture = "tesco\noranges\nEUR2.23\n"; //test string
+
+                /*
+                 * seperate determination to a logic class (a controller) to seperate the 
+                 * activity from expansion of supported receipts 
+                 * good code seperation for architecture diagram etc
+                 * 
+                 * 
                 if (capture.Contains("TESCO"))
                 {
                     Receipt r = new TescoReceipt();
@@ -83,6 +89,13 @@ namespace Product_Lookup
                     capture = r.GetItems(capture);
                     CameraText.Text = capture;
                 }
+                */
+
+                //did the above, but the computing is now in a controller class called sorter.
+                Sorter receiptSorter = new Sorter();
+                Receipt r = receiptSorter.DetermineStore(capture);
+                SurfaceDestroyed(cameraView.Holder);
+                CameraText.Text = r.GetItems();
             };
         }
 

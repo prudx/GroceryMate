@@ -84,6 +84,7 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\System.ComponentModel.Composition.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\System.Xml.Linq.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Mono.Security.pdb
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\Product Lookup.csprojAssemblyReference.cache
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Mono.Android.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Mono.Security.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\mscorlib.pdb
@@ -103,4 +104,3 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\System.Web.Services.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\System.Xml.Linq.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\System.Xml.pdb
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\Product Lookup.csprojAssemblyReference.cache

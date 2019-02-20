@@ -1,6 +1,5 @@
-﻿using System;99
+﻿using System;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -41,7 +40,7 @@ namespace Product_Lookup.Model
 
         }
 
-        public override string GetItems(string ReceiptData)
+        public override string GetItems()
         {
             //List<string> CleaningData;
             string clean;

@@ -18,12 +18,14 @@ namespace Product_Lookup.Model
         public abstract string StoreName { get; }
         public string ReceiptData { get; set; } //maybe make this abstract??
 
-        public abstract string GetItems(string camText); //return list items?
+        public abstract string GetItems(); //return list items?
 
         public Receipt()
         {
 
         }
+
+        
 
 
 
