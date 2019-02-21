@@ -24,6 +24,7 @@ namespace AndroidDatabaseApp.Resources.DataHelper
         {
             try
             {
+                //change here to a connection string to azure?
                 using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "Persons.db")))
                 {
                     connection.CreateTable<Person>();
