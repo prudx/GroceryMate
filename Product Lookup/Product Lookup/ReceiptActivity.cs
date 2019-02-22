@@ -31,10 +31,12 @@ namespace Product_Lookup
             // Create your application here
         }
 
+        
         public void ReceiptBuilder()
         {
             var adapter = new ListViewItem_Adapter(this, CameraActivity.CapturedItems);
             ReceiptItems.Adapter = adapter;
         }
+        
     }
 }

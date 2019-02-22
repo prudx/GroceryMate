@@ -33,7 +33,7 @@ namespace Product_Lookup.Model
     {
         public override string StoreName => "Tesco";
 
-        public List<Item> items;
+        public List<Item> Items { get; set; }
 
         public TescoReceipt()
         {
@@ -43,6 +43,7 @@ namespace Product_Lookup.Model
         public TescoReceipt(string receipt) : base()
         {
             ReceiptData = receipt;
+            Items = new List<Item>();
 
         }
 
@@ -54,6 +55,7 @@ namespace Product_Lookup.Model
             //string[] strArr;
 
             ReceiptData = ReceiptData.ToUpper();
+            ReceiptData.Replace("TESCO", "");
             ReceiptData.Replace("SIGN UP FOR CLUBCARD!", "");
             ReceiptData.Replace("YOU COULD HAVE EARNED", "");
             ReceiptData.Replace("CLUBCARD POINTS IN THIS TRANSACTION", "");
@@ -73,44 +75,61 @@ namespace Product_Lookup.Model
             ReceiptData.Replace("THANK YOU FOR", "");
             ReceiptData.Replace("SHOPPING AT", "");
             ReceiptData.Replace("SLAN ABHAILE", "");
-            //ReceiptData.Replace("AID", "");
-
-
-
-            //strArr = ReceiptData.Split("TOTAL");
-
-            //get everything before the total
-            //ReceiptData = strArr[0];
-
-            //strArr = ReceiptData.Split("TESCO");
+            
 
             List<string> individual = new List<string>(ReceiptData.Split("\n"));
+            List<double> prices = new List<double>();
+            List<string> names = new List<string>();
 
-            items = new List<Item>();
-
-            for(int i = 0; i < individual.Count-1;) //NOT INCREMENTING I HERE
+            for (int i = 0; i < individual.Count; i++)
             {
-                Item newitem = new Item();
+                bool isDigitPresent = individual[i].Any(c => char.IsDigit(c));
 
-                for (int j = 0; j < 2; j++)     //is this loop garbage ass code?
-                {        
-                    bool isDigitPresent = individual[i].Any(c => char.IsDigit(c));
-                    if (isDigitPresent)
-                    {
-                        newitem.Price = Convert.ToDouble(Regex.Replace(individual[i], "[^0-9.]", ""));
-                        i++;
-                    }
-                    else
-                    {
-                        //right now it overwrites the previously set name, if it isn't a number the second time round
-                        newitem.Name = individual[i];
-                        i++;
-                    }
+                if (isDigitPresent)
+                {
+                    prices.Add(Convert.ToDouble(Regex.Replace(individual[i], "[^0-9.]", "")));
+                } else
+                {
+                    names.Add(individual[i]);
                 }
-                items.Add(newitem);
             }
 
-            return items;
+            for(int i = 0; i < individual.Count/2; i++)
+            {
+                Item tempItem = new Item(names[i], prices[i]);
+                Items.Add(tempItem);
+            }
+
+            return Items;
         }
     }
 }
+
+
+/*    
+ *    this is what 2am code looks like
+ *    
+Items = new List<Item>();
+for (int i = 0; i < individual.Count; i++)
+{
+    Item newitem = new Item();
+    bool isDigitPresent = individual[i].Any(c => char.IsDigit(c)); // was throwing exception
+
+    for (int j = 0; j < individual.Count; j++)
+    {
+        if (isDigitPresent)
+        {
+            newitem.Price = Convert.ToDouble(Regex.Replace(individual[i], "[^0-9.]", ""));
+        }
+    }
+    for (int j = 0; j < individual.Count; j++)
+    { 
+        if (!isDigitPresent)
+        {
+            newitem.Name = individual[i];
+
+        }
+    }
+    Items.Add(newitem);
+}
+*/

@@ -84,7 +84,8 @@ namespace Product_Lookup
             btn_Capture.Click += (s, e) =>
             {
                 //capture = CameraText.Text;
-                capture = "noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nospices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25"; //test string
+                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nospices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25"; //test string
+                //capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
 
                 Sorter receiptSorter = new Sorter();
                 Receipt r = receiptSorter.DetermineStore(capture);
