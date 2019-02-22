@@ -71,6 +71,7 @@
     <Compile Include="Model\TescoReceipt.cs" />
     <Compile Include="ProductAPI-DEPRECATED.cs" />
     <Compile Include="ReceiptActivity.cs" />
+    <Compile Include="Resources\adapters\ListViewItem_Adapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +125,19 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_camera.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_receipt.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\layout\templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListViewReceipt.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

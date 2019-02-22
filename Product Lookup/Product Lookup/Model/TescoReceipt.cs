@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Product_Lookup;
@@ -25,9 +29,11 @@ using Product_Lookup;
 
 namespace Product_Lookup.Model
 {
-    class TescoReceipt : Receipt
+    public class TescoReceipt : Receipt
     {
         public override string StoreName => "Tesco";
+
+        public List<Item> items;
 
         public TescoReceipt()
         {
@@ -40,12 +46,12 @@ namespace Product_Lookup.Model
 
         }
 
-        public override string GetItems()
+        public override List<Item> GetItems()
         {
             //List<string> CleaningData;
-            string clean;
+            //string clean;
 
-            string[] strArr;
+            //string[] strArr;
 
             ReceiptData = ReceiptData.ToUpper();
             ReceiptData.Replace("SIGN UP FOR CLUBCARD!", "");
@@ -78,9 +84,33 @@ namespace Product_Lookup.Model
 
             //strArr = ReceiptData.Split("TESCO");
 
+            List<string> individual = new List<string>(ReceiptData.Split("\n"));
 
+            items = new List<Item>();
 
-            return ReceiptData;
+            for(int i = 0; i < individual.Count-1;) //NOT INCREMENTING I HERE
+            {
+                Item newitem = new Item();
+
+                for (int j = 0; j < 2; j++)     //is this loop garbage ass code?
+                {        
+                    bool isDigitPresent = individual[i].Any(c => char.IsDigit(c));
+                    if (isDigitPresent)
+                    {
+                        newitem.Price = Convert.ToDouble(Regex.Replace(individual[i], "[^0-9.]", ""));
+                        i++;
+                    }
+                    else
+                    {
+                        //right now it overwrites the previously set name, if it isn't a number the second time round
+                        newitem.Name = individual[i];
+                        i++;
+                    }
+                }
+                items.Add(newitem);
+            }
+
+            return items;
         }
     }
 }
