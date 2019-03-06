@@ -57,8 +57,9 @@ namespace Product_Lookup.JsonData
 
     public partial class Result
     {
+        // changing from Uri to string
         [JsonProperty("image")]
-        public Uri Image { get; set; }
+        public string Image { get; set; }
 
         //[JsonProperty("superDepartment")]
         //public SuperDepartment SuperDepartment { get; set; }

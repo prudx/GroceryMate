@@ -14,6 +14,8 @@ using Android.Content.PM;
 using static Android.Gms.Vision.Detector;
 using System.Text;
 using Product_Lookup.Model;
+using Android.Content;
+using System.Collections.Generic;
 
 namespace Product_Lookup
 {
@@ -26,6 +28,10 @@ namespace Product_Lookup
         private Button btn_Capture;
         private string capture;
         private const int RequestCameraPermissionID = 1001;
+
+        //TEMP VAR?
+        ListView ReceiptItems;
+        public static List<Item> CapturedItems;
 
         public TextView CameraText { get => cameraText; set => cameraText = value; }
 
@@ -55,6 +61,9 @@ namespace Product_Lookup
             CameraText = FindViewById<TextView>(Resource.Id.camera_TextSense1);
             btn_Capture = FindViewById<Button>(Resource.Id.btn_Capture);
 
+            //TEMP RECEIPT STUFF?
+            ReceiptItems = FindViewById<ListView>(Resource.Id.listViewReceipt);
+
             TextRecognizer textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
             if (!textRecognizer.IsOperational)
                 Log.Error("Main Activity", "Detector dependencies are not yet available");
@@ -74,28 +83,17 @@ namespace Product_Lookup
             btn_Capture.Click += (s, e) =>
             {
                 //capture = CameraText.Text;
-                capture = "tesco\noranges\nEUR2.23\n"; //test string
+                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
+                //capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
 
-                /*
-                 * seperate determination to a logic class (a controller) to seperate the 
-                 * activity from expansion of supported receipts 
-                 * good code seperation for architecture diagram etc
-                 * 
-                 * 
-                if (capture.Contains("TESCO"))
-                {
-                    Receipt r = new TescoReceipt();
-                    SurfaceDestroyed(cameraView.Holder);
-                    capture = r.GetItems(capture);
-                    CameraText.Text = capture;
-                }
-                */
-
-                //did the above, but the computing is now in a controller class called sorter.
-                Sorter receiptSorter = new Sorter();
-                Receipt r = receiptSorter.DetermineStore(capture);
+                Receipt r = Sorter.DetermineStore(capture);
                 SurfaceDestroyed(cameraView.Holder);
-                CameraText.Text = r.GetItems();
+
+                CapturedItems = r.GetItems();
+
+                //RECEIPT ACTIVITY
+                Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
+                StartActivity(receiptActivity);
             };
         }
 

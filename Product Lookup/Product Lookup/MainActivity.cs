@@ -11,10 +11,12 @@ using EDMTDialog;
 using System.Collections.Generic;
 using System;
 using Android.Content;
+using Product_Lookup.Model;
+using Product_Lookup.Resources.adapters;
 
 namespace Product_Lookup
 {
-    [Activity(Label = "MainActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -68,17 +70,35 @@ namespace Product_Lookup
                     if (!dialog.IsShowing)
                         dialog.Show();
 
-                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 10);
-                    List<string> result_name = new List<string>();
+                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 50);
+                    List<Item> resultList = new List<Item>();
                     
                     foreach (var result in results.Uk.Ghs.Products.Results)
-                        result_name.Add(result.Name);
-                    
+                    {
+                        
+                        Item temp = new Item()
+                        {
+                            
+                            Image = result.Image,
+                            Name = result.Name,
+                            Price = result.Price
+                        };
 
-                    var adapter = new ArrayAdapter<string>(this,
-                        Android.Resource.Layout.SimpleListItem1, result_name);
+                        resultList.Add(temp);
+                    }
+
+
+                    //foreach (var result in results.Uk.Ghs.Products.Results)
+                    //resultList.Add(result.Name);
+                    var adapter = new ProductSearch_Adapter(this, resultList);
                     list_Products.Adapter = adapter;
 
+                    /*
+                    var adapter = new ArrayAdapter<string>(this,
+                        Android.Resource.Layout.SimpleListItem1, resultList);
+                    list_Products.Adapter = adapter;
+                    */
+             
                     if (dialog.IsShowing)
                         dialog.Dismiss();
 

@@ -4887,11 +4887,11 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0015
 			public const int add = 2131492885;
 			
-			// aapt resource value: 0x7F010159
-			public const int adjust_height = 2130772313;
+			// aapt resource value: 0x7F010165
+			public const int adjust_height = 2130772325;
 			
-			// aapt resource value: 0x7F010158
-			public const int adjust_width = 2130772312;
+			// aapt resource value: 0x7F010164
+			public const int adjust_width = 2130772324;
 			
 			// aapt resource value: 0x1
 			public const int ad_container = 1;
@@ -4920,11 +4920,11 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int android_pay_light_with_border = 1;
 			
-			// aapt resource value: 0x7F010165
-			public const int APP_NAME = 2130772325;
+			// aapt resource value: 0x7F010163
+			public const int app_name = 2130772323;
 			
-			// aapt resource value: 0x7F010157
-			public const int app_name = 2130772311;
+			// aapt resource value: 0x7F010171
+			public const int APP_NAME = 2130772337;
 			
 			// aapt resource value: 0x7F0C0006
 			public const int async = 2131492870;
@@ -5085,8 +5085,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0024
 			public const int customPanel = 2131492900;
 			
-			// aapt resource value: 0x7F010163
-			public const int dark = 2130772323;
+			// aapt resource value: 0x7F010169
+			public const int dark = 2130772329;
 			
 			// aapt resource value: 0x1
 			public const int date = 1;
@@ -5193,8 +5193,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C000B
 			public const int icon_group = 2131492875;
 			
-			// aapt resource value: 0x7F010162
-			public const int icon_only = 2130772322;
+			// aapt resource value: 0x7F010168
+			public const int icon_only = 2130772328;
 			
 			// aapt resource value: 0x1
 			public const int icon_uri = 1;
@@ -5232,6 +5232,12 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C000D
 			public const int italic = 2131492877;
 			
+			// aapt resource value: 0x7F010012
+			public const int itemName = 2130771986;
+			
+			// aapt resource value: 0x7F010013
+			public const int itemPrice = 2130771987;
+			
 			// aapt resource value: 0x7F0C003B
 			public const int item_touch_helper_previous_elevation = 2131492923;
 			
@@ -5259,8 +5265,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int license_list = 1;
 			
-			// aapt resource value: 0x7F010164
-			public const int light = 2130772324;
+			// aapt resource value: 0x7F010170
+			public const int light = 2130772336;
 			
 			// aapt resource value: 0x7F0C000E
 			public const int line1 = 2131492878;
@@ -5270,6 +5276,9 @@ namespace Product_Lookup
 			
 			// aapt resource value: 0x7F0C0040
 			public const int listMode = 2131492928;
+			
+			// aapt resource value: 0x7F010011
+			public const int listViewReceipt = 2130771985;
 			
 			// aapt resource value: 0x7F0C0041
 			public const int list_item = 2131492929;
@@ -5289,8 +5298,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int logo_only = 1;
 			
-			// aapt resource value: 0x7F010012
-			public const int marker_progress = 2130771986;
+			// aapt resource value: 0x7F010018
+			public const int marker_progress = 2130771992;
 			
 			// aapt resource value: 0x7F0C0042
 			public const int masked = 2131492930;
@@ -5316,8 +5325,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0046
 			public const int multiply = 2131492934;
 			
-			// aapt resource value: 0x7F010011
-			public const int my_text_view = 2130771985;
+			// aapt resource value: 0x7F010017
+			public const int my_text_view = 2130771991;
 			
 			// aapt resource value: 0x7F0C0047
 			public const int navigation_header_container = 2131492935;
@@ -5387,6 +5396,15 @@ namespace Product_Lookup
 			
 			// aapt resource value: 0x1
 			public const int production = 1;
+			
+			// aapt resource value: 0x7F010014
+			public const int productSearchImg = 2130771988;
+			
+			// aapt resource value: 0x7F010015
+			public const int productSearchItemName = 2130771989;
+			
+			// aapt resource value: 0x7F010016
+			public const int productSearchItemPrice = 2130771990;
 			
 			// aapt resource value: 0x1
 			public const int progressBar = 1;
@@ -5517,8 +5535,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C0072
 			public const int src_over = 2131492978;
 			
-			// aapt resource value: 0x7F010160
-			public const int standard = 2130772320;
+			// aapt resource value: 0x7F010166
+			public const int standard = 2130772326;
 			
 			// aapt resource value: 0x7F0C0073
 			public const int start = 2131492979;
@@ -5652,8 +5670,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F0C008F
 			public const int visible = 2131493007;
 			
-			// aapt resource value: 0x7F010161
-			public const int wide = 2130772321;
+			// aapt resource value: 0x7F010167
+			public const int wide = 2130772327;
 			
 			// aapt resource value: 0x7F0C0090
 			public const int wrap_content = 2131493008;
@@ -5804,6 +5822,9 @@ namespace Product_Lookup
 			// aapt resource value: 0x7F020003
 			public const int activity_main = 2130837507;
 			
+			// aapt resource value: 0x7F020004
+			public const int activity_receipt = 2130837508;
+			
 			// aapt resource value: 0x1
 			public const int cast_expanded_controller_activity = 1;
 			
@@ -5876,8 +5897,11 @@ namespace Product_Lookup
 			// aapt resource value: 0x1
 			public const int license_menu_activity_no_licenses = 1;
 			
-			// aapt resource value: 0x7F020004
-			public const int my_dialog_layout = 2130837508;
+			// aapt resource value: 0x7F020005
+			public const int ListViewReceipt = 2130837509;
+			
+			// aapt resource value: 0x7F020007
+			public const int my_dialog_layout = 2130837511;
 			
 			// aapt resource value: 0x7F0F0001
 			public const int notification_action = 2131689473;
@@ -5935,6 +5959,9 @@ namespace Product_Lookup
 			
 			// aapt resource value: 0x1
 			public const int place_autocomplete_progress = 1;
+			
+			// aapt resource value: 0x7F020006
+			public const int ProductSearchResult = 2130837510;
 			
 			// aapt resource value: 0x7F0F0038
 			public const int select_dialog_item_material = 2131689528;

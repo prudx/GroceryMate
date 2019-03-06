@@ -14,13 +14,28 @@ namespace Product_Lookup.Model
 {
     public class Item
     {
-        string Name { get; set; }
-        double Price { get; set; }
+        //[PrimaryKey,AutoIncrement]
+        public int Id { get; set; }
+        public string Image { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
 
-        Item(string n, double p)
+        public Item()
+        {
+
+        }
+
+        public Item(string n, double p)
         {
             Name = n;
             Price = p;
+        }
+
+        public Item(string n, double p, string img)
+        {
+            Name = n;
+            Price = p;
+            Image = img;
         }
     }
 }
