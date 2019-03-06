@@ -15,7 +15,6 @@ using static Android.Gms.Vision.Detector;
 using System.Text;
 using Product_Lookup.Model;
 using Android.Content;
-using Product_Lookup.Resources.adapters;
 using System.Collections.Generic;
 
 namespace Product_Lookup
@@ -84,11 +83,10 @@ namespace Product_Lookup
             btn_Capture.Click += (s, e) =>
             {
                 //capture = CameraText.Text;
-                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nospices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25"; //test string
+                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
                 //capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
 
-                Sorter receiptSorter = new Sorter();
-                Receipt r = receiptSorter.DetermineStore(capture);
+                Receipt r = Sorter.DetermineStore(capture);
                 SurfaceDestroyed(cameraView.Holder);
 
                 CapturedItems = r.GetItems();

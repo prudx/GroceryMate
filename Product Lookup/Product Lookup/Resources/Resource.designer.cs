@@ -4318,14 +4318,14 @@ namespace Product_Lookup
 			// aapt resource value: 0x7f0b00ad
 			public const int marker_progress = 2131427501;
 			
-			// aapt resource value: 0x7f0b00c3
-			public const int masked = 2131427523;
+			// aapt resource value: 0x7f0b00c6
+			public const int masked = 2131427526;
 			
 			// aapt resource value: 0x7f0b00b4
 			public const int media_actions = 2131427508;
 			
-			// aapt resource value: 0x7f0b00c1
-			public const int message = 2131427521;
+			// aapt resource value: 0x7f0b00c4
+			public const int message = 2131427524;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int middle = 2131427385;
@@ -4371,6 +4371,15 @@ namespace Product_Lookup
 			
 			// aapt resource value: 0x7f0b0054
 			public const int pin = 2131427412;
+			
+			// aapt resource value: 0x7f0b00c1
+			public const int productSearchImg = 2131427521;
+			
+			// aapt resource value: 0x7f0b00c2
+			public const int productSearchItemName = 2131427522;
+			
+			// aapt resource value: 0x7f0b00c3
+			public const int productSearchItemPrice = 2131427523;
 			
 			// aapt resource value: 0x7f0b0006
 			public const int progress_circular = 2131427334;
@@ -4585,8 +4594,8 @@ namespace Product_Lookup
 			// aapt resource value: 0x7f0b0016
 			public const int view_offset_helper = 2131427350;
 			
-			// aapt resource value: 0x7f0b00c2
-			public const int visible = 2131427522;
+			// aapt resource value: 0x7f0b00c5
+			public const int visible = 2131427525;
 			
 			// aapt resource value: 0x7f0b0022
 			public const int wide = 2131427362;
@@ -4837,19 +4846,22 @@ namespace Product_Lookup
 			public const int notification_template_part_time = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int select_dialog_item_material = 2130968636;
+			public const int ProductSearchResult = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int select_dialog_multichoice_material = 2130968637;
+			public const int select_dialog_item_material = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int select_dialog_singlechoice_material = 2130968638;
+			public const int select_dialog_multichoice_material = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int support_simple_spinner_dropdown_item = 2130968639;
+			public const int select_dialog_singlechoice_material = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int tooltip = 2130968640;
+			public const int support_simple_spinner_dropdown_item = 2130968640;
+			
+			// aapt resource value: 0x7f040041
+			public const int tooltip = 2130968641;
 			
 			static Layout()
 			{

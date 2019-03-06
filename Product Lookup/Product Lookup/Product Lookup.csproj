@@ -65,12 +65,14 @@
     <Compile Include="CameraActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Receipt_Lidl.cs" />
     <Compile Include="Model\Quicktype.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Controller\Sorter.cs" />
-    <Compile Include="Model\TescoReceipt.cs" />
+    <Compile Include="Model\Receipt_Tesco.cs" />
     <Compile Include="ProductAPI-DEPRECATED.cs" />
     <Compile Include="ReceiptActivity.cs" />
+    <Compile Include="Resources\adapters\ProductSearch_Adapter.cs" />
     <Compile Include="Resources\adapters\ListViewItem_Adapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ListViewReceipt.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ProductSearchResult.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

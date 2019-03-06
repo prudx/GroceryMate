@@ -3171,9 +3171,9 @@ containing a value of this type.
         public static int list_Products=0x7f0b0096;
         public static int list_item=0x7f0b0068;
         public static int marker_progress=0x7f0b00ad;
-        public static int masked=0x7f0b00c3;
+        public static int masked=0x7f0b00c6;
         public static int media_actions=0x7f0b00b4;
-        public static int message=0x7f0b00c1;
+        public static int message=0x7f0b00c4;
         public static int middle=0x7f0b0039;
         public static int mini=0x7f0b005a;
         public static int multiply=0x7f0b0030;
@@ -3189,6 +3189,9 @@ containing a value of this type.
         public static int parentPanel=0x7f0b006c;
         public static int parent_matrix=0x7f0b000b;
         public static int pin=0x7f0b0054;
+        public static int productSearchImg=0x7f0b00c1;
+        public static int productSearchItemName=0x7f0b00c2;
+        public static int productSearchItemPrice=0x7f0b00c3;
         public static int progress_circular=0x7f0b0006;
         public static int progress_horizontal=0x7f0b0007;
         public static int queryInput=0x7f0b0097;
@@ -3260,7 +3263,7 @@ containing a value of this type.
         public static int up=0x7f0b0009;
         public static int useLogo=0x7f0b002e;
         public static int view_offset_helper=0x7f0b0016;
-        public static int visible=0x7f0b00c2;
+        public static int visible=0x7f0b00c5;
         public static int wide=0x7f0b0022;
         public static int withText=0x7f0b0044;
         public static int wrap_content=0x7f0b0036;
@@ -3339,11 +3342,12 @@ containing a value of this type.
         public static int notification_template_media_custom=0x7f040039;
         public static int notification_template_part_chronometer=0x7f04003a;
         public static int notification_template_part_time=0x7f04003b;
-        public static int select_dialog_item_material=0x7f04003c;
-        public static int select_dialog_multichoice_material=0x7f04003d;
-        public static int select_dialog_singlechoice_material=0x7f04003e;
-        public static int support_simple_spinner_dropdown_item=0x7f04003f;
-        public static int tooltip=0x7f040040;
+        public static int productsearchresult=0x7f04003c;
+        public static int select_dialog_item_material=0x7f04003d;
+        public static int select_dialog_multichoice_material=0x7f04003e;
+        public static int select_dialog_singlechoice_material=0x7f04003f;
+        public static int support_simple_spinner_dropdown_item=0x7f040040;
+        public static int tooltip=0x7f040041;
     }
     public static final class mipmap {
         public static int ic_launcher=0x7f030000;

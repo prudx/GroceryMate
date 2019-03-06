@@ -16,6 +16,7 @@ namespace Product_Lookup.Model
     {
         //[PrimaryKey,AutoIncrement]
         public int Id { get; set; }
+        public string Image { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
 
@@ -28,6 +29,13 @@ namespace Product_Lookup.Model
         {
             Name = n;
             Price = p;
+        }
+
+        public Item(string n, double p, string img)
+        {
+            Name = n;
+            Price = p;
+            Image = img;
         }
     }
 }

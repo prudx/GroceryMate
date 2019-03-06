@@ -13,14 +13,14 @@ using Product_Lookup.Model;
 
 namespace Product_Lookup.Resources.adapters
 {
-    public class ViewHolder : Java.Lang.Object
-    {
-        public TextView ItemName { get; set; }
-        public TextView ItemPrice { get; set; }
-    }
-
     class ListViewItem_Adapter : BaseAdapter
     {
+        class ViewHolder : Java.Lang.Object
+        {
+            public TextView ItemName { get; set; }
+            public TextView ItemPrice { get; set; }
+        }
+
         private Activity activity;
         private List<Item> listReceiptItems;
 

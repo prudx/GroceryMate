@@ -1,7 +1,7 @@
 package md599f5a037fd038fc120dab56e8ae6a3cd;
 
 
-public class ViewHolder
+public class ListViewItem_Adapter_ViewHolder
 	extends java.lang.Object
 	implements
 		mono.android.IGCUserPeer
@@ -11,15 +11,15 @@ public class ViewHolder
 	static {
 		__md_methods = 
 			"";
-		mono.android.Runtime.register ("Product_Lookup.Resources.adapters.ViewHolder, Product Lookup", ViewHolder.class, __md_methods);
+		mono.android.Runtime.register ("Product_Lookup.Resources.adapters.ListViewItem_Adapter+ViewHolder, Product Lookup", ListViewItem_Adapter_ViewHolder.class, __md_methods);
 	}
 
 
-	public ViewHolder ()
+	public ListViewItem_Adapter_ViewHolder ()
 	{
 		super ();
-		if (getClass () == ViewHolder.class)
-			mono.android.TypeManager.Activate ("Product_Lookup.Resources.adapters.ViewHolder, Product Lookup", "", this, new java.lang.Object[] {  });
+		if (getClass () == ListViewItem_Adapter_ViewHolder.class)
+			mono.android.TypeManager.Activate ("Product_Lookup.Resources.adapters.ListViewItem_Adapter+ViewHolder, Product Lookup", "", this, new java.lang.Object[] {  });
 	}
 
 	private java.util.ArrayList refList;

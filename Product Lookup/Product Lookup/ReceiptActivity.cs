@@ -27,13 +27,14 @@ namespace Product_Lookup
 
             ReceiptItems = FindViewById<ListView>(Resource.Id.listViewReceipt);
 
-            ReceiptBuilder();
+            ReceiptViewBuilder();
             // Create your application here
         }
 
         
-        public void ReceiptBuilder()
+        public void ReceiptViewBuilder()
         {
+            //try this using ProductSearch_Adapter
             var adapter = new ListViewItem_Adapter(this, CameraActivity.CapturedItems);
             ReceiptItems.Adapter = adapter;
         }
