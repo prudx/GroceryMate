@@ -981,11 +981,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\Product Lookup.csproj",
+      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\ProjectNew\\Product Lookup\\Product Lookup\\Product Lookup.csproj",
       "projectName": "Product Lookup",
-      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\Product Lookup.csproj",
+      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\ProjectNew\\Product Lookup\\Product Lookup\\Product Lookup.csproj",
       "packagesPath": "C:\\Users\\dnlma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\obj\\",
+      "outputPath": "C:\\Users\\dnlma\\Documents\\Code\\ProjectNew\\Product Lookup\\Product Lookup\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

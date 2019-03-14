@@ -70,20 +70,17 @@ namespace Product_Lookup
                     if (!dialog.IsShowing)
                         dialog.Show();
 
-                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 50);
+                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 12);
                     List<Item> resultList = new List<Item>();
                     
                     foreach (var result in results.Uk.Ghs.Products.Results)
                     {
-                        
                         Item temp = new Item()
                         {
-                            
                             Image = result.Image,
                             Name = result.Name,
                             Price = result.Price
                         };
-
                         resultList.Add(temp);
                     }
 
