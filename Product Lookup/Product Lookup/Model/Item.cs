@@ -14,11 +14,19 @@ namespace Product_Lookup.Model
 {
     public class Item
     {
-        //[PrimaryKey,AutoIncrement]
-        public int Id { get; set; }
+        
+        public string Id { get; set; }
+
         public string Image { get; set; }
+
         public string Name { get; set; }
+
         public double Price { get; set; }
+        
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
+
+        //[Newtonsoft.Json.JsonIgnore] if you want to not push to backend
 
         public Item()
         {

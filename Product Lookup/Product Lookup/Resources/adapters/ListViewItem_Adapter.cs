@@ -43,9 +43,10 @@ namespace Product_Lookup.Resources.adapters
             return null;
         }
 
+        //not currently used so convert isn't bothering me
         public override long GetItemId(int position)
         {
-            return listReceiptItems[position].Id;
+            return Convert.ToInt64(listReceiptItems[position].Id);
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)

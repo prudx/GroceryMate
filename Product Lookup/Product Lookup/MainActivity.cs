@@ -31,6 +31,10 @@ namespace Product_Lookup
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            //initiate azure app service
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
             SetContentView(Resource.Layout.activity_main);
 
             btn_SearchProducts = FindViewById<Button>(Resource.Id.btn_SearchProduct);
@@ -70,7 +74,8 @@ namespace Product_Lookup
                     if (!dialog.IsShowing)
                         dialog.Show();
 
-                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 12);
+                    //API SEARCH REQUEST
+                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 50);
                     List<Item> resultList = new List<Item>();
                     
                     foreach (var result in results.Uk.Ghs.Products.Results)

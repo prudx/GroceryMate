@@ -16,6 +16,7 @@ using System.Text;
 using Product_Lookup.Model;
 using Android.Content;
 using System.Collections.Generic;
+using Product_Lookup.Services;
 
 namespace Product_Lookup
 {
@@ -28,6 +29,8 @@ namespace Product_Lookup
         private Button btn_Capture;
         private string capture;
         private const int RequestCameraPermissionID = 1001;
+
+        AzureService azureService = new AzureService();
 
         //TEMP VAR?
         ListView ReceiptItems;
@@ -83,13 +86,24 @@ namespace Product_Lookup
             btn_Capture.Click += (s, e) =>
             {
                 //capture = CameraText.Text;
-                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
-                //capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
+                //capture = "tesco\neggs\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
+                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
 
                 Receipt r = Sorter.DetermineStore(capture);
                 SurfaceDestroyed(cameraView.Holder);
 
                 CapturedItems = r.GetItems();
+
+                foreach (Item i in CapturedItems)
+                {
+                    azureService.AddItem(i.Name, i.Price);
+                }
+
+                /*
+                 CurrentPlatform.Init();
+                 TodoItem item = new TodoItem { Text = "Awesome item" };
+                 await MobileService.GetTable<TodoItem>().InsertAsync(item);
+                 */
 
                 //RECEIPT ACTIVITY
                 Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
