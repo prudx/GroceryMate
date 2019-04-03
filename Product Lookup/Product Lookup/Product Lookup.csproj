@@ -69,8 +69,9 @@
     <Compile Include="Model\Receipt_Lidl.cs" />
     <Compile Include="Model\Quicktype.cs" />
     <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
-    <Compile Include="ViewModel\Sorter.cs" />
+    <Compile Include="Helpers\ReceiptSorter.cs" />
     <Compile Include="Model\Receipt_Tesco.cs" />
     <Compile Include="ReceiptActivity.cs" />
     <Compile Include="Resources\adapters\ProductSearch_Adapter.cs" />
@@ -159,6 +160,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Authentication\" />
     <Folder Include="Resources\layout\templates\" />
   </ItemGroup>
   <ItemGroup>

@@ -20,7 +20,6 @@ namespace Product_Lookup.Services
     public class AzureService
     {
         MobileServiceClient client = null;
-
         IMobileServiceSyncTable<Item> itemTable;
 
 
@@ -72,7 +71,7 @@ namespace Product_Lookup.Services
             await SyncItems();
 
             var data = itemTable
-                .OrderBy(i => i.Id)
+                .OrderBy(i => i.ItemId)
                 .ToEnumerableAsync();
 
             //different to james code

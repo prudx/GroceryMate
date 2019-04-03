@@ -16,7 +16,13 @@ namespace Product_Lookup.Model
     public abstract class Receipt
     {
         public abstract string StoreName { get; }
+
+        public string ReceiptId { get; set; } //primary key
+
+        public string UserId { get; set; } //foreign key of user class
+
         public string ReceiptData { get; set; } //maybe make this abstract??
+
 
         public abstract List<Item> GetItems(); //return list items?
 
@@ -24,10 +30,6 @@ namespace Product_Lookup.Model
         {
 
         }
-
-        
-
-
 
     }
 }
