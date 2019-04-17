@@ -4963,9 +4963,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\Product Lookup.csproj",
-      "projectName": "Product Lookup",
-      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\Product Lookup.csproj",
+      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\GroceryMate.csproj",
+      "projectName": "GroceryMate",
+      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\GroceryMate.csproj",
       "packagesPath": "C:\\Users\\dnlma\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\obj\\",
       "projectStyle": "PackageReference",

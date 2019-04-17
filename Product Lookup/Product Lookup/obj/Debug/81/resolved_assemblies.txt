@@ -1,4 +1,4 @@
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Product Lookup.dll
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\GroceryMate.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\EDMTDialog.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Java.Interop.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Microsoft.Azure.Mobile.Client.dll

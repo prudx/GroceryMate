@@ -13,23 +13,20 @@ using Product_Lookup;
 
 namespace Product_Lookup.Model
 {
-    public abstract class Receipt
+    public class Receipt
     {
-        public abstract string StoreName { get; }
-
         public string ReceiptId { get; set; } //primary key
 
         public string UserId { get; set; } //foreign key of user class
 
-        public string ReceiptData { get; set; } //maybe make this abstract??
+        public string StoreName { get; set; }
 
+        public ICollection<Item> Items { get; set; } //can be list
 
-        public abstract List<Item> GetItems(); //return list items?
-
-        public Receipt()
+        public Receipt(string sn, List<Item> sortedReciept)
         {
-
+            StoreName = sn;
+            Items = sortedReciept;
         }
-
     }
 }

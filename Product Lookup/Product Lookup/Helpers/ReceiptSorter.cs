@@ -14,18 +14,31 @@ namespace Product_Lookup.Model
 {
     static class Sorter
     {
-        public static Receipt DetermineStore(string receipt)
+        public static Receipt DetermineStore(string dirtyReceipt)
         {
             Receipt r = null;
+            List<Item> sortedReceipt = new List<Item>();
 
-            if (receipt.ToUpper().Contains("TESCO"))
+            if (dirtyReceipt.ToUpper().Contains("TESCO"))
             {
+                sortedReceipt = Sorter.ReceiptSort("TESCO", dirtyReceipt);
+                r = new Receipt("TESCO", sortedReceipt);
+
+                /*
+                DEPRECATED CODE
                 r = new Receipt_Tesco(receipt);
-     
+                */
             }
-            else if (receipt.ToUpper().Contains("LIDL"))
+            else if (dirtyReceipt.ToUpper().Contains("LIDL"))
             {
-                r = new Receipt_Lidl(receipt);
+                sortedReceipt = Sorter.ReceiptSort("LIDL", dirtyReceipt);
+                r = new Receipt("LIDL", sortedReceipt);
+
+
+                /*
+                DEPRECATED CODE
+                r = new Receipt_Lidl(dirtyReceipt);
+                */
             };
      
             return r;
@@ -65,6 +78,81 @@ namespace Product_Lookup.Model
             }
 
             return Items;
+        }
+
+        public static List<Item> ReceiptSort(string store, string dirtyReceipt)
+        {
+            if(store == "TESCO")
+            {
+                return FilterTesco(dirtyReceipt);
+            }
+            else if (store == "LIDL")
+            {
+                return FilterLidl(dirtyReceipt);
+            }
+            else
+            {
+                //create alert
+                return null;
+            }
+        }
+
+        public static List<Item> FilterTesco(string dirtyReceipt)
+        {
+            List<Item> temp = new List<Item>();
+
+            dirtyReceipt = dirtyReceipt.ToUpper();
+            dirtyReceipt = dirtyReceipt.Replace("TESCO", "");
+            dirtyReceipt = dirtyReceipt.Replace("TESSCO", "");
+            dirtyReceipt = dirtyReceipt.Replace("I R E LA N D", "");
+            dirtyReceipt = dirtyReceipt.Replace("I REL AND", "");
+            dirtyReceipt = dirtyReceipt.Replace("IREL AND", "");
+            dirtyReceipt = dirtyReceipt.Replace("R E L A ND", "");
+            dirtyReceipt = dirtyReceipt.Replace("I E", "");
+            dirtyReceipt = dirtyReceipt.Replace("VISIT VIE", "");
+            dirtyReceipt = dirtyReceipt.Replace("CHANGE DUE", "");
+            dirtyReceipt = dirtyReceipt.Replace("SIGN UP FOR CLUBCARD!", "");
+            dirtyReceipt = dirtyReceipt.Replace("R CI.UBCARD", "");
+            dirtyReceipt = dirtyReceipt.Replace("YOU COULD HAVE EARNED", "");
+            dirtyReceipt = dirtyReceipt.Replace("CLUBCARD POINTS IN THIS TRANSACTION", "");
+            dirtyReceipt = dirtyReceipt.Replace("CLUBCAR D POINTS IN THIS TRARSACTION", "");
+            dirtyReceipt = dirtyReceipt.Replace("VISA CONTACTLESS", "");
+            dirtyReceipt = dirtyReceipt.Replace("AID", "");
+            dirtyReceipt = dirtyReceipt.Replace("NUMBER", "");
+            dirtyReceipt = dirtyReceipt.Replace("PAN SEQ NO", "");
+            dirtyReceipt = dirtyReceipt.Replace("AUTH CODE", "");
+            dirtyReceipt = dirtyReceipt.Replace("MERCHANT", "");
+            dirtyReceipt = dirtyReceipt.Replace("A CHANCE TO WIN", "");
+            dirtyReceipt = dirtyReceipt.Replace("TESCO GIFTCARD", "");
+            dirtyReceipt = dirtyReceipt.Replace("BY TELLING US ABOUT YOUR TRIP", "");
+            dirtyReceipt = dirtyReceipt.Replace("BY TEL LING US ABOUT YOUR TRIP", "");
+            dirtyReceipt = dirtyReceipt.Replace("WWW . TESCOVIEWS . IE", "");
+            dirtyReceipt = dirtyReceipt.Replace("VI EWS. IE", "");
+            dirtyReceipt = dirtyReceipt.Replace("AND COLLECT 25 CLUBCARD POINTS.", "");
+            dirtyReceipt = dirtyReceipt.Replace("FOR FULL TERMS AND CONDITIONS", "");
+            dirtyReceipt = dirtyReceipt.Replace("PLEASE VISIT TESCOVIEWS.IE", "");
+            dirtyReceipt = dirtyReceipt.Replace("THANK YOU FOR", "");
+            dirtyReceipt = dirtyReceipt.Replace("SHOPPING AT", "");
+            dirtyReceipt = dirtyReceipt.Replace("SLAN ABHAILE", "");
+            dirtyReceipt = dirtyReceipt.Replace("SLAN ABHAI L E", "");
+            dirtyReceipt = dirtyReceipt.Replace("TALLAGHT", "");
+
+            //build item list using generalized sorter class
+            temp = Sorter.ItemListBuilder(dirtyReceipt);
+            return temp;
+        }
+
+        public static List<Item> FilterLidl(string dirtyReceipt)
+        {
+            List<Item> temp = new List<Item>();
+
+            dirtyReceipt = dirtyReceipt.ToUpper();
+            dirtyReceipt = dirtyReceipt.Replace("LIDL", "");
+            //FURTHER STRING PROCCESSING REQUIRED HERE
+
+            //build item list using generalized sorter class
+            temp = Sorter.ItemListBuilder(dirtyReceipt);
+            return temp;
         }
     }
 }

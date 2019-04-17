@@ -35,14 +35,14 @@ namespace Product_Lookup
             //initiate azure app service
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(GroceryMate.Resource.Layout.activity_main);
 
-            btn_SearchProducts = FindViewById<Button>(Resource.Id.btn_SearchProduct);
-            btn_Camera = FindViewById<Button>(Resource.Id.btn_Camera);
+            btn_SearchProducts = FindViewById<Button>(GroceryMate.Resource.Id.btn_SearchProduct);
+            btn_Camera = FindViewById<Button>(GroceryMate.Resource.Id.btn_Camera);
 
-            list_Products = FindViewById<ListView>(Resource.Id.list_Products);
+            list_Products = FindViewById<ListView>(GroceryMate.Resource.Id.list_Products);
 
-            editText = FindViewById<EditText>(Resource.Id.queryInput);
+            editText = FindViewById<EditText>(GroceryMate.Resource.Id.queryInput);
             editText.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
                 queryString = e.Text.ToString();
             };            

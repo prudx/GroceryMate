@@ -13,10 +13,12 @@ using Android.Widget;
 namespace Product_Lookup.Model
 {
     public class Item
-    {        
+    {
+        
         public string ItemId { get; set; }
 
-        public string ReceiptId { get; set; } //foreign key of receipt class
+        //[Newtonsoft.Json.JsonIgnore]
+        //public string ReceiptId { get; set; } //foreign key of receipt class
 
         [Newtonsoft.Json.JsonIgnore]
         public string Image { get; set; }

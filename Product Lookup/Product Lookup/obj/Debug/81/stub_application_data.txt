@@ -1,2 +1,2 @@
 android.app.Application
-Product_Lookup.Product_Lookup
+GroceryMate.GroceryMate

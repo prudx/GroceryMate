@@ -22,8 +22,6 @@ namespace Product_Lookup.Services
         MobileServiceClient client = null;
         IMobileServiceSyncTable<Item> itemTable;
 
-
-
         public async Task Initialize()
         {
             if (client?.SyncContext?.IsInitialized ?? false)
@@ -70,12 +68,12 @@ namespace Product_Lookup.Services
             await Initialize();
             await SyncItems();
 
-            var data = itemTable
+            var data = await itemTable
                 .OrderBy(i => i.ItemId)
                 .ToEnumerableAsync();
 
             //different to james code
-            return await data;
+            return data;
         }
 
         public async Task<Item> AddItem(string name, double price)

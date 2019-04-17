@@ -46,7 +46,6 @@ namespace Product_Lookup.Helpers
         const string LastSyncKey = "last_sync";
         static readonly DateTime LastSyncDefault = DateTime.Now.AddDays(-30);
 
-
         const string UserIdKey = "userid";
         static readonly string UserIdDefault = string.Empty;
 
