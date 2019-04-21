@@ -83,21 +83,22 @@ namespace Product_Lookup
                 textRecognizer.SetProcessor(this);
             }
 
-            btn_Capture.Click += (s, e) =>
+            btn_Capture.Click += async (s, e) =>
             {
-                capture = CameraText.Text;
+                //capture = CameraText.Text;
                 //capture = "tesco\neggs\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
-                //capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
+                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
 
                 Receipt r = Sorter.DetermineStore(capture);
                 SurfaceDestroyed(cameraView.Holder);
 
                 CapturedItems = (List<Item>)r.Items; //CASTING TO LIST??
 
-                foreach (Item i in CapturedItems)
-                {
-                    azureService.AddItem(i.Name, i.Price);
-                }
+                //azureService.AddReceipt(r.StoreName, r.Items);
+
+                await azureService.AddItem(CapturedItems[1].Name, CapturedItems[1].Price);
+                
+                
 
                 /*
                  CurrentPlatform.Init();

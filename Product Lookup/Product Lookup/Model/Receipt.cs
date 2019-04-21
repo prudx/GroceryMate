@@ -15,17 +15,31 @@ namespace Product_Lookup.Model
 {
     public class Receipt
     {
+        [Newtonsoft.Json.JsonProperty("receiptId")]
         public string ReceiptId { get; set; } //primary key
 
+        [Newtonsoft.Json.JsonProperty("userId")]
         public string UserId { get; set; } //foreign key of user class
+
+        public User User { get; set; } //refrence
+
+
 
         public string StoreName { get; set; }
 
-        public ICollection<Item> Items { get; set; } //can be list
+        public ICollection<Item> Items { get; set; } //collection of items
 
-        public Receipt(string sn, List<Item> sortedReciept)
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
+
+        public Receipt()
         {
-            StoreName = sn;
+
+        }
+
+        public Receipt(string storeName, List<Item> sortedReciept)
+        {
+            StoreName = storeName;
             Items = sortedReciept;
         }
     }

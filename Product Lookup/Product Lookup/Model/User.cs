@@ -12,9 +12,17 @@ using Android.Widget;
 
 namespace Product_Lookup.Model
 {
-    class User
+    public class User
     {
+        [Newtonsoft.Json.JsonProperty("Id")] //maybe can't be caps?
+        public string Id { get; set; }
+        
+        [Newtonsoft.Json.JsonProperty("userId")]
         public string UserId { get; set; } //primary key
+
+        public List<Receipt> Receipts { get; set; } //list of receipts
+
+
 
         public string Username { get; set; }
 
@@ -23,5 +31,13 @@ namespace Product_Lookup.Model
         public string Address { get; set; }
 
         public int Phone { get; set; }
+
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
+
+        public User()
+        {
+
+        }
     }
 }

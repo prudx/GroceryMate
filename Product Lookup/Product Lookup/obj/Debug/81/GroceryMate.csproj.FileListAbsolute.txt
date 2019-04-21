@@ -50,7 +50,6 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\R.cs.flag
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\R.txt
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\uploadflags.txt
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.csprojAssemblyReference.cache
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\Mono.Android.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\mscorlib.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\MvvmHelpers.pdb
@@ -100,6 +99,7 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\Pl
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Connectivity.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Settings.Abstractions.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Settings.dll.mdb
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.csprojAssemblyReference.cache
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Connectivity.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Settings.Abstractions.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Settings.dll.mdb

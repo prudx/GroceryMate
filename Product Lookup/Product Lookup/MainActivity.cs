@@ -16,7 +16,7 @@ using Product_Lookup.Resources.adapters;
 
 namespace Product_Lookup
 {
-    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
 

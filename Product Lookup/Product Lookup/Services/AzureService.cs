@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,32 +20,42 @@ namespace Product_Lookup.Services
 {
     public class AzureService
     {
-        MobileServiceClient client = null;
+        MobileServiceClient Client { get; set; } = null;
+        IMobileServiceSyncTable<User> userTable;
+        IMobileServiceSyncTable<Receipt> receiptTable;
         IMobileServiceSyncTable<Item> itemTable;
+
+
 
         public async Task Initialize()
         {
-            if (client?.SyncContext?.IsInitialized ?? false)
+            if (Client?.SyncContext?.IsInitialized ?? false)
                 return;
 
-            var appUrl = "http://grocerypal.azurewebsites.net";
+            var appUrl = "https://grocerymate1.azurewebsites.net";
 
-            client = new MobileServiceClient(appUrl);
+            Client = new MobileServiceClient(appUrl);
 
-            var fileName = "groceryMate.db";                //MobileServiceClient.DefaultDatabasePath()
-
+            var fileName = "groceryMateNew.db";                //MobileServiceClient.DefaultDatabasePath()
+            fileName = Path.Combine(MobileServiceClient.DefaultDatabasePath, fileName);
+    
             var store = new MobileServiceSQLiteStore(fileName);
 
+
             //define as many tables as you want
+            store.DefineTable<User>();
+            store.DefineTable<Receipt>();
             store.DefineTable<Item>();
 
-            await client.SyncContext.InitializeAsync(store);
+            await Client.SyncContext.InitializeAsync(store);
 
-            itemTable = client.GetSyncTable<Item>();
+            userTable = Client.GetSyncTable<User>();
+            receiptTable = Client.GetSyncTable<Receipt>();
+            itemTable = Client.GetSyncTable<Item>();
         }
 
         //change to sync tables?
-        public async Task SyncItems()
+        public async Task SyncTables()
         {
             await Initialize();
 
@@ -53,8 +64,10 @@ namespace Product_Lookup.Services
                 if (!CrossConnectivity.Current.IsConnected)
                     return;
 
-                await client.SyncContext.PushAsync();
+                await Client.SyncContext.PushAsync();
 
+                await userTable.PullAsync("allItems", itemTable.CreateQuery());
+                await receiptTable.PullAsync("allItems", itemTable.CreateQuery());
                 await itemTable.PullAsync("allItems", itemTable.CreateQuery());
             }
             catch(Exception ex)
@@ -66,7 +79,7 @@ namespace Product_Lookup.Services
         public async Task<IEnumerable<Item>> GetItems()
         {
             await Initialize();
-            await SyncItems();
+            await SyncTables();
 
             var data = await itemTable
                 .OrderBy(i => i.ItemId)
@@ -74,6 +87,45 @@ namespace Product_Lookup.Services
 
             //different to james code
             return data;
+        }
+
+
+        //take in SID when creating user
+        public async Task<User> AddUser(string name)
+        {
+            await Initialize();
+
+            var user = new User
+            {
+                Id = "10",
+                UserId = "10",
+                Name = name
+            };
+
+            await userTable.InsertAsync(user);
+
+            await SyncTables();
+
+            return user;
+        }
+
+        public async Task<Receipt> AddReceipt(string storeName, List<Item> items)
+        {
+            await Initialize();
+
+            var receipt = new Receipt
+            {
+                UserId = "10",
+                ReceiptId = "5",
+                StoreName = storeName,
+                Items = items
+            };
+
+            await receiptTable.InsertAsync(receipt);
+
+            await SyncTables();
+
+            return receipt;
         }
 
         public async Task<Item> AddItem(string name, double price)
@@ -89,7 +141,7 @@ namespace Product_Lookup.Services
 
             await itemTable.InsertAsync(item);
 
-            await SyncItems();
+            await SyncTables();
 
             return item;
         }

@@ -15,10 +15,14 @@ namespace Product_Lookup.Model
     public class Item
     {
         
-        public string ItemId { get; set; }
+        public string ItemId { get; set; } //primary key
 
-        //[Newtonsoft.Json.JsonIgnore]
-        //public string ReceiptId { get; set; } //foreign key of receipt class
+        public string ReceiptId { get; set; } //foreign key of receipt class
+
+        public Receipt Receipt { get; set; } //refrence
+
+
+
 
         [Newtonsoft.Json.JsonIgnore]
         public string Image { get; set; }
@@ -29,6 +33,22 @@ namespace Product_Lookup.Model
         
         [Microsoft.WindowsAzure.MobileServices.Version]
         public string AzureVersion { get; set; }
+
+
+        /*
+          public string ItemId { get; set; }
+
+        public string ReceiptId { get; set; } //foreign key of receipt class
+
+        public Receipt Receipt { get; set; } //refrence
+
+
+        public string Name { get; set; }
+
+        public double Price { get; set; }
+             
+             */
+
 
         //[Newtonsoft.Json.JsonIgnore] if you want to not push to backend
 
