@@ -14,26 +14,34 @@ namespace Product_Lookup.Model
 {
     public class User
     {
-        [Newtonsoft.Json.JsonProperty("Id")] //maybe can't be caps?
+        [Newtonsoft.Json.JsonProperty("Id")] //required but unused? PK 
         public string Id { get; set; }
         
         [Newtonsoft.Json.JsonProperty("userId")]
-        public string UserId { get; set; } //primary key
+        public int UserId { get; set; } //setting ssid 
 
         public List<Receipt> Receipts { get; set; } //list of receipts
 
-
-
+        [Newtonsoft.Json.JsonProperty("username")]
         public string Username { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("name")]
         public string Name { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("address")]
         public string Address { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("phone")]
         public int Phone { get; set; }
+
+
+
+
 
         [Microsoft.WindowsAzure.MobileServices.Version]
         public string AzureVersion { get; set; }
+
+        
 
         public User()
         {

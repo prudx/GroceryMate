@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,7 @@ namespace Product_Lookup.Services
 
             Client = new MobileServiceClient(appUrl);
 
-            var fileName = "groceryMateNew.db";                //MobileServiceClient.DefaultDatabasePath()
+            var fileName = "groceryMateLocal1.db";                //MobileServiceClient.DefaultDatabasePath()
             fileName = Path.Combine(MobileServiceClient.DefaultDatabasePath, fileName);
     
             var store = new MobileServiceSQLiteStore(fileName);
@@ -57,6 +58,8 @@ namespace Product_Lookup.Services
         //change to sync tables?
         public async Task SyncTables()
         {
+            ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
+
             await Initialize();
 
             try
@@ -64,15 +67,49 @@ namespace Product_Lookup.Services
                 if (!CrossConnectivity.Current.IsConnected)
                     return;
 
-                await Client.SyncContext.PushAsync();
-
                 await userTable.PullAsync("allItems", itemTable.CreateQuery());
                 await receiptTable.PullAsync("allItems", itemTable.CreateQuery());
                 await itemTable.PullAsync("allItems", itemTable.CreateQuery());
+
+
+                await Client.SyncContext.PushAsync();                
             }
-            catch(Exception ex)
+            catch (MobileServicePushFailedException exc)
             {
-                Console.WriteLine("error syncing items " + ex);
+                if (exc.PushResult != null)
+                {
+                    syncErrors = exc.PushResult.Errors;
+                    foreach (var error in syncErrors)
+                    {
+                        Console.WriteLine(error.ToString());
+                        Console.WriteLine(error.RawResult);
+                        Console.WriteLine(error.OperationKind);
+                        Console.WriteLine(error.TableName);
+                        Console.WriteLine(error.Status);
+                        Console.WriteLine(error.Item);
+
+                    }
+                }
+                /*
+                if (syncErrors != null)
+                {
+                    foreach (var error in syncErrors)
+                    {
+                        if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
+                        {
+                            //Update failed, reverting to server's copy.
+                            await error.CancelAndUpdateItemAsync(error.Result);
+                        }
+                        else
+                        {
+                            // Discard local change.
+                            await error.CancelAndDiscardItemAsync();
+                        }
+
+                        Console.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
+                    }
+                }
+                */
             }
         }
 
@@ -82,7 +119,7 @@ namespace Product_Lookup.Services
             await SyncTables();
 
             var data = await itemTable
-                .OrderBy(i => i.ItemId)
+                .OrderBy(i => i.CreatedAt)
                 .ToEnumerableAsync();
 
             //different to james code
@@ -97,8 +134,7 @@ namespace Product_Lookup.Services
 
             var user = new User
             {
-                Id = "10",
-                UserId = "10",
+                //UserId = "10",
                 Name = name
             };
 
@@ -115,8 +151,7 @@ namespace Product_Lookup.Services
 
             var receipt = new Receipt
             {
-                UserId = "10",
-                ReceiptId = "5",
+                UserId = 1,
                 StoreName = storeName,
                 Items = items
             };
@@ -134,9 +169,10 @@ namespace Product_Lookup.Services
 
             //not saving image
             var item = new Item
-            {
-                Name = name,
-                Price = price
+            { 
+                ReceiptId = 1, //works using longstring ID but not actual ReceiptId
+                Name = "grape",
+                Price = 1.00
             };
 
             await itemTable.InsertAsync(item);

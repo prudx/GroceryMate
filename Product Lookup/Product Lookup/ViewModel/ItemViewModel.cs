@@ -90,7 +90,7 @@ namespace Product_Lookup.ViewModel
         void SortItems()
         {
             var groups = from item in Items
-                         orderby item.ItemId descending
+                         orderby item.Id descending
                          group item by Items.FirstOrDefault()
                 into itemGroup
                          select new Grouping<string, Item>($"{itemGroup.Key} ({itemGroup.Count()})", itemGroup);

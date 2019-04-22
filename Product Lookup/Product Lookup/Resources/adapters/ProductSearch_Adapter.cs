@@ -56,7 +56,7 @@ namespace Product_Lookup.Resources.adapters
         //not currently used so convert isn't bothering me
         public override long GetItemId(int position)
         {
-            return Convert.ToInt64(listProductSearchItems[position].ItemId);
+            return Convert.ToInt64(listProductSearchItems[position].Id);
         }
 
         //Old way (memory hog)

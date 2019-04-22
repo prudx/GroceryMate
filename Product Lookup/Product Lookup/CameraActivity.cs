@@ -17,6 +17,7 @@ using Product_Lookup.Model;
 using Android.Content;
 using System.Collections.Generic;
 using Product_Lookup.Services;
+using System;
 
 namespace Product_Lookup
 {
@@ -30,7 +31,7 @@ namespace Product_Lookup
         private string capture;
         private const int RequestCameraPermissionID = 1001;
 
-        AzureService azureService = new AzureService();
+        public AzureService azureService = new AzureService();
 
         //TEMP VAR?
         ListView ReceiptItems;
@@ -97,8 +98,13 @@ namespace Product_Lookup
                 //azureService.AddReceipt(r.StoreName, r.Items);
 
                 await azureService.AddItem(CapturedItems[1].Name, CapturedItems[1].Price);
-                
-                
+
+                var items = await azureService.GetItems();
+
+                foreach (var item in items)
+                {
+                    Console.WriteLine("\n name: " +item.Name.ToString() + "\n price: " + item.Price.ToString() + "\n Id: " + item.Id + "\n itemId: " +item.ItemId +" ");
+                }
 
                 /*
                  CurrentPlatform.Init();

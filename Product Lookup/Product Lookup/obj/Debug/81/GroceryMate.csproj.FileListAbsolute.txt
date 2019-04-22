@@ -1,3 +1,7 @@
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.dll
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.pdb
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.GroceryMate.apk
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.GroceryMate-Signed.apk
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.nuget.stamp
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
@@ -14,10 +18,6 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\libraryimports.cache.stamp
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\res.flag
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.csproj.CoreCompileInputs.cache
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.dll
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.pdb
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.GroceryMate.apk
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\GroceryMate.GroceryMate-Signed.apk
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.pdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\bin\GroceryMate.GroceryMate.apk
@@ -99,7 +99,6 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\bin\Debug\Pl
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Connectivity.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Settings.Abstractions.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Settings.dll.mdb
-C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.csprojAssemblyReference.cache
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Connectivity.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Settings.Abstractions.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Settings.dll.mdb

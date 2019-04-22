@@ -12,6 +12,7 @@ using Android.Widget;
 using GroceryMate;
 using Product_Lookup.Model;
 using Product_Lookup.Resources.adapters;
+using Product_Lookup.Services;
 
 namespace Product_Lookup
 {
@@ -28,6 +29,8 @@ namespace Product_Lookup
 
             ReceiptItems = FindViewById<ListView>(Resource.Id.listViewReceipt);
 
+            
+            
             ReceiptViewBuilder();
             // Create your application here
         }
@@ -36,7 +39,10 @@ namespace Product_Lookup
         public void ReceiptViewBuilder()
         {
             //try this using ProductSearch_Adapter
-            var adapter = new ListViewItem_Adapter(this, CameraActivity.CapturedItems);
+            //using get from azure
+
+
+            var adapter = new ListViewItem_Adapter(this, CameraActivity.CapturedItems); //CameraActivity.CapturedItems
             ReceiptItems.Adapter = adapter;
         }
         
