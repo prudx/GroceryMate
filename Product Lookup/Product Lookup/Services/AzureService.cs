@@ -15,17 +15,23 @@ using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using Plugin.Connectivity;
+using Plugin.CurrentActivity;
 using Product_Lookup.Model;
+using GroceryMate.Helpers;
+using static GroceryMate.Helpers.Helper;
+
 
 namespace Product_Lookup.Services
 {
     public class AzureService
     {
+        
+
         MobileServiceClient Client { get; set; } = null;
+        MobileServiceUser User { get; set; } = null;
         IMobileServiceSyncTable<User> userTable;
         IMobileServiceSyncTable<Receipt> receiptTable;
         IMobileServiceSyncTable<Item> itemTable;
-
 
 
         public async Task Initialize()
@@ -190,5 +196,32 @@ namespace Product_Lookup.Services
 
         //not used yet
         public static bool UseAuth { get; set; } = false;
+
+
+        // Define an authenticated user.
+        
+        public async Task<bool> Authenticate()
+        {
+            Activity currentActivity = CrossCurrentActivity.Current.Activity; //get current activity
+
+            var success = false;
+            try
+            {
+                // Sign in with Facebook login using a server-managed flow.
+                User = await Client.LoginAsync(currentActivity,
+                    MobileServiceAuthenticationProvider.Google, "grocerymate");
+                CreateAlert(AlertType.Info, string.Format("you are now logged in - {0}",
+                    User.UserId), "Logged in!");
+
+                success = true;
+            }
+            catch (Exception ex)
+            {
+                CreateAlert(AlertType.Error, ex.ToString(), "Authentication Error");
+            }
+            return success;
+        }
+
+        
     }
 }

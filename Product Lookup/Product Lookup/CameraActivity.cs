@@ -18,6 +18,7 @@ using Android.Content;
 using System.Collections.Generic;
 using Product_Lookup.Services;
 using System;
+using GroceryMate.Helpers;
 
 namespace Product_Lookup
 {

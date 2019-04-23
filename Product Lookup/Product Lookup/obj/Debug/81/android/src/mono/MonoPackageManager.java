@@ -119,6 +119,7 @@ class MonoPackageManager_Resources {
 		"PInvoke.Windows.Core.dll",
 		"Plugin.Connectivity.Abstractions.dll",
 		"Plugin.Connectivity.dll",
+		"Plugin.CurrentActivity.dll",
 		"Plugin.Settings.Abstractions.dll",
 		"Plugin.Settings.dll",
 		"Refit.dll",

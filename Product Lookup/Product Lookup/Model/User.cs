@@ -18,7 +18,7 @@ namespace Product_Lookup.Model
         public string Id { get; set; }
         
         [Newtonsoft.Json.JsonProperty("userId")]
-        public int UserId { get; set; } //setting ssid 
+        public int UserId { get; set; } //setting ssid or maybe set to the above ID property?
 
         public List<Receipt> Receipts { get; set; } //list of receipts
 

@@ -13,6 +13,8 @@ using System;
 using Android.Content;
 using Product_Lookup.Model;
 using Product_Lookup.Resources.adapters;
+using Microsoft.WindowsAzure.MobileServices;
+using Product_Lookup.Services;
 
 namespace Product_Lookup
 {
@@ -28,12 +30,15 @@ namespace Product_Lookup
 
         ITescoAPI tescoAPI;
 
+        public AzureService azureService = new AzureService(); //Not sure how to pass through activities?
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             //initiate azure app service
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             SetContentView(GroceryMate.Resource.Layout.activity_main);
 
@@ -119,7 +124,17 @@ namespace Product_Lookup
                 StartActivity(cameraActivity);
             };
         }
-        
+
+        [Java.Interop.Export()]
+        public async void LoginUser(View view)
+        {
+            // Load data only after authentication succeeds.
+            if (await azureService.Authenticate())
+            {
+                //Hide the button after authentication succeeds.
+                FindViewById<Button>(GroceryMate.Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+            }
+        }
         /*
          * hide keyboard after search
          * 
@@ -130,5 +145,7 @@ namespace Product_Lookup
             return base.OnTouchEvent(e);
         }
         */
+
     }
+
 }

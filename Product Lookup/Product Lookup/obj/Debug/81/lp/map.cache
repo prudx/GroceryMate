@@ -10,6 +10,7 @@ PInvoke.NCrypt
 PInvoke.Windows.Core
 Plugin.Connectivity.Abstractions
 Plugin.Connectivity
+Plugin.CurrentActivity
 Plugin.Settings.Abstractions
 Plugin.Settings
 Refit

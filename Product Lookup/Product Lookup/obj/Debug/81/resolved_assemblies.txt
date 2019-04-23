@@ -4,6 +4,7 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Microsoft.Azure.Mobile.Client.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Microsoft.Azure.Mobile.Client.SQLiteStore.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Mono.Android.dll
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Mono.Android.Export.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\mscorlib.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\MvvmHelpers.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Newtonsoft.Json.dll
@@ -14,6 +15,7 @@ C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\PInvoke.Windows.Core.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Connectivity.Abstractions.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Connectivity.dll
+C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.CurrentActivity.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Settings.Abstractions.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Plugin.Settings.dll
 C:\Users\dnlma\Documents\Code\Project\Product Lookup\Product Lookup\obj\Debug\81\android\assets\Refit.dll

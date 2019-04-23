@@ -11,6 +11,7 @@ public class MainActivity
 	static {
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
+			"n_LoginUser:(Landroid/view/View;)V:__export__\n" +
 			"";
 		mono.android.Runtime.register ("Product_Lookup.MainActivity, GroceryMate", MainActivity.class, __md_methods);
 	}
@@ -30,6 +31,14 @@ public class MainActivity
 	}
 
 	private native void n_onCreate (android.os.Bundle p0);
+
+
+	public void LoginUser (android.view.View p0)
+	{
+		n_LoginUser (p0);
+	}
+
+	private native void n_LoginUser (android.view.View p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

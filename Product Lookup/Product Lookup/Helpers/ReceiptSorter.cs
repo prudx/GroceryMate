@@ -9,8 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Product_Lookup.Model;
 
-namespace Product_Lookup.Model
+namespace GroceryMate.Helpers
 {
     static class Sorter
     {
@@ -23,24 +24,12 @@ namespace Product_Lookup.Model
             {
                 sortedReceipt = Sorter.ReceiptSort("TESCO", dirtyReceipt);
                 r = new Receipt("TESCO", sortedReceipt);
-
-                /*
-                DEPRECATED CODE
-                r = new Receipt_Tesco(receipt);
-                */
             }
             else if (dirtyReceipt.ToUpper().Contains("LIDL"))
             {
                 sortedReceipt = Sorter.ReceiptSort("LIDL", dirtyReceipt);
                 r = new Receipt("LIDL", sortedReceipt);
-
-
-                /*
-                DEPRECATED CODE
-                r = new Receipt_Lidl(dirtyReceipt);
-                */
             };
-     
             return r;
         }
 
