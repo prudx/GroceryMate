@@ -20,6 +20,7 @@ using Product_Lookup.Services;
 using System;
 using GroceryMate.Helpers;
 
+
 namespace Product_Lookup
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]

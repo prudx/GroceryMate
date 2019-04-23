@@ -23,8 +23,8 @@ namespace Product_Lookup.ViewModel
         public ObservableRangeCollection<Item> Items { get; } = new ObservableRangeCollection<Item>();
         public ObservableRangeCollection<Grouping<string, Item>> ItemsGrouped { get; } = new ObservableRangeCollection<Grouping<string, Item>>();
 
-        
         AzureService azureService = new AzureService();
+
         public ItemViewModel()
         {
             //azureService = DependencyService.Get<AzureService>();
@@ -61,7 +61,7 @@ namespace Product_Lookup.ViewModel
             loadItemsCommand ?? (loadItemsCommand = new Command(async () => await ExecuteLoadItemsCommandAsync()));
         */
 
-        
+        /*
         async Task ExecuteLoadItemsCommandAsync()
         {
             if (IsBusy || !(await LoginAsync()))
@@ -98,6 +98,9 @@ namespace Product_Lookup.ViewModel
 
             ItemsGrouped.ReplaceRange(groups);
         }
+        */
+
+
 
         /*  FORMS SPECIFIC
         ICommand addItemCommand;
@@ -105,6 +108,8 @@ namespace Product_Lookup.ViewModel
             addItemCommand ?? (addItemCommand = new Command(async () => await ExecuteAddItemCommandAsync()));
         */
 
+
+        /*
         async Task ExecuteAddItemCommandAsync()
         {
             if (IsBusy || !(await LoginAsync()))
@@ -137,8 +142,10 @@ namespace Product_Lookup.ViewModel
             }
 
         }
-        
+        */
 
+
+        /*
         //  FOR AUTHENTICATION
         public Task<bool> LoginAsync()
         {
@@ -148,6 +155,6 @@ namespace Product_Lookup.ViewModel
 
             return azureService.LoginAsync();
         }
-        
+        */
     }
 }

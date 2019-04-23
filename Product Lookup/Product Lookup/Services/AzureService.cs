@@ -189,10 +189,12 @@ namespace Product_Lookup.Services
         }
 
         //not used yet
+        /*
         public Task<bool> LoginAsync()
         {
             return null;
         }
+        */    
 
         //not used yet
         public static bool UseAuth { get; set; } = false;
@@ -203,12 +205,14 @@ namespace Product_Lookup.Services
         public async Task<bool> Authenticate()
         {
             Activity currentActivity = CrossCurrentActivity.Current.Activity; //get current activity
+            await Initialize();
+
 
             var success = false;
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
-                User = await Client.LoginAsync(currentActivity,
+                User = await Client.LoginAsync(currentActivity.ApplicationContext,
                     MobileServiceAuthenticationProvider.Google, "grocerymate");
                 CreateAlert(AlertType.Info, string.Format("you are now logged in - {0}",
                     User.UserId), "Logged in!");
