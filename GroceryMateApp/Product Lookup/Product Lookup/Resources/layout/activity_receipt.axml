@@ -2,11 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+	android:background="#555"
+	>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="4dp"
+		android:minHeight="30dp"
+		android:background="@color/darknessGrey">
+		<TextView
+			android:id="@+id/textStore"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="True"
+			android:layout_weight="0.33"
+			android:gravity="left"
+			android:paddingLeft="10dp"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="@string/textStore"
+		/>
+		<TextView
+			android:id="@+id/textDate"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.33"
+			android:gravity="center"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="@string/textDate"
+		/>
+		<TextView
+			android:id="@+id/textTotal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:gravity="right"
+			android:paddingRight="10dp"
+			android:layout_weight="0.33"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="@string/textTotal"
+		/>
+	</LinearLayout>
 	<ListView
 		android:minWidth="25px"
 		android:minHeight="25px"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:id="@+id/listViewReceipt" />
+		android:id="@+id/listViewReceipt"/>
+	<ListView
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/listViewItem" />
+	
 </LinearLayout>

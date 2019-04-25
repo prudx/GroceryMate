@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -16,10 +17,14 @@ using GroceryMate.Services;
 
 namespace GroceryMate
 {
-    [Activity(Label = "ReceiptActivity")]
+    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = false)]
     public class ReceiptActivity : Activity
     {
-        ListView ReceiptItems;
+        ListView Receipts;
+        ListView Items;
+        ICollection<Receipt> ReceiptsCollection;
+        ICollection<int> ReceiptIds = new Collection<int>();
+        AzureService azureService = new AzureService();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,24 +32,44 @@ namespace GroceryMate
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_receipt);
 
-            ReceiptItems = FindViewById<ListView>(Resource.Id.listViewReceipt);
+            Receipts = FindViewById<ListView>(Resource.Id.listViewReceipt);
 
-            
-            
+            Items = FindViewById<ListView>(Resource.Id.listViewItem);
+
             ReceiptViewBuilder();
-            // Create your application here
         }
 
         
-        public void ReceiptViewBuilder()
+        public  async void ReceiptViewBuilder()
         {
             //try this using ProductSearch_Adapter
             //using get from azure
+            ReceiptsCollection 
+                = await azureService.GetReceiptsForUser();
 
+            foreach (Receipt r in ReceiptsCollection)
+                ReceiptIds.Add(r.ReceiptId);
 
-            var adapter = new ListViewItem_Adapter(this, CameraActivity.capturedItems); //CameraActivity.CapturedItems
-            ReceiptItems.Adapter = adapter;
+            var totals
+                = await azureService.GetTotalsForReceipts(ReceiptIds);
+
+            var adapter = new ListViewReceipt_Adapter(this, ReceiptsCollection, totals); //CameraActivity.CapturedItems
+            Receipts.Adapter = adapter;
+
+            Receipts.ItemClick += ReceiptClick;
         }
-        
+
+        private async void ReceiptClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Receipts.Visibility = ViewStates.Gone;
+
+            var receiptId = ReceiptsCollection.ElementAt(e.Position).ReceiptId;
+            var items = await azureService.GetItemsForReceipt(receiptId);
+
+            var adapter = new ListViewItem_Adapter(this, items);
+            Items.Adapter = adapter;
+
+            Console.WriteLine("normal");
+        }
     }
 }

@@ -52,7 +52,7 @@ namespace GroceryMate.Resources.adapters
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.ListViewReceipt, parent, false);
+            var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.ListViewItem, parent, false);
 
             var ItemName = view.FindViewById<TextView>(Resource.Id.itemName);
             var ItemPrice = view.FindViewById<TextView>(Resource.Id.itemPrice);

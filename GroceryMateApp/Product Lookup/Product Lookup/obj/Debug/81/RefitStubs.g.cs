@@ -53,10 +53,10 @@ namespace GroceryMate.API
         }
 
         /// <inheritdoc />
-        Task<RootObject> ITescoAPI.GetUsers(string query,int offset,int limit)
+        Task<RootObject> ITescoAPI.GetItems(string query,int offset,int limit)
         {
             var arguments = new object[] { query,offset,limit };
-            var func = requestBuilder.BuildRestResultFuncForMethod("GetUsers", new Type[] { typeof(string),typeof(int),typeof(int) });
+            var func = requestBuilder.BuildRestResultFuncForMethod("GetItems", new Type[] { typeof(string),typeof(int),typeof(int) });
             return (Task<RootObject>)func(Client, arguments);
         }
     }

@@ -92,10 +92,10 @@ namespace GroceryMate.Helpers //changed from product_lookup
         {
             get
             {
-                if (!AzureService.UseAuth)
+                if (AzureService.UseAuth)
                     return true;
 
-                return !string.IsNullOrWhiteSpace(UserSid);
+                return false;
             }
         }
     }

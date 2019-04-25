@@ -9,6 +9,6 @@ namespace GroceryMate.API
     {
         //query=orange&offset=0&limit=10
         [Get("/grocery/products/?query={query}&offset={offset}&limit={limit}")]
-        Task<RootObject> GetUsers(string query, int offset, int limit);
+        Task<RootObject> GetItems(string query, int offset, int limit);
     }
 }

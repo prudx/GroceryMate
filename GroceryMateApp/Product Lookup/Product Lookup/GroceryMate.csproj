@@ -32,9 +32,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
@@ -73,6 +73,7 @@
     <Compile Include="Model\Quicktype.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Resources\adapters\ListViewReceipt_Adapter.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="Helpers\ReceiptSorter.cs" />
     <Compile Include="Deprecated\Receipt_Tesco.cs" />
@@ -172,7 +173,7 @@
     <Folder Include="Resources\layout\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ListViewReceipt.axml">
+    <AndroidResource Include="Resources\layout\ListViewItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -180,6 +181,14 @@
     <AndroidResource Include="Resources\layout\ProductSearchResult.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListViewReceipt.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\menu1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

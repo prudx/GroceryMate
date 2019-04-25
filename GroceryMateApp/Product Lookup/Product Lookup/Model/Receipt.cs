@@ -33,8 +33,8 @@ namespace GroceryMate.Model
 
 
 
-
-
+        [Newtonsoft.Json.JsonProperty("createdAt")]
+        public DateTimeOffset CreatedAt { get; set; }
 
         [Microsoft.WindowsAzure.MobileServices.Version]
         public string AzureVersion { get; set; }

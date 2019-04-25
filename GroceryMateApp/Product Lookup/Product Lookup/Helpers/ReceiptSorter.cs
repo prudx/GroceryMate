@@ -29,6 +29,11 @@ namespace GroceryMate.Helpers
             {
                 sortedReceipt = Sorter.ReceiptSort("LIDL", dirtyReceipt);
                 r = new Receipt("LIDL", sortedReceipt);
+            }
+            else if (dirtyReceipt.ToUpper().Contains("DUNNES"))
+            {
+                sortedReceipt = Sorter.ReceiptSort("DUNNES", dirtyReceipt);
+                r = new Receipt("DUNNES", sortedReceipt);
             };
             return r;
         }
@@ -45,10 +50,11 @@ namespace GroceryMate.Helpers
             for (int i = 0; i < individual.Count; i++)
             {
                 bool isDigitPresent = individual[i].Any(c => char.IsDigit(c));
+                bool isLetterPresent = individual[i].Any(c => char.IsLetter(c));
 
-                if (isDigitPresent && individual[i].Contains("."))                                  //if it is an actual price
+                if (!isLetterPresent && isDigitPresent && individual[i].Contains("."))                                  //if it is an actual price
                     prices.Add(Convert.ToDouble(Regex.Replace(individual[i], "[^0-9.]", "")));
-                else if (!isDigitPresent)                                                           //if there are no digits, add as a name (filtered constants)
+                else if (isLetterPresent && !isDigitPresent)                                                           //if there are no digits, add as a name (filtered constants)
                     names.Add(individual[i]);
 
             }
@@ -80,6 +86,10 @@ namespace GroceryMate.Helpers
             {
                 return FilterLidl(dirtyReceipt);
             }
+            else if (store == "DUNNES")
+            {
+                return FilterDunnes(dirtyReceipt);
+            }
             else
             {
                 //create alert
@@ -92,13 +102,25 @@ namespace GroceryMate.Helpers
             List<Item> temp = new List<Item>();
 
             dirtyReceipt = dirtyReceipt.ToUpper();
+            dirtyReceipt = dirtyReceipt.Replace("€", "");
             dirtyReceipt = dirtyReceipt.Replace("TESCO", "");
             dirtyReceipt = dirtyReceipt.Replace("TESSCO", "");
             dirtyReceipt = dirtyReceipt.Replace("I R E LA N D", "");
             dirtyReceipt = dirtyReceipt.Replace("I REL AND", "");
+            dirtyReceipt = dirtyReceipt.Replace("RELAND", "");
             dirtyReceipt = dirtyReceipt.Replace("IREL AND", "");
+            dirtyReceipt = dirtyReceipt.Replace("I REL AN D", "");
             dirtyReceipt = dirtyReceipt.Replace("R E L A ND", "");
             dirtyReceipt = dirtyReceipt.Replace("I E", "");
+            dirtyReceipt = dirtyReceipt.Replace("TOTAL", "");
+            dirtyReceipt = dirtyReceipt.Replace("REL A ND", "");
+            dirtyReceipt = dirtyReceipt.Replace("IR E L A N D", "");
+            dirtyReceipt = dirtyReceipt.Replace(")", "");
+            dirtyReceipt = dirtyReceipt.Replace("R E LA N D", "");
+            dirtyReceipt = dirtyReceipt.Replace("R ELAN D", "");
+            dirtyReceipt = dirtyReceipt.Replace("RELA N D", "");
+            dirtyReceipt = dirtyReceipt.Replace("RELA N D", "");
+            dirtyReceipt = dirtyReceipt.Replace("OCC", "");
             dirtyReceipt = dirtyReceipt.Replace("VISIT VIE", "");
             dirtyReceipt = dirtyReceipt.Replace("CHANGE DUE", "");
             dirtyReceipt = dirtyReceipt.Replace("SIGN UP FOR CLUBCARD!", "");
@@ -137,7 +159,48 @@ namespace GroceryMate.Helpers
             List<Item> temp = new List<Item>();
 
             dirtyReceipt = dirtyReceipt.ToUpper();
+            dirtyReceipt = dirtyReceipt.Replace("€", "");
             dirtyReceipt = dirtyReceipt.Replace("LIDL", "");
+            dirtyReceipt = dirtyReceipt.Replace("DEBIT PAYMENT", "");
+            dirtyReceipt = dirtyReceipt.Replace("MORE FOR YOU", "");
+            dirtyReceipt = dirtyReceipt.Replace("BELGARD", "");
+            dirtyReceipt = dirtyReceipt.Replace("EUR", "");
+            dirtyReceipt = dirtyReceipt.Replace("VAT", "");
+            dirtyReceipt = dirtyReceipt.Replace("CARD PAYMENT", "");
+
+
+            //FURTHER STRING PROCCESSING REQUIRED HERE
+
+            //build item list using generalized sorter class
+            temp = Sorter.ItemListBuilder(dirtyReceipt);
+            return temp;
+        }
+
+        public static List<Item> FilterDunnes(string dirtyReceipt)
+        {
+            List<Item> temp = new List<Item>();
+
+            dirtyReceipt = dirtyReceipt.ToUpper();
+            dirtyReceipt = dirtyReceipt.Replace("€", "");
+            dirtyReceipt = dirtyReceipt.Replace("DUNNES STORES", "");
+            dirtyReceipt = dirtyReceipt.Replace("DUNNES", "");
+            dirtyReceipt = dirtyReceipt.Replace("DEBIT PAYMENT", "");
+            dirtyReceipt = dirtyReceipt.Replace("TELEPHONE NO", "");
+            dirtyReceipt = dirtyReceipt.Replace("VAT NO.", "");
+            dirtyReceipt = dirtyReceipt.Replace("SHOP", "");
+            dirtyReceipt = dirtyReceipt.Replace("ONLINE AT", "");
+            dirtyReceipt = dirtyReceipt.Replace("WWW.DUNNESSTORES.COM", "");
+            dirtyReceipt = dirtyReceipt.Replace("WWW.DUNNESSTORES COM", "");
+            dirtyReceipt = dirtyReceipt.Replace("CASH", "");
+            dirtyReceipt = dirtyReceipt.Replace("CHANGE", "");
+            dirtyReceipt = dirtyReceipt.Replace("BAL", "");
+            dirtyReceipt = dirtyReceipt.Replace("ALWAYS BETTER VALUE", "");
+            dirtyReceipt = dirtyReceipt.Replace("K I L N A M A N A G H", "");
+            dirtyReceipt = dirtyReceipt.Replace("EUR", "");
+            dirtyReceipt = dirtyReceipt.Replace("VAT", "");
+            dirtyReceipt = dirtyReceipt.Replace("CARD PAYMENT", "");
+
+
             //FURTHER STRING PROCCESSING REQUIRED HERE
 
             //build item list using generalized sorter class
