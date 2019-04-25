@@ -16,12 +16,12 @@ using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using Plugin.Connectivity;
 using Plugin.CurrentActivity;
-using Product_Lookup.Model;
+using GroceryMate.Model;
 using GroceryMate.Helpers;
 using static GroceryMate.Helpers.Helper;
 
 
-namespace Product_Lookup.Services
+namespace GroceryMate.Services
 {
     public class AzureService
     {
@@ -43,7 +43,7 @@ namespace Product_Lookup.Services
 
             Client = new MobileServiceClient(appUrl);
 
-            var fileName = "groceryMateLocal1.db";                //MobileServiceClient.DefaultDatabasePath()
+            var fileName = "groceryMateLocal3.db";                //MobileServiceClient.DefaultDatabasePath()
             fileName = Path.Combine(MobileServiceClient.DefaultDatabasePath, fileName);
     
             var store = new MobileServiceSQLiteStore(fileName);
@@ -73,8 +73,8 @@ namespace Product_Lookup.Services
                 if (!CrossConnectivity.Current.IsConnected)
                     return;
 
-                await userTable.PullAsync("allItems", itemTable.CreateQuery());
-                await receiptTable.PullAsync("allItems", itemTable.CreateQuery());
+                await userTable.PullAsync("allItems", userTable.CreateQuery());
+                await receiptTable.PullAsync("allItems", receiptTable.CreateQuery());
                 await itemTable.PullAsync("allItems", itemTable.CreateQuery());
 
 
@@ -96,7 +96,7 @@ namespace Product_Lookup.Services
 
                     }
                 }
-                /*
+                
                 if (syncErrors != null)
                 {
                     foreach (var error in syncErrors)
@@ -115,8 +115,33 @@ namespace Product_Lookup.Services
                         Console.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
                     }
                 }
-                */
+                
             }
+        }
+        public async Task<bool> FindUser()
+        {
+            await Initialize();
+            await SyncTables();
+
+            var data = await userTable
+                .Where(c => c.UserId == Settings.UserSid)
+                .ToListAsync();
+              
+            foreach (var u in data)
+            {
+                Console.WriteLine(u.Id.ToString());
+            }
+
+            bool found = false;
+            if(data.Count == 0)
+            {
+                found = false;
+            } else if(data.First().UserId == Settings.UserSid)
+            {
+                found = true;
+            }
+            //different to james code
+            return found;
         }
 
         public async Task<IEnumerable<Item>> GetItems()
@@ -134,16 +159,16 @@ namespace Product_Lookup.Services
 
 
         //take in SID when creating user
-        public async Task<User> AddUser(string name)
+        public async Task<User> AddUser()
         {
             await Initialize();
 
             var user = new User
             {
-                //UserId = "10",
-                Name = name
+                Id = Settings.UserSid,
+                UserId = Settings.UserSid            
             };
-
+            
             await userTable.InsertAsync(user);
 
             await SyncTables();
@@ -151,15 +176,42 @@ namespace Product_Lookup.Services
             return user;
         }
 
-        public async Task<Receipt> AddReceipt(string storeName, List<Item> items)
+        public async Task<int> CountReceipts()
+        {
+            await Initialize();
+            await SyncTables();
+
+            var data = await receiptTable
+                .Where(c => c.Id != null)
+                .ToListAsync();
+
+            int count = 0;
+            if (data.Count != 0)
+                count = data.Count;
+
+            return count;
+        }
+
+        public async Task<Receipt> AddReceipt(string storeName, ICollection<Item> items)
         {
             await Initialize();
 
+            int receiptId = await CountReceipts();
+
+            
+            foreach(Item it in items)
+            {
+                await AddItem(it.Name, it.Price, receiptId);
+            }
+            
+
             var receipt = new Receipt
             {
-                UserId = 1,
+                Id = "R"+receiptId,
+                ReceiptId = receiptId,
                 StoreName = storeName,
-                Items = items
+                Items = items,
+                UserId = Settings.UserSid
             };
 
             await receiptTable.InsertAsync(receipt);
@@ -169,16 +221,34 @@ namespace Product_Lookup.Services
             return receipt;
         }
 
-        public async Task<Item> AddItem(string name, double price)
+        public async Task<int> CountItems()
+        {
+            await Initialize();
+            await SyncTables();
+
+            var data = await itemTable
+                .Where(c => c.Id != null)
+                .ToListAsync();
+
+            int count = 0;
+            if (data.Count != 0)
+                count = data.Count;
+
+            return count;
+        }
+
+        public async Task<Item> AddItem(string name, double price, int receiptId)
         {
             await Initialize();
 
-            //not saving image
+            int itemId = await CountItems();
+
             var item = new Item
-            { 
-                ReceiptId = 1, //works using longstring ID but not actual ReceiptId
-                Name = "grape",
-                Price = 1.00
+            {
+                Id = "I"+itemId,
+                Name = name,
+                Price = price,
+                ReceiptId = receiptId            
             };
 
             await itemTable.InsertAsync(item);
@@ -207,25 +277,46 @@ namespace Product_Lookup.Services
             Activity currentActivity = CrossCurrentActivity.Current.Activity; //get current activity
             await Initialize();
 
-
             var success = false;
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
                 User = await Client.LoginAsync(currentActivity.ApplicationContext,
                     MobileServiceAuthenticationProvider.Google, "grocerymate");
+
                 CreateAlert(AlertType.Info, string.Format("you are now logged in - {0}",
                     User.UserId), "Logged in!");
 
                 success = true;
+                
+                //Set up the settings vars
+                if (User == null)
+                {
+                    Settings.AuthToken = string.Empty;
+                    Settings.UserSid = string.Empty;
+
+                    success = false;
+                }
+                else
+                {
+                    Settings.AuthToken = User.MobileServiceAuthenticationToken;
+                    Settings.UserSid = User.UserId;
+
+                    success = true;
+
+                    //create new user if user doesn't exist in db
+                    if (await FindUser() == false)
+                        await AddUser();                   
+                }
             }
             catch (Exception ex)
             {
                 CreateAlert(AlertType.Error, ex.ToString(), "Authentication Error");
             }
+
             return success;
         }
-
+        
         
     }
 }

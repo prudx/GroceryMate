@@ -13,15 +13,16 @@ using Android.Support.V4.App;
 using Android.Content.PM;
 using static Android.Gms.Vision.Detector;
 using System.Text;
-using Product_Lookup.Model;
+using GroceryMate.Model;
 using Android.Content;
 using System.Collections.Generic;
-using Product_Lookup.Services;
+using GroceryMate.Services;
 using System;
 using GroceryMate.Helpers;
+using System.Linq;
+using System.Collections.ObjectModel;
 
-
-namespace Product_Lookup
+namespace GroceryMate
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]
     public class CameraActivity : AppCompatActivity, ISurfaceHolderCallback, IProcessor
@@ -37,7 +38,7 @@ namespace Product_Lookup
 
         //TEMP VAR?
         ListView ReceiptItems;
-        public static List<Item> CapturedItems;
+        public static ICollection<Item> capturedItems; //was static
 
         public TextView CameraText { get => cameraText; set => cameraText = value; }
 
@@ -88,6 +89,7 @@ namespace Product_Lookup
 
             btn_Capture.Click += async (s, e) =>
             {
+                //below captures used for testing
                 //capture = CameraText.Text;
                 //capture = "tesco\neggs\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
                 capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
@@ -95,19 +97,21 @@ namespace Product_Lookup
                 Receipt r = Sorter.DetermineStore(capture);
                 SurfaceDestroyed(cameraView.Holder);
 
-                CapturedItems = (List<Item>)r.Items; //CASTING TO LIST??
+                capturedItems = r.Items; //sorted receipt items
 
-                //azureService.AddReceipt(r.StoreName, r.Items);
-
-                await azureService.AddItem(CapturedItems[1].Name, CapturedItems[1].Price);
+                //if signed in, you can push receipt data
+                if(Settings.UserSid != null)
+                    await azureService.AddReceipt(r.StoreName, r.Items);    //add item is called from add receipt
+                
 
                 var items = await azureService.GetItems();
-
                 foreach (var item in items)
                 {
                     Console.WriteLine("\n name: " +item.Name.ToString() + "\n price: " + item.Price.ToString() + "\n Id: " + item.Id + "\n itemId: " +item.ItemId +" ");
                 }
-
+                
+                
+                
                 /*
                  CurrentPlatform.Init();
                  TodoItem item = new TodoItem { Text = "Awesome item" };

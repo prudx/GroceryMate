@@ -10,15 +10,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace Product_Lookup.Model
+namespace GroceryMate.Model
 {
     public class User
     {
-        [Newtonsoft.Json.JsonProperty("Id")] //required but unused? PK 
+        [Newtonsoft.Json.JsonProperty("id")] //required but unused? PK 
         public string Id { get; set; }
         
         [Newtonsoft.Json.JsonProperty("userId")]
-        public int UserId { get; set; } //setting ssid or maybe set to the above ID property?
+        public string UserId { get; set; } //setting ssid or maybe set to the above ID property?
 
         public List<Receipt> Receipts { get; set; } //list of receipts
 

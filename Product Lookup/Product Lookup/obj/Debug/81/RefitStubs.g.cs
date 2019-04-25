@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Refit;
-using Product_Lookup.JsonData;
+using GroceryMate.JsonData;
 
 /* ******** Hey You! *********
  *
@@ -30,7 +30,7 @@ namespace GroceryMate.RefitInternalGenerated
 }
 #pragma warning restore
 
-namespace Product_Lookup.API
+namespace GroceryMate.API
 {
     using GroceryMate.RefitInternalGenerated;
 

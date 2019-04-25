@@ -15,14 +15,14 @@
         <data android:scheme="grocerymate" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-    <activity android:label="CameraActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name="md557001476a856ef680ceb99b635047203.CameraActivity" />
-    <activity android:label="GroceryMate" android:theme="@style/Theme.AppCompat.Light" android:name="md557001476a856ef680ceb99b635047203.MainActivity">
+    <activity android:label="CameraActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.CameraActivity" />
+    <activity android:label="GroceryMate" android:theme="@style/Theme.AppCompat.Light" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="ReceiptActivity" android:name="md557001476a856ef680ceb99b635047203.ReceiptActivity" />
+    <activity android:label="ReceiptActivity" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.ReceiptActivity" />
     <activity android:label="Web Authenticator" android:name="md5b35075ec980064f2973fda331128de90.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md5b35075ec980064f2973fda331128de90.WebAuthenticatorActivity" />
     <activity android:label="Web Authenticator Native Browser" android:launchMode="singleTop" android:name="md5b35075ec980064f2973fda331128de90.WebAuthenticatorNativeBrowserActivity" />

@@ -9,9 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Product_Lookup;
+using GroceryMate;
 
-namespace Product_Lookup.Model
+namespace GroceryMate.Model
 {
     public class Receipt
     {
@@ -22,7 +22,7 @@ namespace Product_Lookup.Model
         public int ReceiptId { get; set; } //pseudo pk (non garble identifier)
 
         [Newtonsoft.Json.JsonProperty("userId")]
-        public int UserId { get; set; } //foreign key of user class
+        public string UserId { get; set; } //foreign key of user class
 
         public User User { get; set; } //refrence
 

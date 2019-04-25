@@ -17,10 +17,10 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using GroceryMate;
-using Product_Lookup.Model;
+using GroceryMate.Model;
 using Stream = System.IO.Stream;
 
-namespace Product_Lookup.Resources.adapters
+namespace GroceryMate.Resources.adapters
 {
     class ProductSearch_Adapter : BaseAdapter
     {

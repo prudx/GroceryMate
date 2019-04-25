@@ -4,19 +4,20 @@ using Android.Support.V7.App;
 using Android.Widget;
 using Android.Views;
 using Android.Views.InputMethods;
-using Product_Lookup.API;
-using Product_Lookup.JsonData;
+using GroceryMate.API;
+using GroceryMate.JsonData;
 using Refit;
 using EDMTDialog;
 using System.Collections.Generic;
 using System;
 using Android.Content;
-using Product_Lookup.Model;
-using Product_Lookup.Resources.adapters;
+using GroceryMate.Model;
+using GroceryMate.Resources.adapters;
 using Microsoft.WindowsAzure.MobileServices;
-using Product_Lookup.Services;
+using GroceryMate.Services;
+using GroceryMate.Helpers;
 
-namespace Product_Lookup
+namespace GroceryMate
 {
     [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
@@ -37,6 +38,7 @@ namespace Product_Lookup
             base.OnCreate(savedInstanceState);
 
             //initiate azure app service
+            Settings.UserSid = null; //reset userId 
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
@@ -133,6 +135,9 @@ namespace Product_Lookup
             {
                 //Hide the button after authentication succeeds.
                 FindViewById<Button>(GroceryMate.Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+
+                //var found = await azureService.FindUser();
+                //Console.WriteLine("was user found?: " + found);                 
             }
         }
         /*

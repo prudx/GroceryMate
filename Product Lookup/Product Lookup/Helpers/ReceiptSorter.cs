@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Product_Lookup.Model;
+using GroceryMate.Model;
 
 namespace GroceryMate.Helpers
 {
@@ -40,6 +40,7 @@ namespace GroceryMate.Helpers
             List<string> names = new List<string>();
 
             List<string> individual = new List<string>(cleanedReceipt.Split("\n"));
+            individual.RemoveAt(0); //get rid of empty split before \n (was creating blank item)
 
             for (int i = 0; i < individual.Count; i++)
             {

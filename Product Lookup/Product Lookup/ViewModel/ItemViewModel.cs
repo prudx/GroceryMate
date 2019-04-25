@@ -11,11 +11,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MvvmHelpers;
-using Product_Lookup.Model;
-using Product_Lookup.Services;
-using Product_Lookup.Helpers;
+using GroceryMate.Model;
+using GroceryMate.Services;
+using GroceryMate.Helpers;
 
-namespace Product_Lookup.ViewModel
+namespace GroceryMate.ViewModel
 {
     //MOSTLY IGNORE THIS CLASS
     public class ItemViewModel : BaseViewModel

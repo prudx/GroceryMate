@@ -10,11 +10,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using GroceryMate;
-using Product_Lookup.Model;
-using Product_Lookup.Resources.adapters;
-using Product_Lookup.Services;
+using GroceryMate.Model;
+using GroceryMate.Resources.adapters;
+using GroceryMate.Services;
 
-namespace Product_Lookup
+namespace GroceryMate
 {
     [Activity(Label = "ReceiptActivity")]
     public class ReceiptActivity : Activity
@@ -42,7 +42,7 @@ namespace Product_Lookup
             //using get from azure
 
 
-            var adapter = new ListViewItem_Adapter(this, CameraActivity.CapturedItems); //CameraActivity.CapturedItems
+            var adapter = new ListViewItem_Adapter(this, CameraActivity.capturedItems); //CameraActivity.CapturedItems
             ReceiptItems.Adapter = adapter;
         }
         

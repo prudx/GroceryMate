@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Product_Lookup;
+using GroceryMate;
 
 /*                      
  *                      DEPRECATED

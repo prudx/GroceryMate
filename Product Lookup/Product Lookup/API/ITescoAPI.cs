@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Refit;
-using Product_Lookup.JsonData;
+using GroceryMate.JsonData;
 
-namespace Product_Lookup.API
+namespace GroceryMate.API
 {
     [Headers("Ocp-Apim-Subscription-Key: 9c3efb16d55a471781e299822b6b01be")]
     public interface ITescoAPI

@@ -10,9 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using GroceryMate;
-using Product_Lookup.Model;
+using GroceryMate.Model;
 
-namespace Product_Lookup.Resources.adapters
+namespace GroceryMate.Resources.adapters
 {
     class ListViewItem_Adapter : BaseAdapter
     {
@@ -23,9 +23,9 @@ namespace Product_Lookup.Resources.adapters
         }
 
         private Activity activity;
-        private List<Item> listReceiptItems;
+        private ICollection<Item> listReceiptItems;
 
-        public ListViewItem_Adapter(Activity ac, List<Item> i)
+        public ListViewItem_Adapter(Activity ac, ICollection<Item> i)
         {
             this.activity = ac;
             this.listReceiptItems = i;
@@ -47,7 +47,7 @@ namespace Product_Lookup.Resources.adapters
         //not currently used so convert isn't bothering me
         public override long GetItemId(int position)
         {
-            return Convert.ToInt64(listReceiptItems[position].Id);
+            return Convert.ToInt64(listReceiptItems.ElementAt(position).Id);
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
@@ -57,9 +57,9 @@ namespace Product_Lookup.Resources.adapters
             var ItemName = view.FindViewById<TextView>(Resource.Id.itemName);
             var ItemPrice = view.FindViewById<TextView>(Resource.Id.itemPrice);
             
-
-            ItemName.Text = listReceiptItems[position].Name;
-            ItemPrice.Text = "" + listReceiptItems[position].Price;
+            
+            ItemName.Text = listReceiptItems.ElementAt(position).Name;
+            ItemPrice.Text = "" + listReceiptItems.ElementAt(position).Price;
 
             return view;
         }
