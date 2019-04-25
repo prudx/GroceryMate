@@ -105,8 +105,8 @@ public class MonoPackageManager {
 
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
-		/* We need to ensure that "Product Lookup.dll" comes first in this list. */
-		"Product Lookup.dll",
+		/* We need to ensure that "GroceryMate.dll" comes first in this list. */
+		"GroceryMate.dll",
 		"EDMTDialog.dll",
 		"Microsoft.Azure.Mobile.Client.dll",
 		"Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
@@ -119,6 +119,7 @@ class MonoPackageManager_Resources {
 		"PInvoke.Windows.Core.dll",
 		"Plugin.Connectivity.Abstractions.dll",
 		"Plugin.Connectivity.dll",
+		"Plugin.CurrentActivity.dll",
 		"Plugin.Settings.Abstractions.dll",
 		"Plugin.Settings.dll",
 		"Refit.dll",

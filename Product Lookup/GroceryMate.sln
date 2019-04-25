@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product Lookup", "Product Lookup\Product Lookup.csproj", "{F0ED6127-028C-47F0-84A4-0D27944C58C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryMate", "Product Lookup\GroceryMate.csproj", "{F0ED6127-028C-47F0-84A4-0D27944C58C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

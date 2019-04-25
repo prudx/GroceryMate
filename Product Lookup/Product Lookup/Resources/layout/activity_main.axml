@@ -7,6 +7,23 @@
 	android:layout_height="match_parent"
 	android:weightSum="1.0"
 	>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="right"
+		android:background="#71BCFA"
+		android:padding="6dip"
+		android:minWidth="25px"
+		android:minHeight="25px">
+		<Button
+			android:id="@+id/buttonLoginUser"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:onClick="LoginUser"
+			android:text="@string/login_button_text" />
+	</LinearLayout>
+
 	<ListView
 		android:id="@+id/list_Products"
 		android:layout_weight="1.0"

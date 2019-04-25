@@ -4,7 +4,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Product_Lookup.JsonData
+namespace GroceryMate.JsonData
 {
     public partial class RootObject
     {

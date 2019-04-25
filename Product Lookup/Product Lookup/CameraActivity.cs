@@ -13,12 +13,16 @@ using Android.Support.V4.App;
 using Android.Content.PM;
 using static Android.Gms.Vision.Detector;
 using System.Text;
-using Product_Lookup.Model;
+using GroceryMate.Model;
 using Android.Content;
 using System.Collections.Generic;
-using Product_Lookup.Services;
+using GroceryMate.Services;
+using System;
+using GroceryMate.Helpers;
+using System.Linq;
+using System.Collections.ObjectModel;
 
-namespace Product_Lookup
+namespace GroceryMate
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]
     public class CameraActivity : AppCompatActivity, ISurfaceHolderCallback, IProcessor
@@ -30,11 +34,11 @@ namespace Product_Lookup
         private string capture;
         private const int RequestCameraPermissionID = 1001;
 
-        AzureService azureService = new AzureService();
+        public AzureService azureService = new AzureService();
 
         //TEMP VAR?
         ListView ReceiptItems;
-        public static List<Item> CapturedItems;
+        public static ICollection<Item> capturedItems; //was static
 
         public TextView CameraText { get => cameraText; set => cameraText = value; }
 
@@ -57,15 +61,15 @@ namespace Product_Lookup
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_camera);
+            SetContentView(GroceryMate.Resource.Layout.activity_camera);
 
             //Permission issue displaying camera in app
-            cameraView = FindViewById<SurfaceView>(Resource.Id.camera_View1); 
-            CameraText = FindViewById<TextView>(Resource.Id.camera_TextSense1);
-            btn_Capture = FindViewById<Button>(Resource.Id.btn_Capture);
+            cameraView = FindViewById<SurfaceView>(GroceryMate.Resource.Id.camera_View1); 
+            CameraText = FindViewById<TextView>(GroceryMate.Resource.Id.camera_TextSense1);
+            btn_Capture = FindViewById<Button>(GroceryMate.Resource.Id.btn_Capture);
 
             //TEMP RECEIPT STUFF?
-            ReceiptItems = FindViewById<ListView>(Resource.Id.listViewReceipt);
+            ReceiptItems = FindViewById<ListView>(GroceryMate.Resource.Id.listViewReceipt);
 
             TextRecognizer textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
             if (!textRecognizer.IsOperational)
@@ -83,8 +87,9 @@ namespace Product_Lookup
                 textRecognizer.SetProcessor(this);
             }
 
-            btn_Capture.Click += (s, e) =>
+            btn_Capture.Click += async (s, e) =>
             {
+                //below captures used for testing
                 //capture = CameraText.Text;
                 //capture = "tesco\neggs\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
                 capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
@@ -92,13 +97,21 @@ namespace Product_Lookup
                 Receipt r = Sorter.DetermineStore(capture);
                 SurfaceDestroyed(cameraView.Holder);
 
-                CapturedItems = r.GetItems();
+                capturedItems = r.Items; //sorted receipt items
 
-                foreach (Item i in CapturedItems)
+                //if signed in, you can push receipt data
+                if(Settings.UserSid != null)
+                    await azureService.AddReceipt(r.StoreName, r.Items);    //add item is called from add receipt
+                
+
+                var items = await azureService.GetItems();
+                foreach (var item in items)
                 {
-                    azureService.AddItem(i.Name, i.Price);
+                    Console.WriteLine("\n name: " +item.Name.ToString() + "\n price: " + item.Price.ToString() + "\n Id: " + item.Id + "\n itemId: " +item.ItemId +" ");
                 }
-
+                
+                
+                
                 /*
                  CurrentPlatform.Init();
                  TodoItem item = new TodoItem { Text = "Awesome item" };

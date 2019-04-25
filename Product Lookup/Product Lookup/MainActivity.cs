@@ -4,19 +4,22 @@ using Android.Support.V7.App;
 using Android.Widget;
 using Android.Views;
 using Android.Views.InputMethods;
-using Product_Lookup.API;
-using Product_Lookup.JsonData;
+using GroceryMate.API;
+using GroceryMate.JsonData;
 using Refit;
 using EDMTDialog;
 using System.Collections.Generic;
 using System;
 using Android.Content;
-using Product_Lookup.Model;
-using Product_Lookup.Resources.adapters;
+using GroceryMate.Model;
+using GroceryMate.Resources.adapters;
+using Microsoft.WindowsAzure.MobileServices;
+using GroceryMate.Services;
+using GroceryMate.Helpers;
 
-namespace Product_Lookup
+namespace GroceryMate
 {
-    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -28,21 +31,25 @@ namespace Product_Lookup
 
         ITescoAPI tescoAPI;
 
+        public AzureService azureService = new AzureService(); //Not sure how to pass through activities?
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             //initiate azure app service
+            Settings.UserSid = null; //reset userId 
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(GroceryMate.Resource.Layout.activity_main);
 
-            btn_SearchProducts = FindViewById<Button>(Resource.Id.btn_SearchProduct);
-            btn_Camera = FindViewById<Button>(Resource.Id.btn_Camera);
+            btn_SearchProducts = FindViewById<Button>(GroceryMate.Resource.Id.btn_SearchProduct);
+            btn_Camera = FindViewById<Button>(GroceryMate.Resource.Id.btn_Camera);
 
-            list_Products = FindViewById<ListView>(Resource.Id.list_Products);
+            list_Products = FindViewById<ListView>(GroceryMate.Resource.Id.list_Products);
 
-            editText = FindViewById<EditText>(Resource.Id.queryInput);
+            editText = FindViewById<EditText>(GroceryMate.Resource.Id.queryInput);
             editText.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
                 queryString = e.Text.ToString();
             };            
@@ -119,7 +126,20 @@ namespace Product_Lookup
                 StartActivity(cameraActivity);
             };
         }
-        
+
+        [Java.Interop.Export()]
+        public async void LoginUser(View view)
+        {
+            // Load data only after authentication succeeds.
+            if (await azureService.Authenticate())
+            {
+                //Hide the button after authentication succeeds.
+                FindViewById<Button>(GroceryMate.Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+
+                //var found = await azureService.FindUser();
+                //Console.WriteLine("was user found?: " + found);                 
+            }
+        }
         /*
          * hide keyboard after search
          * 
@@ -130,5 +150,7 @@ namespace Product_Lookup
             return base.OnTouchEvent(e);
         }
         */
+
     }
+
 }

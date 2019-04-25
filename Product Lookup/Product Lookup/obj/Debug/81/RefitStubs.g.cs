@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Refit;
-using Product_Lookup.JsonData;
+using GroceryMate.JsonData;
 
 /* ******** Hey You! *********
  *
@@ -13,7 +13,7 @@ using Product_Lookup.JsonData;
  * in the Refit package */
 
 #pragma warning disable
-namespace Product_Lookup.RefitInternalGenerated
+namespace GroceryMate.RefitInternalGenerated
 {
     [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [AttributeUsage (AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Event | AttributeTargets.Interface | AttributeTargets.Delegate)]
@@ -30,9 +30,9 @@ namespace Product_Lookup.RefitInternalGenerated
 }
 #pragma warning restore
 
-namespace Product_Lookup.API
+namespace GroceryMate.API
 {
-    using Product_Lookup.RefitInternalGenerated;
+    using GroceryMate.RefitInternalGenerated;
 
     /// <inheritdoc />
     [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]

@@ -1,10 +1,10 @@
 ﻿// Helpers/Settings.cs
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
-using Product_Lookup.Services;
+using GroceryMate.Services;
 using System;
 
-namespace Product_Lookup.Helpers
+namespace GroceryMate.Helpers //changed from product_lookup
 {
   /// <summary>
   /// This is the Settings static class that can be used in your Core solution or in any
@@ -46,7 +46,6 @@ namespace Product_Lookup.Helpers
         const string LastSyncKey = "last_sync";
         static readonly DateTime LastSyncDefault = DateTime.Now.AddDays(-30);
 
-
         const string UserIdKey = "userid";
         static readonly string UserIdDefault = string.Empty;
 
@@ -77,7 +76,7 @@ namespace Product_Lookup.Helpers
             }
         }
 
-        public static string UserId
+        public static string UserSid
         {
             get
             {
@@ -96,7 +95,7 @@ namespace Product_Lookup.Helpers
                 if (!AzureService.UseAuth)
                     return true;
 
-                return !string.IsNullOrWhiteSpace(UserId);
+                return !string.IsNullOrWhiteSpace(UserSid);
             }
         }
     }
