@@ -43,7 +43,7 @@ namespace GroceryMate.Services
 
             Client = new MobileServiceClient(appUrl);
 
-            var fileName = "groceryMateLocal3.db";                //MobileServiceClient.DefaultDatabasePath()
+            var fileName = "groceryMateLocal6.db";                //MobileServiceClient.DefaultDatabasePath()
             fileName = Path.Combine(MobileServiceClient.DefaultDatabasePath, fileName);
     
             var store = new MobileServiceSQLiteStore(fileName);
@@ -210,8 +210,8 @@ namespace GroceryMate.Services
                 Id = "R"+receiptId,
                 ReceiptId = receiptId,
                 StoreName = storeName,
-                Items = items,
-                UserId = Settings.UserSid
+                //Items = items,
+                UserId = Settings.UserSid                
             };
 
             await receiptTable.InsertAsync(receipt);
@@ -246,9 +246,10 @@ namespace GroceryMate.Services
             var item = new Item
             {
                 Id = "I"+itemId,
+                ItemId = itemId,
                 Name = name,
                 Price = price,
-                ReceiptId = receiptId            
+                ReceiptId = receiptId
             };
 
             await itemTable.InsertAsync(item);
@@ -301,7 +302,7 @@ namespace GroceryMate.Services
                 {
                     Settings.AuthToken = User.MobileServiceAuthenticationToken;
                     Settings.UserSid = User.UserId;
-
+                    
                     success = true;
 
                     //create new user if user doesn't exist in db
