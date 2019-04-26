@@ -14,15 +14,15 @@
 	/>
 
 	<Button
-		android:text="Capture"
+		android:text="@string/cameraBtn"
 		android:textSize= "12sp"
 		android:id="@+id/btn_Capture"
-		android:layout_width="100sp"
+		android:layout_width="130dp"
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentRight="true"
 	/>
-
+	<!--	deprecated - used for seeing detections onscreen  -->
 	<TextView
 		android:visibility="gone"
 		android:text="No Text"
@@ -41,7 +41,5 @@
 		android:layout_above="@id/camera_TextSense1"
 		android:id="@+id/textView1" />
 	
-
-
 
 </RelativeLayout>

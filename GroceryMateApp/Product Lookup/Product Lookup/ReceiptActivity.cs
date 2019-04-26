@@ -17,12 +17,13 @@ using GroceryMate.Services;
 
 namespace GroceryMate
 {
-    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = false)]
     public class ReceiptActivity : Activity
     {
         ListView Receipts;
         ListView Items;
         ICollection<Receipt> ReceiptsCollection;
+        ICollection<Item> ItemsForReceipt;
         ICollection<int> ReceiptIds = new Collection<int>();
         AzureService azureService = new AzureService();
 
@@ -40,18 +41,15 @@ namespace GroceryMate
         }
 
         
-        public  async void ReceiptViewBuilder()
+        public async void ReceiptViewBuilder()
         {
-            //try this using ProductSearch_Adapter
-            //using get from azure
-            ReceiptsCollection 
-                = await azureService.GetReceiptsForUser();
+            ReceiptsCollection = await azureService.GetReceiptsForUser();
 
             foreach (Receipt r in ReceiptsCollection)
                 ReceiptIds.Add(r.ReceiptId);
 
-            var totals
-                = await azureService.GetTotalsForReceipts(ReceiptIds);
+            //calculate our totals
+            var totals = await azureService.GetTotalsForReceipts(ReceiptIds);
 
             var adapter = new ListViewReceipt_Adapter(this, ReceiptsCollection, totals); //CameraActivity.CapturedItems
             Receipts.Adapter = adapter;
@@ -59,36 +57,56 @@ namespace GroceryMate
             Receipts.ItemClick += ReceiptClick;
             Receipts.ItemLongClick += ReceiptLongClick;
 
-            //Items.ItemClick += ItemClick;     not sure what to do for this
+            //not sure what to implement for this method
+            //Items.ItemClick += ItemClick;    
             Items.ItemLongClick += ItemLongClick;
         }
 
-        private async void ReceiptClick(object sender, AdapterView.ItemClickEventArgs e)
+        private async void ItemViewBuilder(int receiptId)
+        {
+            FindViewById<TextView>(Resource.Id.textStore).Visibility = ViewStates.Gone;   //change headers
+            FindViewById<TextView>(Resource.Id.textDate).Visibility = ViewStates.Gone;
+            FindViewById<TextView>(Resource.Id.textItem).Visibility = ViewStates.Visible;
+
+            ItemsForReceipt = await azureService.GetItemsForReceipt(receiptId);
+
+            if (ItemsForReceipt.Count != 0)
+            {
+                Items.Visibility = ViewStates.Visible;
+                var adapter = new ListViewItem_Adapter(this, ItemsForReceipt);
+                Items.Adapter = adapter;
+            } else
+            {
+                await azureService.DeleteReceipt(receiptId);
+                OnBackPressed();
+            }      
+        }
+
+        private void ReceiptClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             Receipts.Visibility = ViewStates.Gone;
 
             var receiptId = ReceiptsCollection.ElementAt(e.Position).ReceiptId;
-            var items = await azureService.GetItemsForReceipt(receiptId);
 
-            var adapter = new ListViewItem_Adapter(this, items);
-            Items.Adapter = adapter;
-
-            Console.WriteLine("normal click receipt");
+            ItemViewBuilder(receiptId);
         }
 
         private void ReceiptLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             PopupMenu menu = new PopupMenu(this, Receipts.GetChildAt(e.Position));
             menu.MenuInflater.Inflate(Resource.Menu.popup_menu, menu.Menu);
-            menu.MenuItemClick += (s, a) =>
+            menu.MenuItemClick += async (s, a) =>
             {
                 switch (a.Item.ItemId)
                 {
                     case Resource.Id.popup_edit:
+                        menu.Dismiss();
                         
                         break;
                     case Resource.Id.popup_delete:
-                        // delete stuff
+                        menu.Dismiss();
+                        await azureService.DeleteReceipt(ReceiptsCollection.ElementAt(e.Position).ReceiptId);
+                        ReceiptViewBuilder();
                         break;
                 }
             };
@@ -106,31 +124,39 @@ namespace GroceryMate
         {
             PopupMenu menu = new PopupMenu(this, Items.GetChildAt(e.Position));
             menu.MenuInflater.Inflate(Resource.Menu.popup_menu, menu.Menu);
-            menu.MenuItemClick += (s, a) =>
+            menu.MenuItemClick += async (s, a) =>
             {
                 switch (a.Item.ItemId)
                 {
                     case Resource.Id.popup_edit:
 
-
                         break;
                     case Resource.Id.popup_delete:
-                        // delete stuff
+                        menu.Dismiss();
+                        var item = ItemsForReceipt.ElementAt(e.Position);
+                        await azureService.DeleteItem(item.ItemId);
+                        ItemViewBuilder(item.ReceiptId);    //remake view
                         break;
                 }
             };
             menu.Show();
         }
 
-
-        private void EditClick()
+        public override void OnBackPressed()
         {
-
-        }
-
-        private void DeleteClick()
-        {
-
+            if(Items.Visibility == ViewStates.Visible)
+            {
+                Items.Visibility = ViewStates.Gone;
+                ReceiptViewBuilder();
+                Receipts.Visibility = ViewStates.Visible;
+                FindViewById<TextView>(Resource.Id.textStore).Visibility = ViewStates.Visible;   //change headers
+                FindViewById<TextView>(Resource.Id.textDate).Visibility = ViewStates.Visible;
+                FindViewById<TextView>(Resource.Id.textItem).Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                Finish();
+            }
         }
     }
 }

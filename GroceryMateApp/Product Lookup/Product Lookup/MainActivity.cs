@@ -20,7 +20,7 @@ using AlertDialog = Android.Support.V7.App.AlertDialog;
 
 namespace GroceryMate
 {
-    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", Icon ="@mipmap/ic_launcher", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -69,11 +69,12 @@ namespace GroceryMate
             //SEARCH BUTTON
             btn_SearchProducts.Click += delegate
             {
+                var searchMessage = Resource.String.searching;
                 Helper.CloseKeyboard();
 
                 AlertDialog dialog = new EDMTDialogBuilder()
                .SetContext(this)
-               .SetMessage("Searching for " + queryString)
+               .SetMessage(searchMessage +" " +queryString)
                .Build();
 
                 if (!dialog.IsShowing)
@@ -146,5 +147,13 @@ namespace GroceryMate
                 //FindViewById<Button>(GroceryMate.Resource.Id.btnHistory).Visibility = ViewStates.Gone;
             }
         }
+
+        [Java.Interop.Export()]
+        public void StartReceipts(View view)
+        {
+            Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
+            StartActivity(receiptActivity);
+        }
+        
     }
 }

@@ -13,6 +13,7 @@ public class MainActivity
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
 			"n_onCreateOptionsMenu:(Landroid/view/Menu;)Z:GetOnCreateOptionsMenu_Landroid_view_Menu_Handler\n" +
 			"n_LoginUser:(Landroid/view/View;)V:__export__\n" +
+			"n_StartReceipts:(Landroid/view/View;)V:__export__\n" +
 			"";
 		mono.android.Runtime.register ("GroceryMate.MainActivity, GroceryMate", MainActivity.class, __md_methods);
 	}
@@ -48,6 +49,14 @@ public class MainActivity
 	}
 
 	private native void n_LoginUser (android.view.View p0);
+
+
+	public void StartReceipts (android.view.View p0)
+	{
+		n_StartReceipts (p0);
+	}
+
+	private native void n_StartReceipts (android.view.View p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

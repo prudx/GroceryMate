@@ -3,6 +3,7 @@
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:name="android.app.Application" android:debuggable="true">
@@ -14,14 +15,14 @@
         <data android:scheme="grocerymate" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-    <activity android:label="GroceryMate" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.CameraActivity" />
-    <activity android:label="GroceryMate" android:theme="@style/Theme.AppCompat.Light.DarkActionBar" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.MainActivity">
+    <activity android:label="@string/app_name" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.CameraActivity" />
+    <activity android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:theme="@style/Theme.AppCompat.Light.DarkActionBar" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="GroceryMate" android:theme="@style/Theme.AppCompat.Light.DarkActionBar" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.ReceiptActivity" />
+    <activity android:label="@string/app_name" android:theme="@style/Theme.AppCompat.Light.DarkActionBar" android:name="md5fa4cf85b4275368a1fe83c4fc1d27cb1.ReceiptActivity" />
     <activity android:label="Web Authenticator" android:name="md5b35075ec980064f2973fda331128de90.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md5b35075ec980064f2973fda331128de90.WebAuthenticatorActivity" />
     <activity android:label="Web Authenticator Native Browser" android:launchMode="singleTop" android:name="md5b35075ec980064f2973fda331128de90.WebAuthenticatorNativeBrowserActivity" />

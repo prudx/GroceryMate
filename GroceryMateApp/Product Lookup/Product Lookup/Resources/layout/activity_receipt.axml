@@ -12,6 +12,18 @@
 		android:minHeight="30dp"
 		android:background="@color/darknessGrey">
 		<TextView
+			android:id="@+id/textItem"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="True"
+			android:layout_weight="0.33"
+			android:gravity="left"
+			android:paddingLeft="10dp"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="@string/textItem"
+		    android:visibility="gone"
+		/>
+		<TextView
 			android:id="@+id/textStore"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -42,6 +54,7 @@
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:text="@string/textTotal"
 		/>
+		
 	</LinearLayout>
 	<ListView
 		android:minWidth="25px"

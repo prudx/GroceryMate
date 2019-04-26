@@ -58,7 +58,7 @@ namespace GroceryMate.Services
             //unauthorized version
             Client = new MobileServiceClient(appUrl);
 #endif
-            var fileName = "groceryMateLocal6.db";                //MobileServiceClient.DefaultDatabasePath()
+            var fileName = "groceryMateLocal7.db";                //MobileServiceClient.DefaultDatabasePath()
             fileName = Path.Combine(MobileServiceClient.DefaultDatabasePath, fileName);
     
             var store = new MobileServiceSQLiteStore(fileName);
@@ -179,6 +179,17 @@ namespace GroceryMate.Services
 
         //RECEIPTS
 
+        public async Task<Receipt> GetReceipt(int receiptId)
+        {
+            await SyncTables();
+
+            var data = await receiptTable
+                .Where(c => c.ReceiptId == receiptId)
+                .ToCollectionAsync();
+
+            return data.Single();
+        }
+
         public async Task<ICollection<Receipt>> GetReceiptsForUser()
         {
             await SyncTables();
@@ -211,34 +222,31 @@ namespace GroceryMate.Services
             return totals;
         }
 
-        public async Task<int> CountReceipts()
+        public async Task<int> AllocatedReceiptId()
         {
             await SyncTables();
 
             var data = await receiptTable
                 .Where(c => c.Id != null)
                 .ToListAsync();
-
-            int count = 0;
-            if (data.Count != 0)
-                count = data.Count;
-
-            return count;
+            
+            int id = data.Count;
+            //avoid ID troubles later
+            foreach(Receipt r in data)
+                if(r.ReceiptId == id)
+                    id += 10000;
+            
+            return id;
         }
 
         public async Task<Receipt> AddReceipt(string storeName, ICollection<Item> items)
         {
             await Initialize();
-
-            int receiptId = await CountReceipts();
-
+            int receiptId = await AllocatedReceiptId();
             
             foreach(Item it in items)
-            {
                 await AddItem(it.Name, it.Price, receiptId);
-            }
             
-
             var receipt = new Receipt
             {
                 Id = "R"+receiptId,
@@ -255,6 +263,26 @@ namespace GroceryMate.Services
             return receipt;
         }
 
+        public async Task<Receipt> DeleteReceipt(int receiptId)
+        {
+            await Initialize();
+
+            var receipt = await GetReceipt(receiptId);
+
+            //delete items belonging to receipt first.
+            var items = await GetItemsForReceipt(receiptId);
+            foreach (Item i in items)
+                await DeleteItem(i.ItemId);
+
+            //then delete receipt
+            await receiptTable.DeleteAsync(receipt);
+
+            await SyncTables();
+
+            return receipt;
+        }
+
+
         //ITEMS
 
         public async Task<int> CountItems()
@@ -265,11 +293,13 @@ namespace GroceryMate.Services
                 .Where(c => c.Id != null)
                 .ToListAsync();
 
-            int count = 0;
-            if (data.Count != 0)
-                count = data.Count;
+            int id = data.Count;
+            //avoid ID troubles later
+            foreach (Item r in data)
+                if (r.ItemId == id)
+                    id += 10000;
 
-            return count;
+            return id;
         }
 
         public async Task<IEnumerable<Item>> GetItems()
@@ -317,13 +347,18 @@ namespace GroceryMate.Services
             return item;
         }
 
-        //not used yet
-        /*
-        public Task<bool> LoginAsync()
+        public async Task<Item> DeleteItem(int itemId)
         {
-            return null;
+            var data = await itemTable
+                .Where(c => c.ItemId == itemId)
+                .ToListAsync();
+
+            await itemTable.DeleteAsync(data.Single());
+
+            await SyncTables();
+
+            return data.Single();
         }
-        */    
 
         //AUTHENTICATION
 

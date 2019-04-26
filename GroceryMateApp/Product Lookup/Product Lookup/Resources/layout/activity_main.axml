@@ -23,13 +23,14 @@
 			android:layout_alignParentRight="true"
 			android:onClick="LoginUser"
 			android:textSize= "12sp"
-			android:text="@string/login_button_text"/>
+			android:text="@string/btn_Login"/>
 		<Button
 			android:id="@+id/btn_Receipts"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
 			android:layout_alignParentRight="true"
 			android:textSize= "12sp"
+			android:onClick="StartReceipts"
 			android:text="@string/receipts"
 			android:visibility="gone"/>
 		<Button

@@ -24,23 +24,22 @@ using System.Collections.ObjectModel;
 
 namespace GroceryMate
 {
-    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]
     public class CameraActivity : AppCompatActivity, ISurfaceHolderCallback, IProcessor
     {
-        private SurfaceView cameraView;
-        private TextView cameraText;
-        private CameraSource cameraSource;
-        private Button btn_Capture;
-        private string capture;
-        private const int RequestCameraPermissionID = 1001;
+        SurfaceView cameraView;
+        TextView cameraText;
+        CameraSource cameraSource;
+        Button btn_Capture;
+        string capture;
+        const int RequestCameraPermissionID = 1001;
 
-        public AzureService azureService = new AzureService();
+        AzureService azureService = new AzureService();
 
-        //TEMP VAR?
         ListView ReceiptItems;
-        public static ICollection<Item> capturedItems; //was static
+        static ICollection<Item> capturedItems; //was static
 
-        public TextView CameraText { get => cameraText; set => cameraText = value; }
+        TextView CameraText { get => cameraText; set => cameraText = value; }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
@@ -68,12 +67,11 @@ namespace GroceryMate
             CameraText = FindViewById<TextView>(GroceryMate.Resource.Id.camera_TextSense1);
             btn_Capture = FindViewById<Button>(GroceryMate.Resource.Id.btn_Capture);
 
-            //TEMP RECEIPT STUFF?
             ReceiptItems = FindViewById<ListView>(GroceryMate.Resource.Id.listViewReceipt);
 
             TextRecognizer textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
             if (!textRecognizer.IsOperational)
-                Log.Error("Main Activity", "Detector dependencies are not yet available");
+                Log.Error("Camera Error", "Vision Detector dependencies are not available");
             else
             {
                 cameraSource = new CameraSource.Builder(ApplicationContext, textRecognizer)

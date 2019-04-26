@@ -1,4 +1,4 @@
-<!--For all properties see: http://developer.android.com/guide/topics/resources/menu-resource.html--><menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"><!--
+<!--For all properties see: http://developer.android.com/guide/topics/resources/menu-resource.html--><menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><!--
   <item android:id="@+id/action_save"
         android:title="Sign in"
         android:background="@color/keeperGreen"
