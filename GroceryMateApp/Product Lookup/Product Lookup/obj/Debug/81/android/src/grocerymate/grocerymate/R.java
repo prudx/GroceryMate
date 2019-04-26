@@ -3201,6 +3201,8 @@ containing a value of this type.
         public static final int parentPanel=0x7f0b006c;
         public static final int parent_matrix=0x7f0b000b;
         public static final int pin=0x7f0b0054;
+        public static final int popup_delete=0x7f0b00d4;
+        public static final int popup_edit=0x7f0b00d3;
         public static final int productSearchImg=0x7f0b00cd;
         public static final int productSearchItemName=0x7f0b00ce;
         public static final int productSearchItemPrice=0x7f0b00cf;
@@ -3373,6 +3375,7 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int menu1=0x7f0e0000;
+        public static final int popup_menu=0x7f0e0001;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -3435,6 +3438,8 @@ containing a value of this type.
         public static final int common_open_on_phone=0x7f08000e;
         public static final int common_signin_button_text=0x7f08000f;
         public static final int common_signin_button_text_long=0x7f080010;
+        public static final int delete=0x7f080049;
+        public static final int edit=0x7f080048;
         public static final int hello=0x7f08003b;
         public static final int login_button_text=0x7f08003f;
         public static final int password_toggle_content_description=0x7f080032;

@@ -4418,6 +4418,12 @@ namespace GroceryMate
 			// aapt resource value: 0x7f0b0054
 			public const int pin = 2131427412;
 			
+			// aapt resource value: 0x7f0b00d4
+			public const int popup_delete = 2131427540;
+			
+			// aapt resource value: 0x7f0b00d3
+			public const int popup_edit = 2131427539;
+			
 			// aapt resource value: 0x7f0b00cd
 			public const int productSearchImg = 2131427533;
 			
@@ -4955,6 +4961,9 @@ namespace GroceryMate
 			// aapt resource value: 0x7f0e0000
 			public const int menu1 = 2131623936;
 			
+			// aapt resource value: 0x7f0e0001
+			public const int popup_menu = 2131623937;
+			
 			static Menu()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -5154,6 +5163,12 @@ namespace GroceryMate
 			
 			// aapt resource value: 0x7f080010
 			public const int common_signin_button_text_long = 2131230736;
+			
+			// aapt resource value: 0x7f080049
+			public const int delete = 2131230793;
+			
+			// aapt resource value: 0x7f080048
+			public const int edit = 2131230792;
 			
 			// aapt resource value: 0x7f08003b
 			public const int hello = 2131230779;

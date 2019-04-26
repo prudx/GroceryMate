@@ -108,7 +108,6 @@ namespace GroceryMate.Services
                         Console.WriteLine(error.TableName);
                         Console.WriteLine(error.Status);
                         Console.WriteLine(error.Item);
-
                     }
                 }
                 
@@ -126,7 +125,6 @@ namespace GroceryMate.Services
                             // Discard local change.
                             await error.CancelAndDiscardItemAsync();
                         }
-
                         Console.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
                     }
                 }

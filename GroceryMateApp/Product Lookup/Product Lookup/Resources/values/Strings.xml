@@ -18,5 +18,8 @@
   <string name="textDate">Date</string>
   <string name="textTotal">Euro</string>
 
-  
+
+  <string name="edit">Edit</string>
+  <string name="delete">Delete</string>
+
 </resources>

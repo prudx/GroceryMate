@@ -44,10 +44,9 @@ namespace GroceryMate.Resources.adapters
             return null;
         }
 
-        //not currently used so convert isn't bothering me
         public override long GetItemId(int position)
         {
-            return Convert.ToInt64(listReceiptItems.ElementAt(position).Id);
+            return listReceiptItems.ElementAt(position).ItemId;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)

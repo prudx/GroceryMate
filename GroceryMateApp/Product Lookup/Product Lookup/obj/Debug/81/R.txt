@@ -913,6 +913,8 @@ int id parallax 0x7f0b0053
 int id parentPanel 0x7f0b006c
 int id parent_matrix 0x7f0b000b
 int id pin 0x7f0b0054
+int id popup_delete 0x7f0b00d4
+int id popup_edit 0x7f0b00d3
 int id productSearchImg 0x7f0b00cd
 int id productSearchItemName 0x7f0b00ce
 int id productSearchItemPrice 0x7f0b00cf
@@ -1079,6 +1081,7 @@ int layout select_dialog_singlechoice_material 0x7f040041
 int layout support_simple_spinner_dropdown_item 0x7f040042
 int layout tooltip 0x7f040043
 int menu menu1 0x7f0e0000
+int menu popup_menu 0x7f0e0001
 int mipmap ic_launcher 0x7f030000
 int mipmap ic_launcher_foreground 0x7f030001
 int mipmap ic_launcher_round 0x7f030002
@@ -1137,6 +1140,8 @@ int string common_google_play_services_wear_update_text 0x7f08000d
 int string common_open_on_phone 0x7f08000e
 int string common_signin_button_text 0x7f08000f
 int string common_signin_button_text_long 0x7f080010
+int string delete 0x7f080049
+int string edit 0x7f080048
 int string hello 0x7f08003b
 int string login_button_text 0x7f08003f
 int string password_toggle_content_description 0x7f080032

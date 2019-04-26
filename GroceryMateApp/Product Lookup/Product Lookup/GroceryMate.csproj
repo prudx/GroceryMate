@@ -170,9 +170,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\layout\templates\" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\ListViewItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -189,6 +186,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\menu1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\popup_menu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\layout\templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -4921,11 +4921,11 @@ namespace GroceryMate
 			// aapt resource value: 0x7F0C0015
 			public const int add = 2131492885;
 			
-			// aapt resource value: 0x7F010177
-			public const int adjust_height = 2130772343;
+			// aapt resource value: 0x7F010179
+			public const int adjust_height = 2130772345;
 			
-			// aapt resource value: 0x7F010176
-			public const int adjust_width = 2130772342;
+			// aapt resource value: 0x7F010178
+			public const int adjust_width = 2130772344;
 			
 			// aapt resource value: 0x1
 			public const int ad_container = 1;
@@ -4954,11 +4954,11 @@ namespace GroceryMate
 			// aapt resource value: 0x1
 			public const int android_pay_light_with_border = 1;
 			
-			// aapt resource value: 0x7F010183
-			public const int APP_NAME = 2130772355;
+			// aapt resource value: 0x7F010185
+			public const int APP_NAME = 2130772357;
 			
-			// aapt resource value: 0x7F010175
-			public const int app_name = 2130772341;
+			// aapt resource value: 0x7F010177
+			public const int app_name = 2130772343;
 			
 			// aapt resource value: 0x7F0C0006
 			public const int async = 2131492870;
@@ -5128,8 +5128,8 @@ namespace GroceryMate
 			// aapt resource value: 0x7F0C0024
 			public const int customPanel = 2131492900;
 			
-			// aapt resource value: 0x7F010181
-			public const int dark = 2130772353;
+			// aapt resource value: 0x7F010183
+			public const int dark = 2130772355;
 			
 			// aapt resource value: 0x1
 			public const int date = 1;
@@ -5236,8 +5236,8 @@ namespace GroceryMate
 			// aapt resource value: 0x7F0C000B
 			public const int icon_group = 2131492875;
 			
-			// aapt resource value: 0x7F010180
-			public const int icon_only = 2130772352;
+			// aapt resource value: 0x7F010182
+			public const int icon_only = 2130772354;
 			
 			// aapt resource value: 0x1
 			public const int icon_uri = 1;
@@ -5308,8 +5308,8 @@ namespace GroceryMate
 			// aapt resource value: 0x1
 			public const int license_list = 1;
 			
-			// aapt resource value: 0x7F010182
-			public const int light = 2130772354;
+			// aapt resource value: 0x7F010184
+			public const int light = 2130772356;
 			
 			// aapt resource value: 0x7F0C000E
 			public const int line1 = 2131492878;
@@ -5344,8 +5344,8 @@ namespace GroceryMate
 			// aapt resource value: 0x1
 			public const int logo_only = 1;
 			
-			// aapt resource value: 0x7F010029
-			public const int marker_progress = 2130772009;
+			// aapt resource value: 0x7F010031
+			public const int marker_progress = 2130772017;
 			
 			// aapt resource value: 0x7F0C0042
 			public const int masked = 2131492930;
@@ -5371,8 +5371,8 @@ namespace GroceryMate
 			// aapt resource value: 0x7F0C0046
 			public const int multiply = 2131492934;
 			
-			// aapt resource value: 0x7F010028
-			public const int my_text_view = 2130772008;
+			// aapt resource value: 0x7F010030
+			public const int my_text_view = 2130772016;
 			
 			// aapt resource value: 0x7F0C0047
 			public const int navigation_header_container = 2131492935;
@@ -5439,6 +5439,12 @@ namespace GroceryMate
 			
 			// aapt resource value: 0x1
 			public const int plain = 1;
+			
+			// aapt resource value: 0x7F010029
+			public const int popup_delete = 2130772009;
+			
+			// aapt resource value: 0x7F010028
+			public const int popup_edit = 2130772008;
 			
 			// aapt resource value: 0x1
 			public const int production = 1;
@@ -5590,8 +5596,8 @@ namespace GroceryMate
 			// aapt resource value: 0x7F0C0072
 			public const int src_over = 2131492978;
 			
-			// aapt resource value: 0x7F010178
-			public const int standard = 2130772344;
+			// aapt resource value: 0x7F010180
+			public const int standard = 2130772352;
 			
 			// aapt resource value: 0x7F0C0073
 			public const int start = 2131492979;
@@ -5737,11 +5743,11 @@ namespace GroceryMate
 			// aapt resource value: 0x7F0C008F
 			public const int visible = 2131493007;
 			
-			// aapt resource value: 0x7F010030
-			public const int webview = 2130772016;
+			// aapt resource value: 0x7F010032
+			public const int webview = 2130772018;
 			
-			// aapt resource value: 0x7F010179
-			public const int wide = 2130772345;
+			// aapt resource value: 0x7F010181
+			public const int wide = 2130772353;
 			
 			// aapt resource value: 0x7F0C0090
 			public const int wrap_content = 2131493008;
@@ -6073,6 +6079,9 @@ namespace GroceryMate
 			// aapt resource value: 0x7F030002
 			public const int menu1 = 2130903042;
 			
+			// aapt resource value: 0x7F030003
+			public const int popup_menu = 2130903043;
+			
 			static Menu()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -6217,8 +6226,8 @@ namespace GroceryMate
 			// aapt resource value: 0x7F15001E
 			public const int appbar_scrolling_view_behavior = 2132082718;
 			
-			// aapt resource value: 0x7F060017
-			public const int ApplicationName = 2131099671;
+			// aapt resource value: 0x7F060019
+			public const int ApplicationName = 2131099673;
 			
 			// aapt resource value: 0x7F060002
 			public const int app_name = 2131099650;
@@ -6355,56 +6364,62 @@ namespace GroceryMate
 			// aapt resource value: 0x7F150020
 			public const int character_counter_pattern = 2132082720;
 			
-			// aapt resource value: 0x7F060057
-			public const int common_google_play_services_enable_button = 2131099735;
-			
-			// aapt resource value: 0x7F060058
-			public const int common_google_play_services_enable_text = 2131099736;
-			
 			// aapt resource value: 0x7F060059
-			public const int common_google_play_services_enable_title = 2131099737;
+			public const int common_google_play_services_enable_button = 2131099737;
 			
 			// aapt resource value: 0x7F060060
-			public const int common_google_play_services_install_button = 2131099744;
+			public const int common_google_play_services_enable_text = 2131099744;
 			
 			// aapt resource value: 0x7F060061
-			public const int common_google_play_services_install_text = 2131099745;
+			public const int common_google_play_services_enable_title = 2131099745;
 			
 			// aapt resource value: 0x7F060062
-			public const int common_google_play_services_install_title = 2131099746;
+			public const int common_google_play_services_install_button = 2131099746;
 			
 			// aapt resource value: 0x7F060063
-			public const int common_google_play_services_notification_ticker = 2131099747;
+			public const int common_google_play_services_install_text = 2131099747;
+			
+			// aapt resource value: 0x7F060064
+			public const int common_google_play_services_install_title = 2131099748;
+			
+			// aapt resource value: 0x7F060065
+			public const int common_google_play_services_notification_ticker = 2131099749;
 			
 			// aapt resource value: 0x1
 			public const int common_google_play_services_unknown_issue = 1;
 			
-			// aapt resource value: 0x7F060064
-			public const int common_google_play_services_unsupported_text = 2131099748;
-			
-			// aapt resource value: 0x7F060065
-			public const int common_google_play_services_update_button = 2131099749;
-			
 			// aapt resource value: 0x7F060066
-			public const int common_google_play_services_update_text = 2131099750;
+			public const int common_google_play_services_unsupported_text = 2131099750;
 			
 			// aapt resource value: 0x7F060067
-			public const int common_google_play_services_update_title = 2131099751;
+			public const int common_google_play_services_update_button = 2131099751;
 			
 			// aapt resource value: 0x7F060068
-			public const int common_google_play_services_updating_text = 2131099752;
+			public const int common_google_play_services_update_text = 2131099752;
 			
 			// aapt resource value: 0x7F060069
-			public const int common_google_play_services_wear_update_text = 2131099753;
+			public const int common_google_play_services_update_title = 2131099753;
 			
 			// aapt resource value: 0x7F060070
-			public const int common_open_on_phone = 2131099760;
+			public const int common_google_play_services_updating_text = 2131099760;
 			
 			// aapt resource value: 0x7F060071
-			public const int common_signin_button_text = 2131099761;
+			public const int common_google_play_services_wear_update_text = 2131099761;
 			
 			// aapt resource value: 0x7F060072
-			public const int common_signin_button_text_long = 2131099762;
+			public const int common_open_on_phone = 2131099762;
+			
+			// aapt resource value: 0x7F060073
+			public const int common_signin_button_text = 2131099763;
+			
+			// aapt resource value: 0x7F060074
+			public const int common_signin_button_text_long = 2131099764;
+			
+			// aapt resource value: 0x7F060015
+			public const int delete = 2131099669;
+			
+			// aapt resource value: 0x7F060014
+			public const int edit = 2131099668;
 			
 			// aapt resource value: 0x1
 			public const int fcm_fallback_notification_channel_label = 1;
@@ -6413,10 +6428,10 @@ namespace GroceryMate
 			public const int gcm_fallback_notification_channel_label = 1;
 			
 			// aapt resource value: 0x7F060016
-			public const int Hello = 2131099670;
+			public const int hello = 2131099670;
 			
-			// aapt resource value: 0x7F060014
-			public const int hello = 2131099668;
+			// aapt resource value: 0x7F060018
+			public const int Hello = 2131099672;
 			
 			// aapt resource value: 0x1
 			public const int license_content_error = 1;
@@ -6505,8 +6520,8 @@ namespace GroceryMate
 			// aapt resource value: 0x7F060013
 			public const int textTotal = 2131099667;
 			
-			// aapt resource value: 0x7F060015
-			public const int title_activity_webview = 2131099669;
+			// aapt resource value: 0x7F060017
+			public const int title_activity_webview = 2131099671;
 			
 			// aapt resource value: 0x7F060007
 			public const int visualization = 2131099655;
