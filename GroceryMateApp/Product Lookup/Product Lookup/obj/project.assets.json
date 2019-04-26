@@ -5003,11 +5003,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\GroceryMate.csproj",
+      "projectUniqueName": "C:\\Users\\dnlma\\Documents\\Code\\Project\\GroceryMateApp\\Product Lookup\\Product Lookup\\GroceryMate.csproj",
       "projectName": "GroceryMate",
-      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\GroceryMate.csproj",
+      "projectPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\GroceryMateApp\\Product Lookup\\Product Lookup\\GroceryMate.csproj",
       "packagesPath": "C:\\Users\\dnlma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\Product Lookup\\Product Lookup\\obj\\",
+      "outputPath": "C:\\Users\\dnlma\\Documents\\Code\\Project\\GroceryMateApp\\Product Lookup\\Product Lookup\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
