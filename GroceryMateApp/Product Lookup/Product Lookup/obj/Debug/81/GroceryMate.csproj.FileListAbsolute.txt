@@ -177,6 +177,13 @@ C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Look
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\com.prudx.grocerymate.apk
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\com.prudx.grocerymate-Signed.apk
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\android\bin\com.prudx.grocerymate.apk
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\Xamarin.Firebase.Common.dll.stamp
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\Xamarin.Firebase.Iid.dll.stamp
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\Xamarin.Firebase.Messaging.dll.stamp
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\1f4fd9cc.proguard.stamp
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\d9f2c52f.proguard.stamp
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\XbdMerge\04db0838.proguard.stamp
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\googsvcsjson\values\goog_svcs_json.xml
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Android.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Android.Export.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\mscorlib.pdb
@@ -254,7 +261,6 @@ C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Look
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\android\assets\System.Web.Services.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\android\assets\System.Xml.Linq.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\android\assets\System.Xml.pdb
-C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.csprojAssemblyReference.cache
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Connectivity.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Settings.Abstractions.dll.mdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Plugin.Settings.dll.mdb

@@ -29,7 +29,6 @@ namespace GroceryMate
         int EditItemID;
         ICollection<Receipt> ReceiptsCollection;
         ICollection<Item> ItemsForReceipt;
-        ICollection<int> ReceiptIds = new Collection<int>();
         AzureService azureService = new AzureService();
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -79,12 +78,13 @@ namespace GroceryMate
         public async void ReceiptViewBuilder()
         {
             ReceiptsCollection = await azureService.GetReceiptsForUser();
+            var receiptIds = new Collection<int>();
 
             foreach (Receipt r in ReceiptsCollection)
-                ReceiptIds.Add(r.ReceiptId);
+                receiptIds.Add(r.ReceiptId);
 
             //calculate our totals
-            var totals = await azureService.GetTotalsForReceipts(ReceiptIds);
+            var totals = await azureService.GetTotalsForReceipts(receiptIds);
 
             var adapter = new ListViewReceipt_Adapter(this, ReceiptsCollection, totals); //CameraActivity.CapturedItems
             Receipts.Adapter = adapter;

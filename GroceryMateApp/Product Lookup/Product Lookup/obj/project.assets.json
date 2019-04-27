@@ -70,6 +70,26 @@
           }
         }
       },
+      "Microsoft.AppCenter.Push/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "1.14.0",
+          "Xamarin.Android.Support.Compat": "26.0.2",
+          "Xamarin.Android.Support.Design": "26.0.2",
+          "Xamarin.Android.Support.v4": "26.0.2",
+          "Xamarin.Android.Support.v7.CardView": "26.0.2",
+          "Xamarin.Android.Support.v7.MediaRouter": "26.0.2",
+          "Xamarin.Firebase.Messaging": "60.1142.1"
+        },
+        "compile": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Push.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.Push.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Push.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.Push.dll": {}
+        }
+      },
       "Microsoft.Azure.Mobile.Client/4.1.1": {
         "type": "package",
         "dependencies": {
@@ -1060,6 +1080,53 @@
           "build/monoandroid81/Xamarin.Android.Support.v7.AppCompat.targets": {}
         }
       },
+      "Xamarin.Android.Support.v7.CardView/26.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Android.Support.Annotations": "[26.0.2]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Android.Support.v7.CardView.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Android.Support.v7.CardView.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Android.Support.v7.CardView.targets": {}
+        }
+      },
+      "Xamarin.Android.Support.v7.MediaRouter/26.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Android.Support.v7.AppCompat": "[26.0.2]",
+          "Xamarin.Android.Support.v7.Palette": "[26.0.2]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Android.Support.v7.MediaRouter.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Android.Support.v7.MediaRouter.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Android.Support.v7.MediaRouter.targets": {}
+        }
+      },
+      "Xamarin.Android.Support.v7.Palette/26.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Android.Support.Compat": "[26.0.2]",
+          "Xamarin.Android.Support.Core.Utils": "[26.0.2]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Android.Support.v7.Palette.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Android.Support.v7.Palette.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Android.Support.v7.Palette.targets": {}
+        }
+      },
       "Xamarin.Android.Support.v7.RecyclerView/28.0.0.1": {
         "type": "package",
         "dependencies": {
@@ -1096,6 +1163,55 @@
         "build": {
           "build/Xamarin.Build.Download.props": {},
           "build/Xamarin.Build.Download.targets": {}
+        }
+      },
+      "Xamarin.Firebase.Common/60.1142.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]",
+          "Xamarin.GooglePlayServices.Tasks": "[60.1142.1]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Common.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Common.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Firebase.Common.targets": {}
+        }
+      },
+      "Xamarin.Firebase.Iid/60.1142.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Firebase.Common": "[60.1142.1]",
+          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Firebase.Iid.targets": {}
+        }
+      },
+      "Xamarin.Firebase.Messaging/60.1142.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Firebase.Common": "[60.1142.1]",
+          "Xamarin.Firebase.Iid": "[60.1142.1]",
+          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]"
+        },
+        "compile": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Messaging.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid80/Xamarin.Firebase.Messaging.dll": {}
+        },
+        "build": {
+          "build/MonoAndroid80/Xamarin.Firebase.Messaging.targets": {}
         }
       },
       "Xamarin.GooglePlayServices.Base/60.1142.1": {
@@ -1289,6 +1405,24 @@
         "runtimes/win10-x86/lib/uap10.0/Microsoft.AppCenter.Crashes.dll",
         "runtimes/win10-x86/lib/uap10.0/WatsonRegistrationUtility.winmd",
         "runtimes/win10-x86/native/WatsonRegistrationUtility.dll"
+      ]
+    },
+    "Microsoft.AppCenter.Push/1.14.0": {
+      "sha512": "tETmipC+ByfvxSKN1zJ5Kc2HTwtGlR5d0ah5Mi3HZWeLrWgrpCn9mOK+JjEnIhZ0SQhYzJHociTV3dXXTQTqrA==",
+      "type": "package",
+      "path": "microsoft.appcenter.push/1.14.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Push.Android.Bindings.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Push.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Push.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Push.iOS.Bindings.dll",
+        "lib/netstandard1.0/Microsoft.AppCenter.Push.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Microsoft.AppCenter.Push.dll",
+        "lib/uap10.0/Microsoft.AppCenter.Push.dll",
+        "microsoft.appcenter.push.1.14.0.nupkg.sha512",
+        "microsoft.appcenter.push.nuspec"
       ]
     },
     "Microsoft.Azure.Mobile.Client/4.1.1": {
@@ -4968,6 +5102,48 @@
         "xamarin.android.support.v7.appcompat.nuspec"
       ]
     },
+    "Xamarin.Android.Support.v7.CardView/26.0.2": {
+      "sha512": "CnZloPGaKQrX86G3x/X59bKjkYQjUBJCLUDAiLT7brsWW3mWNmnmouQhHgRwvMJOg8tZFXhgo4xg9dKPzy26UA==",
+      "type": "package",
+      "path": "xamarin.android.support.v7.cardview/26.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/MonoAndroid80/Xamarin.Android.Support.v7.CardView.targets",
+        "lib/MonoAndroid80/Xamarin.Android.Support.v7.CardView.dll",
+        "xamarin.android.support.v7.cardview.26.0.2.nupkg.sha512",
+        "xamarin.android.support.v7.cardview.nuspec"
+      ]
+    },
+    "Xamarin.Android.Support.v7.MediaRouter/26.0.2": {
+      "sha512": "L1g7ADe6DTyLydgytm3tfaQwphdCwb+Yns71W9REHJy1MsbKG+KQ0bgZeRaQ2nWe6TKw2+ineNBpbS2PukhF1g==",
+      "type": "package",
+      "path": "xamarin.android.support.v7.mediarouter/26.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/MonoAndroid80/Xamarin.Android.Support.v7.MediaRouter.targets",
+        "lib/MonoAndroid80/Xamarin.Android.Support.v7.MediaRouter.dll",
+        "xamarin.android.support.v7.mediarouter.26.0.2.nupkg.sha512",
+        "xamarin.android.support.v7.mediarouter.nuspec"
+      ]
+    },
+    "Xamarin.Android.Support.v7.Palette/26.0.2": {
+      "sha512": "856lah0Bbb2l7IqmFX1UvZ3NeOWx88hCZsygkZ+l33TZqnHymOXC3A+CHdeQ1lHWpO/mg+FGt8NCJrzHjIAxNg==",
+      "type": "package",
+      "path": "xamarin.android.support.v7.palette/26.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/MonoAndroid80/Xamarin.Android.Support.v7.Palette.targets",
+        "lib/MonoAndroid80/Xamarin.Android.Support.v7.Palette.dll",
+        "xamarin.android.support.v7.palette.26.0.2.nupkg.sha512",
+        "xamarin.android.support.v7.palette.nuspec"
+      ]
+    },
     "Xamarin.Android.Support.v7.RecyclerView/28.0.0.1": {
       "sha512": "tLMRB4+6pGI6wDEju+agdX3QSUsgzh0EBoXNV517Zy3FMhxF9SAOvLr5u4b2RNaF8E0JdNfzDKBORn116FgGYw==",
       "type": "package",
@@ -5037,6 +5213,45 @@
         "build/Xamarin.Build.Download.targets",
         "xamarin.build.download.0.4.9.nupkg.sha512",
         "xamarin.build.download.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.Common/60.1142.1": {
+      "sha512": "+7los+L0hzPF71RjTZPg3KXun8L6J+0msF7c2WDvh2YNcTkqtwa63m39O4kDo8oUeb41JEMfqE0Uwq3lDgabng==",
+      "type": "package",
+      "path": "xamarin.firebase.common/60.1142.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MonoAndroid80/Xamarin.Firebase.Common.targets",
+        "lib/MonoAndroid80/Xamarin.Firebase.Common.dll",
+        "xamarin.firebase.common.60.1142.1.nupkg.sha512",
+        "xamarin.firebase.common.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.Iid/60.1142.1": {
+      "sha512": "AeAHNOkFLVUpwcAhrurokkj95eqUfIameOjNB1GWUcUC+EZYopEazW+QIocGBy2Mpo88qrypTS5CDVSEuQvpKg==",
+      "type": "package",
+      "path": "xamarin.firebase.iid/60.1142.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MonoAndroid80/Xamarin.Firebase.Iid.targets",
+        "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll",
+        "xamarin.firebase.iid.60.1142.1.nupkg.sha512",
+        "xamarin.firebase.iid.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.Messaging/60.1142.1": {
+      "sha512": "cYitRmCcOT8fEgnx1VH0QPPHT33Vi/MMotBmtCwFfepIm9bcGCOf8EJ9d7FbTPSa/Sl/2ikN6943hGAc6zHs6A==",
+      "type": "package",
+      "path": "xamarin.firebase.messaging/60.1142.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MonoAndroid80/Xamarin.Firebase.Messaging.targets",
+        "lib/MonoAndroid80/Xamarin.Firebase.Messaging.dll",
+        "xamarin.firebase.messaging.60.1142.1.nupkg.sha512",
+        "xamarin.firebase.messaging.nuspec"
       ]
     },
     "Xamarin.GooglePlayServices.Base/60.1142.1": {
@@ -5109,8 +5324,10 @@
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
       "EDMTDialog >= 1.0.2",
+      "Microsoft.AppCenter >= 1.14.0",
       "Microsoft.AppCenter.Analytics >= 1.14.0",
       "Microsoft.AppCenter.Crashes >= 1.14.0",
+      "Microsoft.AppCenter.Push >= 1.14.0",
       "Microsoft.Azure.Mobile.Client >= 4.1.1",
       "Microsoft.Azure.Mobile.Client.SQLiteStore >= 4.1.1",
       "Newtonsoft.Json >= 12.0.1",
@@ -5119,6 +5336,8 @@
       "Refractored.MvvmHelpers >= 1.3.0",
       "Xam.Plugin.Connectivity >= 3.2.0",
       "Xam.Plugins.Settings >= 3.1.1",
+      "Xamarin.Android.Support.Annotations >= 28.0.0.1",
+      "Xamarin.Android.Support.Core.Utils >= 28.0.0.1",
       "Xamarin.Android.Support.CustomTabs >= 28.0.0.1",
       "Xamarin.Android.Support.Design >= 28.0.0.1",
       "Xamarin.Android.Support.v4 >= 28.0.0.1",
@@ -5163,11 +5382,19 @@
             "target": "Package",
             "version": "[1.0.2, )"
           },
+          "Microsoft.AppCenter": {
+            "target": "Package",
+            "version": "[1.14.0, )"
+          },
           "Microsoft.AppCenter.Analytics": {
             "target": "Package",
             "version": "[1.14.0, )"
           },
           "Microsoft.AppCenter.Crashes": {
+            "target": "Package",
+            "version": "[1.14.0, )"
+          },
+          "Microsoft.AppCenter.Push": {
             "target": "Package",
             "version": "[1.14.0, )"
           },
@@ -5203,6 +5430,14 @@
             "target": "Package",
             "version": "[3.1.1, )"
           },
+          "Xamarin.Android.Support.Annotations": {
+            "target": "Package",
+            "version": "[28.0.0.1, )"
+          },
+          "Xamarin.Android.Support.Core.Utils": {
+            "target": "Package",
+            "version": "[28.0.0.1, )"
+          },
           "Xamarin.Android.Support.CustomTabs": {
             "target": "Package",
             "version": "[28.0.0.1, )"
@@ -5226,5 +5461,47 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Xamarin.Android.Support.v7.CardView 26.0.2 requires Xamarin.Android.Support.Annotations (= 26.0.2) but version Xamarin.Android.Support.Annotations 28.0.0.1 was resolved.",
+      "libraryId": "Xamarin.Android.Support.Annotations",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Xamarin.Android.Support.v7.MediaRouter 26.0.2 requires Xamarin.Android.Support.v7.AppCompat (= 26.0.2) but version Xamarin.Android.Support.v7.AppCompat 28.0.0.1 was resolved.",
+      "libraryId": "Xamarin.Android.Support.v7.AppCompat",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Xamarin.Android.Support.v7.Palette 26.0.2 requires Xamarin.Android.Support.Compat (= 26.0.2) but version Xamarin.Android.Support.Compat 28.0.0.1 was resolved.",
+      "libraryId": "Xamarin.Android.Support.Compat",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Xamarin.Android.Support.v7.Palette 26.0.2 requires Xamarin.Android.Support.Core.Utils (= 26.0.2) but version Xamarin.Android.Support.Core.Utils 28.0.0.1 was resolved.",
+      "libraryId": "Xamarin.Android.Support.Core.Utils",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    }
+  ]
 }
