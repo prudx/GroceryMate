@@ -52,7 +52,7 @@ namespace GroceryMate.Helpers
                 bool isDigitPresent = individual[i].Any(c => char.IsDigit(c));
                 bool isLetterPresent = individual[i].Any(c => char.IsLetter(c));
 
-                if (!isLetterPresent && isDigitPresent && individual[i].Contains("."))                                  //if it is an actual price
+                if (isDigitPresent && individual[i].Contains("."))                                  //if it is an actual price
                     prices.Add(Convert.ToDouble(Regex.Replace(individual[i], "[^0-9.]", "")));
                 else if (isLetterPresent && !isDigitPresent)                                                           //if there are no digits, add as a name (filtered constants)
                     names.Add(individual[i]);

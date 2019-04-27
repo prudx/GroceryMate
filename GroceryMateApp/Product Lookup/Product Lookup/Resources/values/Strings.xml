@@ -12,16 +12,18 @@
   <string name="searchBtn">Search prodcuts</string>
   <string name="cameraBtn">Scan receipt</string>
 
-  <string name="searching">Searching for</string>
+  <string name="searchingFor">Searching for</string>
 
 
   <string name="textStore">Store</string>
   <string name="textDate">Date</string>
   <string name="textTotal">Euro</string>
   <string name="textItem">Item</string>
+  <string name="textPrice">Price</string>
+  <string name="update">Update</string>
 
 
-
+  <string name="btn_Save">Save</string>
   <string name="edit">Edit</string>
   <string name="delete">Delete</string>
 

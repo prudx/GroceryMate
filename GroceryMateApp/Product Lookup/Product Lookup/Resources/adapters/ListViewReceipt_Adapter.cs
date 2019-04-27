@@ -64,11 +64,7 @@ namespace GroceryMate.Resources.adapters
 
             ReceiptName.Text = listReceipt.ElementAt(position).StoreName;
             ReceiptDate.Text = listReceipt.ElementAt(position).CreatedAt.UtcDateTime.ToShortDateString();
-
-            if (!totalPrice.ToString().Contains("."))
-                ReceiptTotal.Text = totalPrice+".00";
-            else
-                ReceiptTotal.Text = totalPrice.ToString();
+            ReceiptTotal.Text = String.Format("{0:0.00}", totalPrice);
 
             //ItemPrice.Text = "" + listReceipt.ElementAt(position).;
 

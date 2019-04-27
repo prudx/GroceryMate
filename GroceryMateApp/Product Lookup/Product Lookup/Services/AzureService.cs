@@ -285,7 +285,7 @@ namespace GroceryMate.Services
 
         //ITEMS
 
-        public async Task<int> CountItems()
+        public async Task<int> AllocateItemId()
         {
             await SyncTables();
 
@@ -302,15 +302,15 @@ namespace GroceryMate.Services
             return id;
         }
 
-        public async Task<IEnumerable<Item>> GetItems()
+        public async Task<Item> GetItem(int itemId)
         {
             await SyncTables();
 
             var data = await itemTable
-                .OrderBy(i => i.CreatedAt)
+                .Where(i => i.ItemId == itemId)
                 .ToEnumerableAsync();
 
-            return data;
+            return data.Single();
         }
 
         public async Task<ICollection<Item>> GetItemsForReceipt(int receiptId)
@@ -329,7 +329,7 @@ namespace GroceryMate.Services
         {
             await Initialize();
 
-            int itemId = await CountItems();
+            int itemId = await AllocateItemId();
 
             var item = new Item
             {
@@ -346,6 +346,25 @@ namespace GroceryMate.Services
 
             return item;
         }
+
+        public async Task<Item> UpdateItem(string name, double price, int itemId)
+        {
+            await Initialize();
+
+            var existing = await GetItem(itemId);
+
+            existing.Name = name;
+            existing.Price = price;
+
+            var updatedItem = existing;
+
+            await itemTable.UpdateAsync(updatedItem);
+
+            await SyncTables();
+
+            return updatedItem;
+        }
+
 
         public async Task<Item> DeleteItem(int itemId)
         {

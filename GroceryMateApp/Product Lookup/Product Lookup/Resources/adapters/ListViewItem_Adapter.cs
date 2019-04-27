@@ -58,7 +58,8 @@ namespace GroceryMate.Resources.adapters
             
             
             ItemName.Text = listReceiptItems.ElementAt(position).Name;
-            ItemPrice.Text = "" + listReceiptItems.ElementAt(position).Price;
+            ItemPrice.Text = String.Format("{0:0.00}", listReceiptItems.ElementAt(position).Price);
+            
 
             return view;
         }

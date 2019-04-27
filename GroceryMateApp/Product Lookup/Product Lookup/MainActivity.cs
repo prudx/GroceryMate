@@ -17,6 +17,9 @@ using Microsoft.WindowsAzure.MobileServices;
 using GroceryMate.Services;
 using GroceryMate.Helpers;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace GroceryMate
 {
@@ -37,6 +40,7 @@ namespace GroceryMate
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start("e09f8279-4d9e-464c-b9a2-e5df32e1a0f8", typeof(Analytics), typeof(Crashes));
 
             //initiate azure app service
             Settings.UserSid = null; //reset userId 
@@ -69,7 +73,7 @@ namespace GroceryMate
             //SEARCH BUTTON
             btn_SearchProducts.Click += delegate
             {
-                var searchMessage = Resource.String.searching;
+                string searchMessage = Resources.GetText(Resource.String.searchingFor);
                 Helper.CloseKeyboard();
 
                 AlertDialog dialog = new EDMTDialogBuilder()
