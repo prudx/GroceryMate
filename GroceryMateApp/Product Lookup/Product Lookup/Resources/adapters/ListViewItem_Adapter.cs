@@ -44,22 +44,22 @@ namespace GroceryMate.Resources.adapters
             return null;
         }
 
-        //not currently used so convert isn't bothering me
         public override long GetItemId(int position)
         {
-            return Convert.ToInt64(listReceiptItems.ElementAt(position).Id);
+            return listReceiptItems.ElementAt(position).ItemId;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.ListViewReceipt, parent, false);
+            var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.ListViewItem, parent, false);
 
             var ItemName = view.FindViewById<TextView>(Resource.Id.itemName);
             var ItemPrice = view.FindViewById<TextView>(Resource.Id.itemPrice);
             
             
             ItemName.Text = listReceiptItems.ElementAt(position).Name;
-            ItemPrice.Text = "" + listReceiptItems.ElementAt(position).Price;
+            ItemPrice.Text = String.Format("{0:0.00}", listReceiptItems.ElementAt(position).Price);
+            
 
             return view;
         }

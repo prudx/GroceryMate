@@ -17,6 +17,59 @@
       "jQuery/2.1.1": {
         "type": "package"
       },
+      "Microsoft.AppCenter/1.14.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Analytics/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "1.14.0"
+        },
+        "compile": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Crashes/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "1.14.0"
+        },
+        "compile": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.Android.Bindings.dll": {},
+          "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win10-arm/native/WatsonRegistrationUtility.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/native/WatsonRegistrationUtility.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/native/WatsonRegistrationUtility.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
+      },
       "Microsoft.Azure.Mobile.Client/4.1.1": {
         "type": "package",
         "dependencies": {
@@ -1162,6 +1215,80 @@
         "Tools/uninstall.ps1",
         "jquery.2.1.1.nupkg.sha512",
         "jquery.nuspec"
+      ]
+    },
+    "Microsoft.AppCenter/1.14.0": {
+      "sha512": "yr+IT4ABH/Pg2+/UuhH5qfJ5oZvuxHUMSnBpLpYHSThWDMEGVTNdZTGOf1HUL9h2UW9V+Ty/lVUV9mpavnZoSA==",
+      "type": "package",
+      "path": "microsoft.appcenter/1.14.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Android.Bindings.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.xml",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.xml",
+        "lib/netstandard1.0/Microsoft.AppCenter.dll",
+        "lib/netstandard1.0/Microsoft.AppCenter.xml",
+        "lib/portable-net45+win8+wpa81+wp8/Microsoft.AppCenter.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Microsoft.AppCenter.xml",
+        "lib/uap10.0/Microsoft.AppCenter.dll",
+        "lib/uap10.0/Microsoft.AppCenter.xml",
+        "microsoft.appcenter.1.14.0.nupkg.sha512",
+        "microsoft.appcenter.nuspec"
+      ]
+    },
+    "Microsoft.AppCenter.Analytics/1.14.0": {
+      "sha512": "Nc5dxBJjrdJZZfUCnSAjxv2uTXj/+CSFqLshMJhYSNtPopJYuhLorUJNP1F4IbWYBQhUU3iwp1xzUe4ow+wNOw==",
+      "type": "package",
+      "path": "microsoft.appcenter.analytics/1.14.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.Android.Bindings.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.xml",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.xml",
+        "lib/netstandard1.0/Microsoft.AppCenter.Analytics.dll",
+        "lib/netstandard1.0/Microsoft.AppCenter.Analytics.xml",
+        "lib/portable-net45+win8+wpa81+wp8/Microsoft.AppCenter.Analytics.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Microsoft.AppCenter.Analytics.xml",
+        "lib/uap10.0/Microsoft.AppCenter.Analytics.dll",
+        "lib/uap10.0/Microsoft.AppCenter.Analytics.xml",
+        "microsoft.appcenter.analytics.1.14.0.nupkg.sha512",
+        "microsoft.appcenter.analytics.nuspec"
+      ]
+    },
+    "Microsoft.AppCenter.Crashes/1.14.0": {
+      "sha512": "50AL7GLzrzfeb1h6uWBYUtJP4AKP0hg37TgBdu8i51FTnv16r0xjWMGd4/HMqXYXRonnP+7rZdZcy10xiRjPvQ==",
+      "type": "package",
+      "path": "microsoft.appcenter.crashes/1.14.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/uap10.0/Microsoft.AppCenter.Crashes.targets",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.Android.Bindings.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll",
+        "lib/netstandard1.0/Microsoft.AppCenter.Crashes.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Microsoft.AppCenter.Crashes.dll",
+        "microsoft.appcenter.crashes.1.14.0.nupkg.sha512",
+        "microsoft.appcenter.crashes.nuspec",
+        "ref/uap10.0/Microsoft.AppCenter.Crashes.dll",
+        "runtimes/win10-arm/lib/uap10.0/Microsoft.AppCenter.Crashes.dll",
+        "runtimes/win10-arm/lib/uap10.0/WatsonRegistrationUtility.winmd",
+        "runtimes/win10-arm/native/WatsonRegistrationUtility.dll",
+        "runtimes/win10-x64/lib/uap10.0/Microsoft.AppCenter.Crashes.dll",
+        "runtimes/win10-x64/lib/uap10.0/WatsonRegistrationUtility.winmd",
+        "runtimes/win10-x64/native/WatsonRegistrationUtility.dll",
+        "runtimes/win10-x86/lib/uap10.0/Microsoft.AppCenter.Crashes.dll",
+        "runtimes/win10-x86/lib/uap10.0/WatsonRegistrationUtility.winmd",
+        "runtimes/win10-x86/native/WatsonRegistrationUtility.dll"
       ]
     },
     "Microsoft.Azure.Mobile.Client/4.1.1": {
@@ -4982,6 +5109,8 @@
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
       "EDMTDialog >= 1.0.2",
+      "Microsoft.AppCenter.Analytics >= 1.14.0",
+      "Microsoft.AppCenter.Crashes >= 1.14.0",
       "Microsoft.Azure.Mobile.Client >= 4.1.1",
       "Microsoft.Azure.Mobile.Client.SQLiteStore >= 4.1.1",
       "Newtonsoft.Json >= 12.0.1",
@@ -5033,6 +5162,14 @@
           "EDMTDialog": {
             "target": "Package",
             "version": "[1.0.2, )"
+          },
+          "Microsoft.AppCenter.Analytics": {
+            "target": "Package",
+            "version": "[1.14.0, )"
+          },
+          "Microsoft.AppCenter.Crashes": {
+            "target": "Package",
+            "version": "[1.14.0, )"
           },
           "Microsoft.Azure.Mobile.Client": {
             "target": "Package",

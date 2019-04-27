@@ -16,10 +16,14 @@ using GroceryMate.Resources.adapters;
 using Microsoft.WindowsAzure.MobileServices;
 using GroceryMate.Services;
 using GroceryMate.Helpers;
+using AlertDialog = Android.Support.V7.App.AlertDialog;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace GroceryMate
 {
-    [Activity(Label = "GroceryMate", Theme = "@style/Theme.AppCompat.Light", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", Icon ="@mipmap/ic_launcher", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -36,6 +40,7 @@ namespace GroceryMate
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start("e09f8279-4d9e-464c-b9a2-e5df32e1a0f8", typeof(Analytics), typeof(Crashes));
 
             //initiate azure app service
             Settings.UserSid = null; //reset userId 
@@ -51,8 +56,9 @@ namespace GroceryMate
 
             editText = FindViewById<EditText>(GroceryMate.Resource.Id.queryInput);
             editText.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
-                queryString = e.Text.ToString();
-            };            
+                queryString = e.Text.ToString();               
+            };
+
 
             try
             {
@@ -64,67 +70,68 @@ namespace GroceryMate
                 Toast.MakeText(this, "" + ex.Message, ToastLength.Long).Show();
             }
 
-            btn_SearchProducts.Click += async delegate
+            //SEARCH BUTTON
+            btn_SearchProducts.Click += delegate
             {
-                try
-                {
-                    //https://dev.tescolabs.com/grocery/products/?query=milk&offset=0&limit=10
-                    //hardcoded instead of httpUtil obj
-                    //queryString = "query=orange&offset=0&limit=10";
-                    
-                    
-                    Android.Support.V7.App.AlertDialog dialog = new EDMTDialogBuilder()
-                    .SetContext(this)
-                    .SetMessage("Searching for " + queryString)
-                    .Build();
+                string searchMessage = Resources.GetText(Resource.String.searchingFor);
+                Helper.CloseKeyboard();
 
-                    if (!dialog.IsShowing)
-                        dialog.Show();
+                AlertDialog dialog = new EDMTDialogBuilder()
+               .SetContext(this)
+               .SetMessage(searchMessage +" " +queryString)
+               .Build();
 
-                    //API SEARCH REQUEST
-                    RootObject results = await tescoAPI.GetUsers(queryString, 0, 50);
-                    List<Item> resultList = new List<Item>();
-                    
-                    foreach (var result in results.Uk.Ghs.Products.Results)
-                    {
-                        Item temp = new Item()
-                        {
-                            Image = result.Image,
-                            Name = result.Name,
-                            Price = result.Price
-                        };
-                        resultList.Add(temp);
-                    }
+                if (!dialog.IsShowing)
+                    dialog.Show();
 
-
-                    //foreach (var result in results.Uk.Ghs.Products.Results)
-                    //resultList.Add(result.Name);
-                    var adapter = new ProductSearch_Adapter(this, resultList);
-                    list_Products.Adapter = adapter;
-
-                    /*
-                    var adapter = new ArrayAdapter<string>(this,
-                        Android.Resource.Layout.SimpleListItem1, resultList);
-                    list_Products.Adapter = adapter;
-                    */
-             
-                    if (dialog.IsShowing)
-                        dialog.Dismiss();
-
-                    
-                }
-                catch (Exception ex)
-                {
-                    Toast.MakeText(this, "" + ex.Message, ToastLength.Long).Show();
-                }
-
+                SearchProducts(queryString, dialog);
             };
 
+            //CAMERA BUTTON
             btn_Camera.Click += (s, e) =>
             {
                 Intent cameraActivity = new Intent(this, typeof(CameraActivity));
                 StartActivity(cameraActivity);
             };
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            var inflater = MenuInflater;
+            inflater.Inflate(Resource.Menu.menu1, menu);
+            return true;
+        }
+
+
+        //API SEARCH REQUEST
+        public async void SearchProducts(string queryString, AlertDialog dialog)
+        {
+            try
+            {
+                RootObject results = await tescoAPI.GetItems(queryString, 0, 16);
+                List<Item> resultList = new List<Item>();
+
+                foreach (var result in results.Uk.Ghs.Products.Results)
+                {
+                    Item temp = new Item()
+                    {
+                        Image = result.Image,
+                        Name = result.Name,
+                        Price = result.Price
+                    };
+                    resultList.Add(temp);
+                }
+
+                var adapter = new ProductSearch_Adapter(this, resultList);
+                list_Products.Adapter = adapter;
+
+                if (dialog.IsShowing)
+                    dialog.Dismiss();
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, "" + ex.Message, ToastLength.Long).Show();
+            }      
         }
 
         [Java.Interop.Export()]
@@ -134,23 +141,23 @@ namespace GroceryMate
             if (await azureService.Authenticate())
             {
                 //Hide the button after authentication succeeds.
-                FindViewById<Button>(GroceryMate.Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+                FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+                FindViewById<Button>(Resource.Id.btn_Receipts).Visibility = ViewStates.Visible;
+                FindViewById<Button>(Resource.Id.btn_Graphs).Visibility = ViewStates.Visible;
+
 
                 //var found = await azureService.FindUser();
-                //Console.WriteLine("was user found?: " + found);                 
+                //Console.WriteLine("was user found?: " + found); 
+                //FindViewById<Button>(GroceryMate.Resource.Id.btnHistory).Visibility = ViewStates.Gone;
             }
         }
-        /*
-         * hide keyboard after search
-         * 
-        public override bool OnTouchEvent(MotionEvent e)
+
+        [Java.Interop.Export()]
+        public void StartReceipts(View view)
         {
-            InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
-            imm.HideSoftInputFromWindow(editText.WindowToken, 0);
-            return base.OnTouchEvent(e);
+            Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
+            StartActivity(receiptActivity);
         }
-        */
-
+        
     }
-
 }

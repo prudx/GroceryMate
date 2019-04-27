@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="10dp"
+android:background="@color/keeperGreen">
 	<TextView
-		android:text="Name"
-		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Store"
+		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:minWidth="25px"
 		android:minHeight="25px"
 		android:paddingLeft="10dp"
-		android:id="@+id/itemName" />
+		android:id="@+id/receiptName" />
+	<TextView
+		android:text="Date"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:paddingLeft="40dp"
+		android:id="@+id/receiptDate" />
 	<TextView
 		android:text="Price"
 		android:textAppearance="?android:attr/textAppearanceMedium"
@@ -19,5 +30,5 @@
 		android:layout_height="wrap_content"
 		android:gravity="right"
 		android:paddingRight="10dp"
-		android:id="@+id/itemPrice" />
+		android:id="@+id/receiptTotal" />
 </LinearLayout>

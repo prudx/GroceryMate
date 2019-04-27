@@ -6,35 +6,66 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:weightSum="1.0"
+	android:background="@color/darknessGrey"
+	android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
 	>
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:id="@+id/topBar"
 		android:gravity="right"
-		android:background="#71BCFA"
-		android:padding="6dip"
-		android:minWidth="25px"
-		android:minHeight="25px">
+		android:background="@color/keeperGreen">
 		<Button
 			android:id="@+id/buttonLoginUser"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_height="match_parent"
 			android:layout_alignParentRight="true"
 			android:onClick="LoginUser"
-			android:text="@string/login_button_text" />
+			android:textSize= "12sp"
+			android:text="@string/btn_Login"/>
+		<Button
+			android:id="@+id/btn_Receipts"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_alignParentRight="true"
+			android:textSize= "12sp"
+			android:onClick="StartReceipts"
+			android:text="@string/receipts"
+			android:visibility="gone"/>
+		<Button
+			android:id="@+id/btn_Graphs"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_alignParentRight="true"
+			android:textSize= "12sp"
+			android:text="@string/visualization"
+			android:visibility="gone"/>
 	</LinearLayout>
 
-	<ListView
-		android:id="@+id/list_Products"
-		android:layout_weight="1.0"
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_below="@+id/topBar"
 		android:layout_above="@+id/queryInput"
-	/>
+		android:gravity="right"
+		android:minWidth="25px"
+		android:minHeight="25px">
+		<ListView
+			android:id="@+id/list_Products"
+			android:layout_weight="1.0"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+		/>
+	</LinearLayout>
+	
 	<EditText
 		android:id="@+id/queryInput"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:hint="@string/searchProduct"
+		android:gravity="left"
+		android:paddingLeft="10dp"
 		android:layout_above="@+id/layout_Nav"
 	/>
 	<LinearLayout
@@ -42,22 +73,24 @@
 		android:layout_width="match_parent" 
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
-		android:layout_alignParentBottom="true">
+		android:layout_alignParentBottom="true"
+		android:background="@color/keeperGreen"
+		android:padding="4dp">
 		<Button
-			android:text="Search products"
+			android:text="@string/searchBtn"
 			android:textSize= "12sp"
 			android:id="@+id/btn_SearchProduct"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_weight="30"
+			android:layout_weight="40"
 		/>
 		<Button
-			android:text="Camera"
+			android:text="@string/cameraBtn"
 			android:textSize= "12sp"
 			android:id="@+id/btn_Camera"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_weight="70"
+			android:layout_weight="60"
 		/>
 	</LinearLayout>
 </RelativeLayout>

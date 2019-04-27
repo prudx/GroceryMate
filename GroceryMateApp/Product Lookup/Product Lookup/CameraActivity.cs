@@ -24,23 +24,22 @@ using System.Collections.ObjectModel;
 
 namespace GroceryMate
 {
-    [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.AppCompat.Light.NoActionBar", MainLauncher = false)]
     public class CameraActivity : AppCompatActivity, ISurfaceHolderCallback, IProcessor
     {
-        private SurfaceView cameraView;
-        private TextView cameraText;
-        private CameraSource cameraSource;
-        private Button btn_Capture;
-        private string capture;
-        private const int RequestCameraPermissionID = 1001;
+        SurfaceView cameraView;
+        TextView cameraText;
+        CameraSource cameraSource;
+        Button btn_Capture;
+        string capture;
+        const int RequestCameraPermissionID = 1001;
 
-        public AzureService azureService = new AzureService();
+        AzureService azureService = new AzureService();
 
-        //TEMP VAR?
         ListView ReceiptItems;
-        public static ICollection<Item> capturedItems; //was static
+        static ICollection<Item> capturedItems; //was static
 
-        public TextView CameraText { get => cameraText; set => cameraText = value; }
+        TextView CameraText { get => cameraText; set => cameraText = value; }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
@@ -68,12 +67,11 @@ namespace GroceryMate
             CameraText = FindViewById<TextView>(GroceryMate.Resource.Id.camera_TextSense1);
             btn_Capture = FindViewById<Button>(GroceryMate.Resource.Id.btn_Capture);
 
-            //TEMP RECEIPT STUFF?
             ReceiptItems = FindViewById<ListView>(GroceryMate.Resource.Id.listViewReceipt);
 
             TextRecognizer textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
             if (!textRecognizer.IsOperational)
-                Log.Error("Main Activity", "Detector dependencies are not yet available");
+                Log.Error("Camera Error", "Vision Detector dependencies are not available");
             else
             {
                 cameraSource = new CameraSource.Builder(ApplicationContext, textRecognizer)
@@ -91,25 +89,26 @@ namespace GroceryMate
             {
                 //below captures used for testing
                 //capture = CameraText.Text;
-                //capture = "tesco\neggs\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
-                capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
+                capture = "tesco\neggs\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
+                //capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
+                //capture = "x---d\nlidl\napples\n1.00";
 
                 Receipt r = Sorter.DetermineStore(capture);
                 SurfaceDestroyed(cameraView.Holder);
 
                 capturedItems = r.Items; //sorted receipt items
 
-                //if signed in, you can push receipt data
-                if(Settings.UserSid != null)
-                    await azureService.AddReceipt(r.StoreName, r.Items);    //add item is called from add receipt
                 
-
+                //if signed in, you can push receipt data
+                await azureService.AddReceipt(r.StoreName, r.Items);    //add item is called from add receipt
+                
+                /*
                 var items = await azureService.GetItems();
                 foreach (var item in items)
                 {
                     Console.WriteLine("\n name: " +item.Name.ToString() + "\n price: " + item.Price.ToString() + "\n Id: " + item.Id + "\n itemId: " +item.ItemId +" ");
                 }
-                
+                */
                 
                 
                 /*

@@ -108,6 +108,12 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "GroceryMate.dll" comes first in this list. */
 		"GroceryMate.dll",
 		"EDMTDialog.dll",
+		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
+		"Microsoft.AppCenter.Analytics.dll",
+		"Microsoft.AppCenter.Android.Bindings.dll",
+		"Microsoft.AppCenter.Crashes.Android.Bindings.dll",
+		"Microsoft.AppCenter.Crashes.dll",
+		"Microsoft.AppCenter.dll",
 		"Microsoft.Azure.Mobile.Client.dll",
 		"Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
 		"MvvmHelpers.dll",

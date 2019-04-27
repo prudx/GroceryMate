@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define AUTH
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -25,15 +26,18 @@ namespace GroceryMate.Services
 {
     public class AzureService
     {
-        
-
+#if AUTH
+        public static bool UseAuth { get; set; }
+#else
+        public static bool UseAuth { get; set; } = false;
+#endif
         public MobileServiceClient Client { get; set; } = null;
         MobileServiceUser User { get; set; } = null;
         IMobileServiceSyncTable<User> userTable;
         IMobileServiceSyncTable<Receipt> receiptTable;
         IMobileServiceSyncTable<Item> itemTable;
 
-        public static bool UseAuth { get; set; } = true;
+        //INITIALIZATION
 
         public async Task Initialize()
         {
@@ -42,7 +46,7 @@ namespace GroceryMate.Services
 
             var appUrl = "https://grocerymate1.azurewebsites.net";
 
-
+#if AUTH
             Client = new MobileServiceClient(appUrl, new AuthHandler());
 
             if (!string.IsNullOrWhiteSpace(Settings.AuthToken) && !string.IsNullOrWhiteSpace(Settings.UserSid))
@@ -50,11 +54,11 @@ namespace GroceryMate.Services
                 Client.CurrentUser = new MobileServiceUser(Settings.UserSid);
                 Client.CurrentUser.MobileServiceAuthenticationToken = Settings.AuthToken;
             }
-            
+#else
             //unauthorized version
-            //Client = new MobileServiceClient(appUrl);
-
-            var fileName = "groceryMateLocal6.db";                //MobileServiceClient.DefaultDatabasePath()
+            Client = new MobileServiceClient(appUrl);
+#endif
+            var fileName = "groceryMateLocal7.db";                //MobileServiceClient.DefaultDatabasePath()
             fileName = Path.Combine(MobileServiceClient.DefaultDatabasePath, fileName);
     
             var store = new MobileServiceSQLiteStore(fileName);
@@ -72,13 +76,13 @@ namespace GroceryMate.Services
             itemTable = Client.GetSyncTable<Item>();
         }
 
-        //change to sync tables?
+        //ONLINE OFFLINE SYNCRONIZATION
+
+        //Syncronize our tables to azure
         public async Task SyncTables()
         {
-            ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
-
             await Initialize();
-
+            ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
             try
             {
                 if (!CrossConnectivity.Current.IsConnected)
@@ -104,7 +108,6 @@ namespace GroceryMate.Services
                         Console.WriteLine(error.TableName);
                         Console.WriteLine(error.Status);
                         Console.WriteLine(error.Item);
-
                     }
                 }
                 
@@ -122,16 +125,17 @@ namespace GroceryMate.Services
                             // Discard local change.
                             await error.CancelAndDiscardItemAsync();
                         }
-
                         Console.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
                     }
                 }
                 
             }
         }
+
+        //USERS
+
         public async Task<bool> FindUser()
         {
-            await Initialize();
             await SyncTables();
 
             var data = await userTable
@@ -151,23 +155,8 @@ namespace GroceryMate.Services
             {
                 found = true;
             }
-            //different to james code
             return found;
         }
-
-        public async Task<IEnumerable<Item>> GetItems()
-        {
-            await Initialize();
-            await SyncTables();
-
-            var data = await itemTable
-                .OrderBy(i => i.CreatedAt)
-                .ToEnumerableAsync();
-
-            //different to james code
-            return data;
-        }
-
 
         //take in SID when creating user
         public async Task<User> AddUser()
@@ -187,35 +176,77 @@ namespace GroceryMate.Services
             return user;
         }
 
-        public async Task<int> CountReceipts()
+
+        //RECEIPTS
+
+        public async Task<Receipt> GetReceipt(int receiptId)
         {
-            await Initialize();
+            await SyncTables();
+
+            var data = await receiptTable
+                .Where(c => c.ReceiptId == receiptId)
+                .ToCollectionAsync();
+
+            return data.Single();
+        }
+
+        public async Task<ICollection<Receipt>> GetReceiptsForUser()
+        {
+            await SyncTables();
+
+            var data = await receiptTable
+                .Where(c => c.UserId == Settings.UserSid)
+                .OrderByDescending(c => c.CreatedAt)
+                .ToCollectionAsync();
+
+            return data;
+        }
+
+        public async Task<ICollection<double>> GetTotalsForReceipts(ICollection<int> receiptIds)
+        {
+            await SyncTables();
+            Collection<double> totals = new Collection<double>();
+
+            foreach (int id in receiptIds)
+            {
+                double receiptTotal = 0;
+                var data = await itemTable
+                .Where(c => c.ReceiptId == id)
+                .ToCollectionAsync();
+
+                foreach (Item i in data)
+                    receiptTotal += i.Price;
+
+                totals.Add(receiptTotal);
+            }
+            return totals;
+        }
+
+        public async Task<int> AllocatedReceiptId()
+        {
             await SyncTables();
 
             var data = await receiptTable
                 .Where(c => c.Id != null)
                 .ToListAsync();
-
-            int count = 0;
-            if (data.Count != 0)
-                count = data.Count;
-
-            return count;
+            
+            int id = data.Count;
+            //avoid ID troubles later
+            foreach(Receipt r in data)
+                if(r.ReceiptId == id)
+                    id += 10000;
+            
+            return id;
         }
 
         public async Task<Receipt> AddReceipt(string storeName, ICollection<Item> items)
         {
             await Initialize();
-
-            int receiptId = await CountReceipts();
-
+            int receiptId = await AllocatedReceiptId();
             
             foreach(Item it in items)
-            {
                 await AddItem(it.Name, it.Price, receiptId);
-            }
             
-
             var receipt = new Receipt
             {
                 Id = "R"+receiptId,
@@ -232,27 +263,73 @@ namespace GroceryMate.Services
             return receipt;
         }
 
-        public async Task<int> CountItems()
+        public async Task<Receipt> DeleteReceipt(int receiptId)
         {
             await Initialize();
+
+            var receipt = await GetReceipt(receiptId);
+
+            //delete items belonging to receipt first.
+            var items = await GetItemsForReceipt(receiptId);
+            foreach (Item i in items)
+                await DeleteItem(i.ItemId);
+
+            //then delete receipt
+            await receiptTable.DeleteAsync(receipt);
+
+            await SyncTables();
+
+            return receipt;
+        }
+
+
+        //ITEMS
+
+        public async Task<int> AllocateItemId()
+        {
             await SyncTables();
 
             var data = await itemTable
                 .Where(c => c.Id != null)
                 .ToListAsync();
 
-            int count = 0;
-            if (data.Count != 0)
-                count = data.Count;
+            int id = data.Count;
+            //avoid ID troubles later
+            foreach (Item r in data)
+                if (r.ItemId == id)
+                    id += 10000;
 
-            return count;
+            return id;
+        }
+
+        public async Task<Item> GetItem(int itemId)
+        {
+            await SyncTables();
+
+            var data = await itemTable
+                .Where(i => i.ItemId == itemId)
+                .ToEnumerableAsync();
+
+            return data.Single();
+        }
+
+        public async Task<ICollection<Item>> GetItemsForReceipt(int receiptId)
+        {
+            await SyncTables();
+
+            var data = await itemTable
+                .Where(i => i.ReceiptId == receiptId)
+                .OrderBy(i => i.CreatedAt)
+                .ToCollectionAsync();
+
+            return data;
         }
 
         public async Task<Item> AddItem(string name, double price, int receiptId)
         {
             await Initialize();
 
-            int itemId = await CountItems();
+            int itemId = await AllocateItemId();
 
             var item = new Item
             {
@@ -270,15 +347,39 @@ namespace GroceryMate.Services
             return item;
         }
 
-        //not used yet
-        /*
-        public Task<bool> LoginAsync()
+        public async Task<Item> UpdateItem(string name, double price, int itemId)
         {
-            return null;
+            await Initialize();
+
+            var existing = await GetItem(itemId);
+
+            existing.Name = name;
+            existing.Price = price;
+
+            var updatedItem = existing;
+
+            await itemTable.UpdateAsync(updatedItem);
+
+            await SyncTables();
+
+            return updatedItem;
         }
-        */    
 
 
+        public async Task<Item> DeleteItem(int itemId)
+        {
+            var data = await itemTable
+                .Where(c => c.ItemId == itemId)
+                .ToListAsync();
+
+            await itemTable.DeleteAsync(data.Single());
+
+            await SyncTables();
+
+            return data.Single();
+        }
+
+        //AUTHENTICATION
 
         // Define an authenticated user.
         public async Task<bool> Authenticate()
@@ -289,6 +390,9 @@ namespace GroceryMate.Services
             var success = false;
             try
             {
+                if (!CrossConnectivity.Current.IsConnected)
+                    return false;
+
                 // Sign in with Facebook login using a server-managed flow.
                 User = await Client.LoginAsync(currentActivity.ApplicationContext,
                     MobileServiceAuthenticationProvider.Google, "grocerymate");
@@ -312,6 +416,7 @@ namespace GroceryMate.Services
                     Settings.UserSid = User.UserId;
                     
                     success = true;
+                    UseAuth = true;
 
                     //create new user if user doesn't exist in db
                     if (await FindUser() == false)
