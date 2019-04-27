@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
@@ -67,6 +68,20 @@ namespace GroceryMate.Helpers
             dialog.Show();
 
             return dialog;
+        }
+    }
+
+    public interface INativeFont
+    {
+        float GetNativeSize(float size);
+    }
+
+    public class NativeFont : INativeFont
+    {
+        public float GetNativeSize(float size)
+        {
+            var displayMetrics = Android.App.Application.Context.Resources.DisplayMetrics;
+            return TypedValue.ApplyDimension(ComplexUnitType.Dip, size, displayMetrics);
         }
     }
 }

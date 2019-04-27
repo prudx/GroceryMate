@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.microsoft.appcenter.push">
+    package="com.microsoft.appcenter"
+    android:versionCode="43"
+    android:versionName="1.11.3" >
 
-    <application>
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="28" />
 
-        <service
-            android:name=".TokenService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-
-    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

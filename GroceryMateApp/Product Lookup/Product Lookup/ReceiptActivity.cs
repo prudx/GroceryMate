@@ -18,7 +18,7 @@ using GroceryMate.Services;
 
 namespace GroceryMate
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", MainLauncher = false)]
     public class ReceiptActivity : Activity
     {
         ListView Receipts;

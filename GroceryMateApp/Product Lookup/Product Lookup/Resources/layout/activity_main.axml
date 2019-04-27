@@ -39,6 +39,7 @@
 			android:layout_height="match_parent"
 			android:layout_alignParentRight="true"
 			android:textSize= "12sp"
+			android:onClick="StartCharts"
 			android:text="@string/visualization"
 			android:visibility="gone"/>
 	</LinearLayout>

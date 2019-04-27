@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
@@ -36,8 +37,8 @@ namespace GroceryMate.Services
         IMobileServiceSyncTable<User> userTable;
         IMobileServiceSyncTable<Receipt> receiptTable;
         IMobileServiceSyncTable<Item> itemTable;
-
-        //INITIALIZATION
+        Random random = new Random();
+        // INITIALIZATION
 
         public async Task Initialize()
         {
@@ -76,7 +77,7 @@ namespace GroceryMate.Services
             itemTable = Client.GetSyncTable<Item>();
         }
 
-        //ONLINE OFFLINE SYNCRONIZATION
+        // ONLINE OFFLINE SYNCRONIZATION
 
         //Syncronize our tables to azure
         public async Task SyncTables()
@@ -132,7 +133,7 @@ namespace GroceryMate.Services
             }
         }
 
-        //USERS
+        // USERS
 
         public async Task<bool> FindUser()
         {
@@ -177,7 +178,7 @@ namespace GroceryMate.Services
         }
 
 
-        //RECEIPTS
+        // RECEIPTS
 
         public async Task<Receipt> GetReceipt(int receiptId)
         {
@@ -234,7 +235,7 @@ namespace GroceryMate.Services
             //avoid ID troubles later
             foreach(Receipt r in data)
                 if(r.ReceiptId == id)
-                    id += 10000;
+                    id = random.Next(id + 1, int.MaxValue);
             
             return id;
         }
@@ -283,7 +284,7 @@ namespace GroceryMate.Services
         }
 
 
-        //ITEMS
+        // ITEMS
 
         public async Task<int> AllocateItemId()
         {
@@ -297,7 +298,7 @@ namespace GroceryMate.Services
             //avoid ID troubles later
             foreach (Item r in data)
                 if (r.ItemId == id)
-                    id += 10000;
+                    id = random.Next(id+1, int.MaxValue);
 
             return id;
         }
@@ -379,7 +380,7 @@ namespace GroceryMate.Services
             return data.Single();
         }
 
-        //AUTHENTICATION
+        // AUTHENTICATION
 
         // Define an authenticated user.
         public async Task<bool> Authenticate()
@@ -430,7 +431,68 @@ namespace GroceryMate.Services
 
             return success;
         }
-        
-        
+
+
+        // CHARTS FOR VISUALISATION
+        public async Task<List<string>> UniqueStoreNames()
+        {
+            await SyncTables();
+
+            //count store names no distinct method in IMobileTableService :(
+            var data = await receiptTable
+                .Where(c => c.Id != null)
+                .ToListAsync();
+
+            var uniqueStores = data.Select(r => r.StoreName).Distinct().ToList();
+
+            return uniqueStores;
+        }
+
+
+        public async Task<List<KeyValuePair<string, double>>> AverageSpend(bool ForUser)
+        {
+            await SyncTables();
+
+            List<string> uniqueStores = (List<string>)await UniqueStoreNames(); //get stores for search var
+            List<double> TotalAverages = new List<double>();
+
+            List<KeyValuePair<string, double>> TotalAveragesForUniqueStores = new List<KeyValuePair<string, double>>();
+
+            //string double tuple/pair?
+
+            foreach (var sn in uniqueStores)
+            {
+                MobileServiceCollection<int, int> receiptIdsForStore;
+                if (ForUser == true)
+                {
+                    receiptIdsForStore = await receiptTable
+                    .Where(r => r.StoreName == sn)
+                    .Where(r => r.UserId == Settings.UserSid)
+                    .Select(r => r.ReceiptId)
+                    .ToCollectionAsync();
+                }
+                else
+                {
+                    receiptIdsForStore = await receiptTable
+                    .Where(r => r.StoreName == sn)
+                    .Select(r => r.ReceiptId)
+                    .ToCollectionAsync();
+                } 
+
+                var totals = await GetTotalsForReceipts(receiptIdsForStore);
+
+                TotalAverages.Add(totals.Average());
+            }
+
+            // COULD BE MISTAKE IN THIS FOR COUNT
+            for(int i = 0; i < uniqueStores.Count; i++)
+            {
+                var valuePair = new KeyValuePair<string, double>(uniqueStores[i], TotalAverages[i]);
+                TotalAveragesForUniqueStores.Add(valuePair);
+            }
+            
+            return TotalAveragesForUniqueStores;
+        }
+
     }
 }

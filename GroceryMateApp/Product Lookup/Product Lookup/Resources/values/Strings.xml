@@ -9,7 +9,7 @@
 
 
   <string name="searchProduct">Enter a product.</string>
-  <string name="searchBtn">Search prodcuts</string>
+  <string name="searchBtn">Search</string>
   <string name="cameraBtn">Scan receipt</string>
 
   <string name="searchingFor">Searching for</string>
@@ -20,6 +20,7 @@
   <string name="textTotal">Euro</string>
   <string name="textItem">Item</string>
   <string name="textPrice">Price</string>
+  <string name="textFor">For</string>
   <string name="update">Update</string>
 
 
@@ -27,4 +28,52 @@
   <string name="edit">Edit</string>
   <string name="delete">Delete</string>
 
+  
+  <!-- Chart activity -->
+
+  
+  <string-array name="dropdown_Groups">
+    <item>You</item>
+    <item>All</item>
+  </string-array>
+  <string name="you">You</string>
+  <string name="all">All</string>
+  
+  <!-- STORE FOCUS -->
+  <string name="textStoreAnalytics">Grocery Store Analytics</string>
+  <string name="btn_Display">Display</string>
+  <string-array name="dropdown_Stores">
+    <item>Average Spend</item>
+    <item>Most Visited</item>
+  </string-array>
+  <string name="avgSpend">Average Spend</string>
+  <string name="mostVisted">Most Visited</string>
+
+  <!-- CHARTS -->
+  <string-array name="dropdown_Charts">
+    <item>Donut Chart</item>
+    <item>Bar Chart</item>
+    <item>Point Chart</item>
+    <item>Line Chart</item>
+    <item>Radial Gauge Chart</item>
+    <item>Radar Chart</item>
+  </string-array>
+  <string name="donut">Donut Chart</string>
+  <string name="bar">Bar Chart</string>
+  <string name="point">Point Chart</string>
+  <string name="line">Line Chart</string>
+  <string name="radial">Radial Gauge Chart</string>
+  <string name="radar">Radar Chart</string>
+  
+  
+  <string name="textItemAnalytics">Item Analytics</string>
+
+
+
+  <!-- ITEM FOCUS-->
+  <string-array name="dropdown_Items">
+    <item>Most Purchased</item>
+    <item>unknown</item>
+  </string-array>
+  
 </resources>

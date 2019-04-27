@@ -160,6 +160,12 @@ namespace GroceryMate
             Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
             StartActivity(receiptActivity);
         }
-        
+
+        [Java.Interop.Export()]
+        public void StartCharts(View view)
+        {
+            Intent chartActivity = new Intent(this, typeof(ChartActivity));
+            StartActivity(chartActivity);
+        }
     }
 }
