@@ -185,13 +185,11 @@ C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Look
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\R.cs.flag
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\R.txt
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\uploadflags.txt
-C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Android.Export.pdb
-C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Newtonsoft.Json.pdb
-C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.IO.Compression.FileSystem.pdb
-C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.ServiceModel.Internals.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Android.pdb
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Android.Export.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\mscorlib.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\MvvmHelpers.pdb
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Plugin.Connectivity.Abstractions.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.Core.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.pdb
@@ -206,7 +204,9 @@ C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Look
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.Data.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.Numerics.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.Transactions.pdb
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.IO.Compression.FileSystem.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Security.pdb
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\System.ServiceModel.Internals.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\linksrc\GroceryMate.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Mono.Android.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\linksrc\Mono.Android.Export.pdb

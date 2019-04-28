@@ -223,6 +223,18 @@ namespace GroceryMate.Services
             return totals;
         }
 
+        public async Task<string> GetStoreNameForReceipt(int receiptId)
+        {
+            await SyncTables();
+
+            var data = await receiptTable
+            .Where(c => c.ReceiptId == receiptId)
+            .Select(c => c.StoreName)
+            .ToCollectionAsync();
+            
+            return data.Single();
+        }
+
         public async Task<int> AllocatedReceiptId()
         {
             await SyncTables();
@@ -453,14 +465,14 @@ namespace GroceryMate.Services
         {
             await SyncTables();
 
-            List<string> uniqueStores = (List<string>)await UniqueStoreNames(); //get stores for search var
+            List<string> UniqueStores = (List<string>)await UniqueStoreNames(); //get stores for search var
             List<double> TotalAverages = new List<double>();
 
             List<KeyValuePair<string, double>> TotalAveragesForUniqueStores = new List<KeyValuePair<string, double>>();
 
             //string double tuple/pair?
 
-            foreach (var sn in uniqueStores)
+            foreach (var sn in UniqueStores)
             {
                 MobileServiceCollection<int, int> receiptIdsForStore;
                 if (ForUser == true)
@@ -485,14 +497,81 @@ namespace GroceryMate.Services
             }
 
             // COULD BE MISTAKE IN THIS FOR COUNT
-            for(int i = 0; i < uniqueStores.Count; i++)
+            for(int i = 0; i < UniqueStores.Count; i++)
             {
-                var valuePair = new KeyValuePair<string, double>(uniqueStores[i], TotalAverages[i]);
+                var valuePair = new KeyValuePair<string, double>(UniqueStores[i], TotalAverages[i]);
                 TotalAveragesForUniqueStores.Add(valuePair);
             }
             
             return TotalAveragesForUniqueStores;
         }
 
+
+        public async Task<List<KeyValuePair<string, double>>> MostVisited(bool ForUser)
+        {
+            await SyncTables();
+
+            List<string> UniqueStores = await UniqueStoreNames(); //get stores for search var
+            List<double> TotalVisits = new List<double>();
+
+            List<KeyValuePair<string, double>> TotalVisitsForUniqueStores = new List<KeyValuePair<string, double>>();
+
+            foreach (var sn in UniqueStores)
+            {
+                MobileServiceCollection<Receipt, Receipt> numVisitsToStore;
+                if (ForUser == true)
+                {
+                    numVisitsToStore = await receiptTable
+                    .Where(r => r.StoreName == sn)
+                    .Where(r => r.UserId == Settings.UserSid)
+                    .ToCollectionAsync();
+                }
+                else
+                {
+                    numVisitsToStore = await receiptTable
+                    .Where(r => r.StoreName == sn)
+                    .ToCollectionAsync();
+                }
+
+                TotalVisits.Add(numVisitsToStore.Count);
+            }
+
+            // COULD BE MISTAKE IN THIS FOR COUNT
+            for (int i = 0; i < UniqueStores.Count; i++)
+            {
+                var valuePair = new KeyValuePair<string, double>(UniqueStores[i], TotalVisits[i]);
+                TotalVisitsForUniqueStores.Add(valuePair);
+            }
+            return TotalVisitsForUniqueStores;
+        }
+
+
+
+        public async Task<KeyValuePair<string, double>> Cheapest(string itemName)
+        {
+            await SyncTables();
+
+            string Store;
+            double Price;          
+
+            var PriceForItem = await itemTable
+                .Where(i => i.Name.Contains(itemName))
+                .OrderByDescending(i => i.Price)
+                .ToCollectionAsync();
+
+            if (PriceForItem.Count == 0)
+            {
+                Store = "Unavailable";
+                Price = 0;
+            }
+            else
+            {
+                Store = await GetStoreNameForReceipt(PriceForItem.ElementAt(0).ReceiptId);
+                Price = PriceForItem.ElementAt(0).Price;
+            }
+
+            var CheapestInStore = new KeyValuePair<string, double>(Store, Price);
+            return CheapestInStore;
+        }
     }
 }

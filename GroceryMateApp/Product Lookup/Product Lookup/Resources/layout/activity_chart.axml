@@ -53,12 +53,11 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:background="@color/darknessGrey">
-
 		<Microcharts.Droid.ChartView
-				android:id="@+id/chartView1"
-				android:layout_width="match_parent"
-				android:layout_height="150dp"/>
-
+			android:id="@+id/chartView1"
+			android:layout_width="match_parent"
+			android:layout_height="140dp"
+		/>
 	</LinearLayout>
 
 	<LinearLayout 
@@ -83,8 +82,10 @@
 			android:layout_height="wrap_content"
 		/>
 	</LinearLayout>
+
+	<!-- Item graphs -->
+
 	<TextView
-		android:visibility="invisible"
 		android:text="@string/textItemAnalytics"
 		android:textStyle="bold|italic"
 		android:gravity="center_horizontal"
@@ -92,4 +93,57 @@
 		android:layout_height="wrap_content"
 		android:background="@color/keeperGreen"
 	/>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/keeperGreen"
+		android:weightSum="1">
+		<Spinner
+			android:id="@+id/spinnerItem"
+			android:entries="@array/dropdown_Items"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:paddingLeft="2dp"
+			android:layout_weight="0.25"
+		/>		
+	</LinearLayout>
+
+	<LinearLayout 
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/darknessGrey">
+		<Microcharts.Droid.ChartView
+			android:id="@+id/chartView2"
+			android:visibility="gone"
+			android:layout_width="match_parent"
+			android:layout_height="140dp"
+		/>
+	</LinearLayout>
+
+	<LinearLayout 
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+        android:layout_weight="1"
+		android:gravity="bottom"		
+		android:background="@color/darknessGrey">
+		<EditText
+			android:id="@+id/searchProductChart"
+			android:hint="@string/searchProduct"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="8dp"
+			android:layout_weight="0.25"
+		/>
+		<Button
+			android:text="@string/searchBtn"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:id="@+id/btn_ItemAnalysis"
+			android:onClick="LaunchItemAnalysis"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		/>
+	</LinearLayout>
 </LinearLayout>

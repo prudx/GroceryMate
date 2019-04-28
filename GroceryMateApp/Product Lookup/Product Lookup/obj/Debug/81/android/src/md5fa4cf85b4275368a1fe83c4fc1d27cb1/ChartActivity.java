@@ -12,6 +12,7 @@ public class ChartActivity
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
 			"n_LaunchStoreAnalysis:(Landroid/view/View;)V:__export__\n" +
+			"n_LaunchItemAnalysis:(Landroid/view/View;)V:__export__\n" +
 			"";
 		mono.android.Runtime.register ("GroceryMate.ChartActivity, GroceryMate", ChartActivity.class, __md_methods);
 	}
@@ -39,6 +40,14 @@ public class ChartActivity
 	}
 
 	private native void n_LaunchStoreAnalysis (android.view.View p0);
+
+
+	public void LaunchItemAnalysis (android.view.View p0)
+	{
+		n_LaunchItemAnalysis (p0);
+	}
+
+	private native void n_LaunchItemAnalysis (android.view.View p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

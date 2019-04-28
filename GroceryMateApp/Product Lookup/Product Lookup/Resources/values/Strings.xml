@@ -45,9 +45,11 @@
   <string-array name="dropdown_Stores">
     <item>Average Spend</item>
     <item>Most Visited</item>
+    
   </string-array>
   <string name="avgSpend">Average Spend</string>
   <string name="mostVisted">Most Visited</string>
+
 
   <!-- CHARTS -->
   <string-array name="dropdown_Charts">
@@ -66,14 +68,19 @@
   <string name="radar">Radar Chart</string>
   
   
-  <string name="textItemAnalytics">Item Analytics</string>
 
 
 
   <!-- ITEM FOCUS-->
+  <string name="textItemAnalytics">Item Analytics</string>
+
+
   <string-array name="dropdown_Items">
-    <item>Most Purchased</item>
-    <item>unknown</item>
+    <item>Cheapest</item>
   </string-array>
-  
+  <string name="cheapest">Cheapest</string>
+
+  <string name="searchBtnItem">ffff</string>
+
+
 </resources>
