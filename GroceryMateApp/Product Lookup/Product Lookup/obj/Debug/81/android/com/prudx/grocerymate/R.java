@@ -3832,6 +3832,8 @@ containing a value of this type.
         public static final int Error_EnterProductTitle=0x7f080083;
         public static final int Error_LoggedOut=0x7f08007e;
         /**  ERRORS 
+ ERRORS 
+ ERRORS 
          */
         public static final int Error_LoggedOutTitle=0x7f08007d;
         public static final int Error_NoConnection=0x7f080082;
@@ -3841,6 +3843,8 @@ containing a value of this type.
         public static final int Hello=0x7f080055;
         public static final int Load_Analysis=0x7f080086;
         /**  LOAD 
+ LOAD 
+ LOAD 
          */
         public static final int Load_ReceiptScan=0x7f080085;
         public static final int abc_action_bar_home_description=0x7f08002e;

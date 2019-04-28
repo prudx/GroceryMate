@@ -193,6 +193,7 @@ C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Look
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\res\values-fr\ic_launcher_background.xml
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\res\values-fr\strings.xml
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\res\values-fr\styles.xml
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\obj\Debug\81\GroceryMate.csprojAssemblyReference.cache
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Android.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\Mono.Android.Export.pdb
 C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\Product Lookup\bin\Debug\mscorlib.pdb

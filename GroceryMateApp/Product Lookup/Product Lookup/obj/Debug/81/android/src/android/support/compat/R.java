@@ -3828,16 +3828,25 @@ containing a value of this type.
     }
     public static final class string {
         public static int ApplicationName=0x7f080056;
+        public static int Error_EnterProduct=0x7f080084;
+        public static int Error_EnterProductTitle=0x7f080083;
         public static int Error_LoggedOut=0x7f08007e;
         /**  ERRORS 
+ ERRORS 
+ ERRORS 
          */
         public static int Error_LoggedOutTitle=0x7f08007d;
+        public static int Error_NoConnection=0x7f080082;
+        public static int Error_NoConnectionTitle=0x7f080081;
         public static int Error_NoDetections=0x7f080080;
         public static int Error_NoDetectionsTitle=0x7f08007f;
         public static int Hello=0x7f080055;
+        public static int Load_Analysis=0x7f080086;
         /**  LOAD 
+ LOAD 
+ LOAD 
          */
-        public static int Load_ReceiptScan=0x7f080081;
+        public static int Load_ReceiptScan=0x7f080085;
         public static int abc_action_bar_home_description=0x7f08002e;
         public static int abc_action_bar_up_description=0x7f08002f;
         public static int abc_action_menu_overflow_description=0x7f080030;

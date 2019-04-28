@@ -74,7 +74,7 @@
   <string name="searchBtnItem">ffff</string>
 
   <!-- ERRORS -->
-  <string name="Error_LoggedOutTitle">Erreur d'identification.</string>
+  <string name="Error_LoggedOutTitle">Erreur d\'identification.</string>
   <string name="Error_LoggedOut">Impossible de scanner le reçu, vous êtes déconnecté!</string>
 
   <string name="Error_NoDetectionsTitle">Texte non trouvé.</string>
@@ -89,7 +89,7 @@
 
   <!-- LOAD -->
   <string name="Load_ReceiptScan">Numérisation du ticket ....</string>
-  <string name="Load_Analysis">Chargement de la page d'analyse</string>
+  <string name="Load_Analysis">Chargement de la page d\'analyse</string>
 
 
 </resources>
