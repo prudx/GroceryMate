@@ -27,11 +27,6 @@ namespace GroceryMate.Services
 {
     public class AzureService
     {
-#if AUTH
-        public static bool UseAuth { get; set; }
-#else
-        public static bool UseAuth { get; set; } = false;
-#endif
         public MobileServiceClient Client { get; set; } = null;
         MobileServiceUser User { get; set; } = null;
         IMobileServiceSyncTable<User> userTable;
@@ -422,6 +417,7 @@ namespace GroceryMate.Services
                     Settings.UserSid = string.Empty;
 
                     success = false;
+                    Settings.IsLoggedIn = false;
                 }
                 else
                 {
@@ -429,7 +425,7 @@ namespace GroceryMate.Services
                     Settings.UserSid = User.UserId;
                     
                     success = true;
-                    UseAuth = true;
+                    Settings.IsLoggedIn = true;
 
                     //create new user if user doesn't exist in db
                     if (await FindUser() == false)

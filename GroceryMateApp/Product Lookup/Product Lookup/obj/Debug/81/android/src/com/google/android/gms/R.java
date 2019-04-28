@@ -33,9 +33,13 @@ public final class R {
     }
     public static final class array {
         /**  CHARTS 
+ CHARTS 
+ CHARTS 
          */
         public static int dropdown_Charts=0x7f0f0002;
         /**  Chart activity 
+ Chart activity 
+ Chart activity 
          */
         public static int dropdown_Groups=0x7f0f0000;
         public static int dropdown_Items=0x7f0f0003;
@@ -3824,7 +3828,16 @@ containing a value of this type.
     }
     public static final class string {
         public static int ApplicationName=0x7f080056;
+        public static int Error_LoggedOut=0x7f08007e;
+        /**  ERRORS 
+         */
+        public static int Error_LoggedOutTitle=0x7f08007d;
+        public static int Error_NoDetections=0x7f080080;
+        public static int Error_NoDetectionsTitle=0x7f08007f;
         public static int Hello=0x7f080055;
+        /**  LOAD 
+         */
+        public static int Load_ReceiptScan=0x7f080081;
         public static int abc_action_bar_home_description=0x7f08002e;
         public static int abc_action_bar_up_description=0x7f08002f;
         public static int abc_action_menu_overflow_description=0x7f080030;
@@ -3940,11 +3953,15 @@ containing a value of this type.
         public static int textFor=0x7f080069;
         public static int textItem=0x7f080067;
         /**  ITEM FOCUS
+ ITEM FOCUS
+ ITEM FOCUS
          */
         public static int textItemAnalytics=0x7f08007a;
         public static int textPrice=0x7f080068;
         public static int textStore=0x7f080064;
         /**  STORE FOCUS 
+ STORE FOCUS 
+ STORE FOCUS 
          */
         public static int textStoreAnalytics=0x7f080070;
         public static int textTotal=0x7f080066;
@@ -3961,6 +3978,8 @@ containing a value of this type.
         public static int Animation_AppCompat_Tooltip=0x7f0d00a8;
         public static int Animation_Design_BottomSheetDialog=0x7f0d016e;
         /**  Base application theme. 
+ Base application theme. 
+ Base application theme. 
          */
         public static int AppTheme=0x7f0d0190;
         public static int Base_AlertDialog_AppCompat=0x7f0d00a9;
@@ -4357,6 +4376,7 @@ containing a value of this type.
         public static int Widget_Design_TextInputLayout=0x7f0d0187;
         public static int Widget_MediaRouter_Light_MediaRouteButton=0x7f0d0009;
         public static int Widget_MediaRouter_MediaRouteButton=0x7f0d000a;
+        public static int myDialog=0x7f0d0191;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

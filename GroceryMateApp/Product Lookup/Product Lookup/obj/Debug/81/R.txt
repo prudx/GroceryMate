@@ -1377,7 +1377,17 @@ int menu popup_menu 0x7f100001
 int mipmap ic_launcher 0x7f030000
 int mipmap ic_launcher_round 0x7f030001
 int string ApplicationName 0x7f080056
+int string Error_EnterProduct 0x7f080084
+int string Error_EnterProductTitle 0x7f080083
+int string Error_LoggedOut 0x7f08007e
+int string Error_LoggedOutTitle 0x7f08007d
+int string Error_NoConnection 0x7f080082
+int string Error_NoConnectionTitle 0x7f080081
+int string Error_NoDetections 0x7f080080
+int string Error_NoDetectionsTitle 0x7f08007f
 int string Hello 0x7f080055
+int string Load_Analysis 0x7f080086
+int string Load_ReceiptScan 0x7f080085
 int string abc_action_bar_home_description 0x7f08002e
 int string abc_action_bar_up_description 0x7f08002f
 int string abc_action_menu_overflow_description 0x7f080030
@@ -1902,6 +1912,7 @@ int style Widget_Design_TabLayout 0x7f0d016a
 int style Widget_Design_TextInputLayout 0x7f0d0187
 int style Widget_MediaRouter_Light_MediaRouteButton 0x7f0d0009
 int style Widget_MediaRouter_MediaRouteButton 0x7f0d000a
+int style myDialog 0x7f0d0191
 int[] styleable ActionBar { 0x7f010029, 0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031, 0x7f010032, 0x7f010033, 0x7f010034, 0x7f010035, 0x7f010036, 0x7f010037, 0x7f010038, 0x7f010039, 0x7f01003a, 0x7f01003b, 0x7f01003c, 0x7f01003d, 0x7f01003e, 0x7f01003f, 0x7f010040, 0x7f010041, 0x7f010042, 0x7f010043, 0x7f010044, 0x7f010045, 0x7f01008b }
 int styleable ActionBar_background 10
 int styleable ActionBar_backgroundSplit 12

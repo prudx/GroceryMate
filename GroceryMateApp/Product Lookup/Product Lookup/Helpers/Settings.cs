@@ -88,15 +88,6 @@ namespace GroceryMate.Helpers //changed from product_lookup
             }
         }
 
-        public static bool IsLoggedIn
-        {
-            get
-            {
-                if (AzureService.UseAuth)
-                    return true;
-
-                return false;
-            }
-        }
+        public static bool IsLoggedIn { get; set; }
     }
 }

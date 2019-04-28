@@ -5907,8 +5907,38 @@ namespace GroceryMate
 			// aapt resource value: 0x7f080056
 			public const int ApplicationName = 2131230806;
 			
+			// aapt resource value: 0x7f080084
+			public const int Error_EnterProduct = 2131230852;
+			
+			// aapt resource value: 0x7f080083
+			public const int Error_EnterProductTitle = 2131230851;
+			
+			// aapt resource value: 0x7f08007e
+			public const int Error_LoggedOut = 2131230846;
+			
+			// aapt resource value: 0x7f08007d
+			public const int Error_LoggedOutTitle = 2131230845;
+			
+			// aapt resource value: 0x7f080082
+			public const int Error_NoConnection = 2131230850;
+			
+			// aapt resource value: 0x7f080081
+			public const int Error_NoConnectionTitle = 2131230849;
+			
+			// aapt resource value: 0x7f080080
+			public const int Error_NoDetections = 2131230848;
+			
+			// aapt resource value: 0x7f08007f
+			public const int Error_NoDetectionsTitle = 2131230847;
+			
 			// aapt resource value: 0x7f080055
 			public const int Hello = 2131230805;
+			
+			// aapt resource value: 0x7f080086
+			public const int Load_Analysis = 2131230854;
+			
+			// aapt resource value: 0x7f080085
+			public const int Load_ReceiptScan = 2131230853;
 			
 			// aapt resource value: 0x7f08002e
 			public const int abc_action_bar_home_description = 2131230766;
@@ -7494,6 +7524,9 @@ namespace GroceryMate
 			
 			// aapt resource value: 0x7f0d000a
 			public const int Widget_MediaRouter_MediaRouteButton = 2131558410;
+			
+			// aapt resource value: 0x7f0d0191
+			public const int myDialog = 2131558801;
 			
 			static Style()
 			{

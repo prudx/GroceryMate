@@ -23,10 +23,14 @@ namespace GroceryMate.Helpers
         public enum AlertType { Error, Load, Info }
         public static AlertDialog dialog;
 
+        
+
         //Method to close current keyboard field (usually called at the end of a button press)
         public static void CloseKeyboard()
         {
             Activity currentActivity = CrossCurrentActivity.Current.Activity; //get current activity
+
+            
 
             View view = currentActivity.CurrentFocus;
             InputMethodManager imm = (InputMethodManager)currentActivity.GetSystemService(Context.InputMethodService);
@@ -48,7 +52,7 @@ namespace GroceryMate.Helpers
             else if (type == AlertType.Load)
             {
                 dialog = new EDMTDialogBuilder()
-                    .SetContext(CrossCurrentActivity.Current.AppContext)
+                    .SetContext(currentActivity)
                     .SetMessage(alertMessage)
                     .Build();
             }

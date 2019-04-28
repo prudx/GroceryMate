@@ -1,0 +1,75 @@
+<resources>
+  <string name="app_name">GroceryMate</string>
+  <string name="action_settings">Réglages</string>
+  <string name="btnOk">D\'accord</string>
+  
+  <string name="btn_Login">Se connecter</string>
+  <string name="receipts">Recettes</string>
+  <string name="visualization">Visualisation</string>
+
+
+  <string name="searchProduct">Entrez un produit.</string>
+  <string name="searchBtn">Chercher</string>
+  <string name="cameraBtn">Scan reçu</string>
+
+  <string name="searchingFor">À la recherche de</string>
+
+
+  <string name="textStore">le magasin</string>
+  <string name="textDate">Rendez-vous amoureux</string>
+  <string name="textTotal">Euro</string>
+  <string name="textItem">Article</string>
+  <string name="textPrice">Prix</string>
+  <string name="textFor">Pour</string>
+  <string name="update">Mettre à jour</string>
+
+
+  <string name="btn_Save">sauvegarder</string>
+  <string name="edit">modifier</string>
+  <string name="delete">Effacer</string>
+
+  
+  <!-- Chart activity -->  
+  <string-array name="dropdown_Groups">
+    <item>Vous</item>
+    <item>Tout</item>
+  </string-array>
+  <string name="you">Vous</string>
+  <string name="all">Tout</string>
+  
+  <!-- STORE FOCUS -->
+  <string name="textStoreAnalytics">Analyse de l\'épicerie</string>
+  <string name="btn_Display">Afficher</string>
+  <string-array name="dropdown_Stores">
+    <item>Dépense moyenne</item>
+    <item>Le plus visité</item>
+    
+  </string-array>
+  <string name="avgSpend">Dépense moyenne</string>
+  <string name="mostVisted">Le plus visité</string>
+
+
+  <!-- CHARTS -->
+  <string-array name="dropdown_Charts">
+    <item>Graphique en beignet</item>
+    <item>Diagramme à bandes</item>
+    <item>Tableau de points</item>
+    <item>Graphique en ligne</item>
+    <item>Diagramme de jauge radiale</item>
+    <item>Carte radar</item>
+  </string-array>
+  <string name="donut">Graphique en beignet</string>
+  <string name="bar">Diagramme à bandes</string>
+  <string name="point">Tableau de points</string>
+  <string name="line">Graphique en ligne</string>
+  <string name="radial">Diagramme de jauge radiale</string>
+  <string name="radar">Carte radar</string>
+
+  <!-- ITEM FOCUS-->
+  <string name="textItemAnalytics">Analyse d\'article</string>
+  <string-array name="dropdown_Items">
+    <item>Le moins cher</item>
+  </string-array>
+  <string name="cheapest">Le moins cher</string>
+  <string name="searchBtnItem">ffff</string>
+</resources>

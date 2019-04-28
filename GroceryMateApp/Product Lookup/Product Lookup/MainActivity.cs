@@ -22,6 +22,8 @@ using Microsoft.AppCenter.Push;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Push = Microsoft.AppCenter.Push.Push;
+using Plugin.Connectivity;
+using static GroceryMate.Helpers.Helper;
 
 namespace GroceryMate
 {
@@ -46,6 +48,7 @@ namespace GroceryMate
 
             //initiate azure app service
             Settings.UserSid = null; //reset userId 
+            Settings.IsLoggedIn = false;
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
@@ -61,6 +64,8 @@ namespace GroceryMate
                 queryString = e.Text.ToString();               
             };
 
+            //startup search
+            //SearchProducts("cerial");
 
             try
             {
@@ -75,18 +80,17 @@ namespace GroceryMate
             //SEARCH BUTTON
             btn_SearchProducts.Click += delegate
             {
-                string searchMessage = Resources.GetText(Resource.String.searchingFor);
-                Helper.CloseKeyboard();
+                if(!CrossConnectivity.Current.IsConnected)
+                    CreateAlert(AlertType.Error, GetString(Resource.String.Error_NoConnection), GetString(Resource.String.Error_NoConnectionTitle));
+                else if (queryString == null)
+                    CreateAlert(AlertType.Error, GetString(Resource.String.Error_EnterProduct), GetString(Resource.String.Error_EnterProductTitle));
+                else
+                {
+                    CreateAlert(AlertType.Load, GetString(Resource.String.searchingFor), null);
+                    Helper.CloseKeyboard();
 
-                AlertDialog dialog = new EDMTDialogBuilder()
-               .SetContext(this)
-               .SetMessage(searchMessage +" " +queryString)
-               .Build();
-
-                if (!dialog.IsShowing)
-                    dialog.Show();
-
-                SearchProducts(queryString, dialog);
+                    SearchProducts(queryString);
+                }      
             };
 
             //CAMERA BUTTON
@@ -106,7 +110,7 @@ namespace GroceryMate
 
 
         //API SEARCH REQUEST
-        public async void SearchProducts(string queryString, AlertDialog dialog)
+        public async void SearchProducts(string queryString)
         {
             try
             {

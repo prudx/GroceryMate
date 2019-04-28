@@ -21,6 +21,7 @@ using System;
 using GroceryMate.Helpers;
 using System.Linq;
 using System.Collections.ObjectModel;
+using static GroceryMate.Helpers.Helper;
 
 namespace GroceryMate
 {
@@ -87,39 +88,33 @@ namespace GroceryMate
 
             btn_Capture.Click += async (s, e) =>
             {
-                //below captures used for testing
-                capture = CameraText.Text;
-                //capture = "tesco\neggs\noranges\nEUR2.23\nmilk\nEUR1.00\nbread\nEUR1.55\nspices\nEUR3.46\nchocolate\nEUR1.20\nwaffles\nEUR1.80\nbananas\nEUR1.70\ncake\nEUR2.00\nrice\nEUR1.25\nEUR2.44"; //test string
-                //capture = "tesco\noranges\nEUR2.23\nmilk\nEUR1.00";
-                //capture = "x---d\nlidl\napples\n1.00";
-
-                Receipt r = Sorter.DetermineStore(capture);
-                SurfaceDestroyed(cameraView.Holder);
-
-                capturedItems = r.Items; //sorted receipt items
-
-                
-                //if signed in, you can push receipt data
-                await azureService.AddReceipt(r.StoreName, r.Items);    //add item is called from add receipt
-                
-                /*
-                var items = await azureService.GetItems();
-                foreach (var item in items)
+                //if signed in & receipt detected, you can push receipt data
+                if (Settings.IsLoggedIn == false)
+                    CreateAlert(AlertType.Error, GetString(Resource.String.Error_LoggedOut), GetString(Resource.String.Error_LoggedOutTitle));
+                else if (CameraText.Text == string.Empty)
+                    CreateAlert(AlertType.Error, GetString(Resource.String.Error_NoDetections), GetString(Resource.String.Error_NoDetectionsTitle));
+                else
                 {
-                    Console.WriteLine("\n name: " +item.Name.ToString() + "\n price: " + item.Price.ToString() + "\n Id: " + item.Id + "\n itemId: " +item.ItemId +" ");
-                }
-                */
-                
-                
-                /*
-                 CurrentPlatform.Init();
-                 TodoItem item = new TodoItem { Text = "Awesome item" };
-                 await MobileService.GetTable<TodoItem>().InsertAsync(item);
-                 */
+                    CreateAlert(AlertType.Load, GetString(Resource.String.Load_ReceiptScan), null);
 
-                //RECEIPT ACTIVITY
-                Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
-                StartActivity(receiptActivity);
+                    //below captures used for testing
+                    capture = CameraText.Text;
+                    capture = "TESCO/nOranges/n2.40";
+
+                    Receipt r = Sorter.DetermineStore(capture);
+                    SurfaceDestroyed(cameraView.Holder);
+
+                    capturedItems = r.Items; //sorted receipt items
+
+                    await azureService.AddReceipt(r.StoreName, r.Items);    //add item is called from add receipt                    
+
+                    //RECEIPT ACTIVITY
+                    Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
+                    StartActivity(receiptActivity);
+
+                    if (dialog.IsShowing)
+                        dialog.Dismiss();
+                }
             };
         }
 

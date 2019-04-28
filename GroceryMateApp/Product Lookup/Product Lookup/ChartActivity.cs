@@ -12,6 +12,7 @@ using GroceryMate.Services;
 using Microcharts;
 using Microcharts.Droid;
 using GroceryMate.Helpers;
+using static GroceryMate.Helpers.Helper;
 using GroceryMate.API;
 using Refit;
 using GroceryMate.JsonData;
@@ -67,6 +68,7 @@ namespace GroceryMate
 
             UserGroup.ItemSelected += UserGroupSelected;
 
+            CreateAlert(AlertType.Load, GetString(Resource.String.Load_Analysis), null);
             LaunchStoreAnalysis(ChartTop);
         }
 
@@ -152,6 +154,9 @@ namespace GroceryMate
                 ChartTop.Chart = new RadarChart() { Entries = entries };
 
             ChartTop.Chart.LabelTextSize = font.GetNativeSize(10);
+
+            if (dialog.IsShowing)
+                dialog.Dismiss();
         }
 
         [Java.Interop.Export()]

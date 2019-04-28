@@ -83,4 +83,24 @@
   <string name="searchBtnItem">ffff</string>
 
 
+  <!-- ERRORS -->
+  <string name="Error_LoggedOutTitle">Login Error.</string>
+  <string name="Error_LoggedOut">Cannot scan receipt, you are logged out!</string>
+
+  <string name="Error_NoDetectionsTitle">Text Not Found.</string>
+  <string name="Error_NoDetections">Cannot scan receipt, text not detected.</string>
+
+  <string name="Error_NoConnectionTitle">No Internet Connection.</string>
+  <string name="Error_NoConnection">Internet required to search products.</string>
+
+  <string name="Error_EnterProductTitle">Product Error</string>
+  <string name="Error_EnterProduct">Please enter a product in the box below.</string>
+
+
+  <!-- LOAD -->
+  <string name="Load_ReceiptScan">Scanning receipt...</string>
+  <string name="Load_Analysis">Loading analysis page</string>
+
+  
+
 </resources>

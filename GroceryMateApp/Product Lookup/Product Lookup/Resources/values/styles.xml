@@ -7,4 +7,9 @@
         <item name="colorPrimaryDark">@color/deepPurple</item>
         <item name="colorAccent">@color/keeperGreen</item>
     </style>
+
+  <style name="myDialog" parent="Theme.AppCompat.Dialog">
+    <item name="android:windowNoTitle">true</item>
+  </style>
+  
 </resources>

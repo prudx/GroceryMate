@@ -14,7 +14,7 @@
 	/>
 	<TextView
 		android:text="Name"
-		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:textAppearance="?android:attr/textAppearanceSmall"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_weight="0.6"
