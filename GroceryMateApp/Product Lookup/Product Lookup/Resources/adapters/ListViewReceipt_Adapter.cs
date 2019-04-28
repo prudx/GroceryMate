@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using GroceryMate.Model;
@@ -64,9 +59,7 @@ namespace GroceryMate.Resources.adapters
 
             ReceiptName.Text = listReceipt.ElementAt(position).StoreName;
             ReceiptDate.Text = listReceipt.ElementAt(position).CreatedAt.UtcDateTime.ToShortDateString();
-            ReceiptTotal.Text = String.Format("{0:0.00}", totalPrice);
-
-            //ItemPrice.Text = "" + listReceipt.ElementAt(position).;
+            ReceiptTotal.Text = String.Format("€{0:0.00}", totalPrice);
 
             return view;
         }

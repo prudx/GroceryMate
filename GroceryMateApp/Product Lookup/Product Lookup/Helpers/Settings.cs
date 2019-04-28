@@ -1,17 +1,11 @@
-﻿// Helpers/Settings.cs
-using Plugin.Settings;
+﻿using Plugin.Settings;
 using Plugin.Settings.Abstractions;
-using GroceryMate.Services;
 using System;
 
-namespace GroceryMate.Helpers //changed from product_lookup
+namespace GroceryMate.Helpers 
 {
-  /// <summary>
-  /// This is the Settings static class that can be used in your Core solution or in any
-  /// of your client applications. All settings are laid out the same exact way with getters
-  /// and setters. 
-  /// </summary>
-  public static class Settings
+
+    public static class Settings
 {
     private static ISettings AppSettings
     {

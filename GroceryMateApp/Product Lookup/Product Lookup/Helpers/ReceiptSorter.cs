@@ -15,6 +15,7 @@ namespace GroceryMate.Helpers
 {
     static class Sorter
     {
+        //This is the only class you need to edit to add stores. Good scalibilty
         public static Receipt DetermineStore(string dirtyReceipt)
         {
             Receipt r = null;
@@ -52,9 +53,10 @@ namespace GroceryMate.Helpers
                 bool isDigitPresent = individual[i].Any(c => char.IsDigit(c));
                 bool isLetterPresent = individual[i].Any(c => char.IsLetter(c));
 
-                if (isDigitPresent && individual[i].Contains("."))                                  //if it is an actual price
+                
+                if (isDigitPresent && individual[i].Contains(".") && individual[i].Length != 1)           //if it is an actual price
                     prices.Add(Convert.ToDouble(Regex.Replace(individual[i], "[^0-9.]", "")));
-                else if (isLetterPresent && !isDigitPresent)                                                           //if there are no digits, add as a name (filtered constants)
+                else if (isLetterPresent && !isDigitPresent && individual[i].Length != 1)                 //if there are no digits, add as a name (filtering out constants)
                     names.Add(individual[i]);
 
             }
@@ -92,7 +94,7 @@ namespace GroceryMate.Helpers
             }
             else
             {
-                //create alert
+                Helper.CreateAlert(Helper.AlertType.Error, "Invalid Store", "Store not found.");
                 return null;
             }
         }
@@ -167,6 +169,11 @@ namespace GroceryMate.Helpers
             dirtyReceipt = dirtyReceipt.Replace("EUR", "");
             dirtyReceipt = dirtyReceipt.Replace("VAT", "");
             dirtyReceipt = dirtyReceipt.Replace("CARD PAYMENT", "");
+            dirtyReceipt = dirtyReceipt.Replace("BEL GARD", "");
+            dirtyReceipt = dirtyReceipt.Replace("TOTAL", "");
+            dirtyReceipt = dirtyReceipt.Replace("CARD PAYMENT", "");
+
+
 
 
             //FURTHER STRING PROCCESSING REQUIRED HERE

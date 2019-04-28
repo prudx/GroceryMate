@@ -3,27 +3,22 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
 using Android.Views;
-using Android.Views.InputMethods;
 using GroceryMate.API;
 using GroceryMate.JsonData;
 using Refit;
-using EDMTDialog;
 using System.Collections.Generic;
 using System;
 using Android.Content;
 using GroceryMate.Model;
 using GroceryMate.Resources.adapters;
-using Microsoft.WindowsAzure.MobileServices;
 using GroceryMate.Services;
 using GroceryMate.Helpers;
-using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Microsoft.AppCenter;
-using Microsoft.AppCenter.Push;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Push = Microsoft.AppCenter.Push.Push;
 using Plugin.Connectivity;
 using static GroceryMate.Helpers.Helper;
+using Push = Microsoft.AppCenter.Push.Push;
 
 namespace GroceryMate
 {
@@ -35,15 +30,15 @@ namespace GroceryMate
         Button btn_Camera;
         ListView list_Products;
         EditText editText;
-        string queryString;
 
         ITescoAPI tescoAPI;
 
-        public AzureService azureService = new AzureService(); //Not sure how to pass through activities?
+        public AzureService azureService = new AzureService(); 
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            //app center stuff
             AppCenter.Start("e09f8279-4d9e-464c-b9a2-e5df32e1a0f8", typeof(Analytics), typeof(Crashes), typeof(Push));
 
             //initiate azure app service
@@ -60,15 +55,10 @@ namespace GroceryMate
             list_Products = FindViewById<ListView>(GroceryMate.Resource.Id.list_Products);
 
             editText = FindViewById<EditText>(GroceryMate.Resource.Id.queryInput);
-            editText.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
-                queryString = e.Text.ToString();               
-            };
-
-            //startup search
-            //SearchProducts("cerial");
 
             try
             {
+                // Init API 
                 tescoAPI = RestService.For<ITescoAPI>("https://dev.tescolabs.com");
                 //tescoAPI = RestService.For<ITescoAPI>("https://jsonplaceholder.typicode.com");
             }
@@ -82,14 +72,14 @@ namespace GroceryMate
             {
                 if(!CrossConnectivity.Current.IsConnected)
                     CreateAlert(AlertType.Error, GetString(Resource.String.Error_NoConnection), GetString(Resource.String.Error_NoConnectionTitle));
-                else if (queryString == null)
+                else if (editText.Text == null)
                     CreateAlert(AlertType.Error, GetString(Resource.String.Error_EnterProduct), GetString(Resource.String.Error_EnterProductTitle));
                 else
                 {
-                    CreateAlert(AlertType.Load, GetString(Resource.String.searchingFor), null);
-                    Helper.CloseKeyboard();
+                    CreateAlert(AlertType.Load, GetString(Resource.String.searchingFor) +" " +editText.Text, null);
+                    CloseKeyboard();
 
-                    SearchProducts(queryString);
+                    SearchProducts(editText.Text);
                 }      
             };
 
@@ -100,14 +90,6 @@ namespace GroceryMate
                 StartActivity(cameraActivity);
             };
         }
-
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            var inflater = MenuInflater;
-            inflater.Inflate(Resource.Menu.menu1, menu);
-            return true;
-        }
-
 
         //API SEARCH REQUEST
         public async void SearchProducts(string queryString)
@@ -150,11 +132,6 @@ namespace GroceryMate
                 FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
                 FindViewById<Button>(Resource.Id.btn_Receipts).Visibility = ViewStates.Visible;
                 FindViewById<Button>(Resource.Id.btn_Graphs).Visibility = ViewStates.Visible;
-
-
-                //var found = await azureService.FindUser();
-                //Console.WriteLine("was user found?: " + found); 
-                //FindViewById<Button>(GroceryMate.Resource.Id.btnHistory).Visibility = ViewStates.Gone;
             }
         }
 

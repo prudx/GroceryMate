@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using GroceryMate;
 using GroceryMate.Helpers;
 using GroceryMate.Model;
 using GroceryMate.Resources.adapters;
@@ -46,13 +41,6 @@ namespace GroceryMate
             EditItemSave = FindViewById<Button>(Resource.Id.editSave);
 
             EditItemSave.Click += SaveClick;
-            /*
-            EditItemName.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
-                EditItemName.Text = e.Text.ToString();
-            };
-            EditItemPrice.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
-                queryString = e.Text.ToString();
-            };*/
 
             ReceiptViewBuilder();
         }
@@ -86,14 +74,11 @@ namespace GroceryMate
             //calculate our totals
             var totals = await azureService.GetTotalsForReceipts(receiptIds);
 
-            var adapter = new ListViewReceipt_Adapter(this, ReceiptsCollection, totals); //CameraActivity.CapturedItems
+            var adapter = new ListViewReceipt_Adapter(this, ReceiptsCollection, totals); 
             Receipts.Adapter = adapter;
 
             Receipts.ItemClick += ReceiptClick;
             Receipts.ItemLongClick += ReceiptLongClick;
-
-            //not sure what to implement for this method
-            //Items.ItemClick += ItemClick;    
             Items.ItemLongClick += ItemLongClick;
         }
 
@@ -148,14 +133,6 @@ namespace GroceryMate
             };
         }
 
-
-        /*
-        private void ItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            PopupMenu menu = new PopupMenu(this, Items);
-            menu.MenuInflater.Inflate(Resource.Menu.popup_menu, menu.Menu);
-        }*/
-
         private void ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             PopupMenu menu = new PopupMenu(this, Items.GetChildAt(e.Position));
@@ -189,8 +166,6 @@ namespace GroceryMate
             EditItemID = itemId;
         }
 
-
-
         public override void OnBackPressed()
         {
             if(Items.Visibility == ViewStates.Visible)
@@ -201,7 +176,7 @@ namespace GroceryMate
                 FindViewById<TextView>(Resource.Id.textStore).Visibility = ViewStates.Visible;   //change headers
                 FindViewById<TextView>(Resource.Id.textDate).Visibility = ViewStates.Visible;
                 FindViewById<TextView>(Resource.Id.textItem).Visibility = ViewStates.Gone;
-                FindViewById<EditText>(Resource.Id.editItem).Visibility = ViewStates.Gone;   //change headers
+                FindViewById<EditText>(Resource.Id.editItem).Visibility = ViewStates.Gone;   
                 FindViewById<EditText>(Resource.Id.editPrice).Visibility = ViewStates.Gone;
                 FindViewById<Button>(Resource.Id.editSave).Visibility = ViewStates.Gone;
             }

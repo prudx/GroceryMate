@@ -4,15 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
@@ -33,6 +26,8 @@ namespace GroceryMate.Services
         IMobileServiceSyncTable<Receipt> receiptTable;
         IMobileServiceSyncTable<Item> itemTable;
         Random random = new Random();
+        
+        
         // INITIALIZATION
 
         public async Task Initialize()
@@ -54,13 +49,12 @@ namespace GroceryMate.Services
             //unauthorized version
             Client = new MobileServiceClient(appUrl);
 #endif
-            var fileName = "groceryMateLocal7.db";                //MobileServiceClient.DefaultDatabasePath()
+            var fileName = "groceryMateLocal7.db";                
             fileName = Path.Combine(MobileServiceClient.DefaultDatabasePath, fileName);
     
             var store = new MobileServiceSQLiteStore(fileName);
 
-
-            //define as many tables as you want
+            //define tables
             store.DefineTable<User>();
             store.DefineTable<Receipt>();
             store.DefineTable<Item>();
@@ -93,6 +87,7 @@ namespace GroceryMate.Services
             }
             catch (MobileServicePushFailedException exc)
             {
+                // Error handling code and debug 
                 if (exc.PushResult != null)
                 {
                     syncErrors = exc.PushResult.Errors;
@@ -171,7 +166,6 @@ namespace GroceryMate.Services
 
             return user;
         }
-
 
         // RECEIPTS
 
@@ -260,7 +254,6 @@ namespace GroceryMate.Services
                 Id = "R"+receiptId,
                 ReceiptId = receiptId,
                 StoreName = storeName,
-                //Items = items,
                 UserId = Settings.UserSid                
             };
 
@@ -391,40 +384,34 @@ namespace GroceryMate.Services
 
         // Define an authenticated user.
         public async Task<bool> Authenticate()
-        {
-            Activity currentActivity = CrossCurrentActivity.Current.Activity; //get current activity
+        {   //get current activity
+            Activity currentActivity = CrossCurrentActivity.Current.Activity;
+
             await Initialize();
 
-            var success = false;
             try
             {
                 if (!CrossConnectivity.Current.IsConnected)
                     return false;
 
-                // Sign in with Facebook login using a server-managed flow.
+                // Google sign in using a server-managed flow.
                 User = await Client.LoginAsync(currentActivity.ApplicationContext,
                     MobileServiceAuthenticationProvider.Google, "grocerymate");
 
                 CreateAlert(AlertType.Info, string.Format("you are now logged in - {0}",
                     User.UserId), "Logged in!");
-
-                success = true;
                 
-                //Set up the settings vars
+                //Set up the settings static fields
                 if (User == null)
                 {
                     Settings.AuthToken = string.Empty;
                     Settings.UserSid = string.Empty;
-
-                    success = false;
                     Settings.IsLoggedIn = false;
                 }
                 else
                 {
                     Settings.AuthToken = User.MobileServiceAuthenticationToken;
                     Settings.UserSid = User.UserId;
-                    
-                    success = true;
                     Settings.IsLoggedIn = true;
 
                     //create new user if user doesn't exist in db
@@ -437,7 +424,7 @@ namespace GroceryMate.Services
                 CreateAlert(AlertType.Error, ex.ToString(), "Authentication Error");
             }
 
-            return success;
+            return Settings.IsLoggedIn;
         }
 
 
@@ -446,7 +433,7 @@ namespace GroceryMate.Services
         {
             await SyncTables();
 
-            //count store names no distinct method in IMobileTableService :(
+            //count store names - no distinct method in IMobileTableService :(
             var data = await receiptTable
                 .Where(c => c.Id != null)
                 .ToListAsync();
@@ -492,13 +479,11 @@ namespace GroceryMate.Services
                 TotalAverages.Add(totals.Average());
             }
 
-            // COULD BE MISTAKE IN THIS FOR COUNT
             for(int i = 0; i < UniqueStores.Count; i++)
             {
                 var valuePair = new KeyValuePair<string, double>(UniqueStores[i], TotalAverages[i]);
                 TotalAveragesForUniqueStores.Add(valuePair);
-            }
-            
+            }           
             return TotalAveragesForUniqueStores;
         }
 
@@ -532,7 +517,6 @@ namespace GroceryMate.Services
                 TotalVisits.Add(numVisitsToStore.Count);
             }
 
-            // COULD BE MISTAKE IN THIS FOR COUNT
             for (int i = 0; i < UniqueStores.Count; i++)
             {
                 var valuePair = new KeyValuePair<string, double>(UniqueStores[i], TotalVisits[i]);

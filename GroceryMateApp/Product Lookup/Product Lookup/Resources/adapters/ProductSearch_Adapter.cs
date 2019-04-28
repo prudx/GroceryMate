@@ -1,24 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Android.App;
-using Android.Content;
 using Android.Graphics;
-using Android.Icu.Text;
 using Android.Media;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using GroceryMate;
 using GroceryMate.Model;
-using Stream = System.IO.Stream;
 
 namespace GroceryMate.Resources.adapters
 {
@@ -56,10 +45,10 @@ namespace GroceryMate.Resources.adapters
         //not currently used so convert isn't bothering me
         public override long GetItemId(int position)
         {
-            return Convert.ToInt64(listProductSearchItems[position].Id);
+            return Convert.ToInt64(listProductSearchItems[position].ItemId);
         }
 
-        //Old way (memory hog)
+        //Get thumbnail from url
         private Bitmap GetImageBitmapFromUrl(string url)
         {
             Bitmap imageBitmap = null;
@@ -103,17 +92,11 @@ namespace GroceryMate.Resources.adapters
 
             if(listProductSearchItems[position].Image != null)
             {
-                /*
-                ImageService.Instance.LoadUrl(url)
-                .LoadingPlaceholder("loading.png") // placeholder loaded from file
-                .Into(_imageView);
-                */
                 var imageBitmap = GetImageBitmapFromUrl(listProductSearchItems[position].Image);
                 ProductSearchImg.SetImageBitmap(imageBitmap);
             }
 
             ProductSearchItemName.Text = listProductSearchItems[position].Name;
-            //ProductSearchItemPrice.Text = "€" + listProductSearchItems[position].Price; 
             ProductSearchItemPrice.Text 
                 = listProductSearchItems[position].Price.ToString("€0.00", CultureInfo.InvariantCulture);
 

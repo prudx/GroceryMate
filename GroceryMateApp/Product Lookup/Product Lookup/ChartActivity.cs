@@ -1,23 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using GroceryMate.Services;
 using Microcharts;
 using Microcharts.Droid;
 using GroceryMate.Helpers;
-using static GroceryMate.Helpers.Helper;
 using GroceryMate.API;
 using Refit;
 using GroceryMate.JsonData;
 using System.Threading.Tasks;
-using GroceryMate.Model;
+using static GroceryMate.Helpers.Helper;
 
 namespace GroceryMate
 {
@@ -47,6 +43,7 @@ namespace GroceryMate
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_chart);
 
+            //few colours for visualization later
             Colors = new List<string>() {"#266489","#68B9C0","#90D585","#FF1493","#42f477","#c741f4","#f4f141","#2718f9","#f91717","#ff7b00"};
             Entries = new List<Entry>();
 
@@ -95,22 +92,15 @@ namespace GroceryMate
         {
             List<KeyValuePair<string, double>> TotalVisitsForUniqueStores = await azureService.MostVisited(ForUser);
 
-            foreach (var kvp in TotalVisitsForUniqueStores)
-            {
-                Console.WriteLine(kvp);
-            }
-
             var entries = CreateEntries(TotalVisitsForUniqueStores);
             Entries = new List<Entry>();
 
-
             SelectChartTop(entries);
         }
-
         
         private List<Entry> CreateEntries(List<KeyValuePair<string, double>> kvpl)
         {
-            int colorCounter = 0; //asigns up to 10 colours
+            int colorCounter = 0;
             foreach (KeyValuePair<string, double> kvp in kvpl)
             {
                 var label = kvp.Key;
@@ -185,13 +175,10 @@ namespace GroceryMate
                 itemName = "CHOCOLATE";                
 
             KeyValuePair<string, double> CheapestAtStore = await azureService.Cheapest(itemName);
-
-            Console.WriteLine(CheapestAtStore);
-
             KeyValuePair<string, double> CheapestAtTesco = await TescoQuery(itemName);
 
             var entries = CreateEntriesAgainstTesco(CheapestAtStore, CheapestAtTesco);
-            Entries = new List<Entry>();    //empty the entries
+            Entries = new List<Entry>();    //empty the entries for reuse
 
             SelectChartBottom(entries);
         }
@@ -199,7 +186,6 @@ namespace GroceryMate
         private async Task<KeyValuePair<string, double>> TescoQuery(string itemName)
         {
             double price = 0;
-
             try
             {   
                 tescoAPI = RestService.For<ITescoAPI>("https://dev.tescolabs.com");
@@ -228,6 +214,7 @@ namespace GroceryMate
 
             string T_Color, kvpColor;
 
+            //cheaper, more expensive or equal
             if (number > T_number)
                 { T_Color = "#42f45c"; kvpColor = "#db0d0d"; } 
             else if (number == T_number)

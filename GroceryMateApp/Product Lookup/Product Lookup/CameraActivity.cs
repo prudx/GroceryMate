@@ -7,21 +7,18 @@ using Android.Views;
 using Android.Gms.Vision;
 using Android.Gms.Vision.Texts;
 using Android.Util;
-using Android.Graphics;
 using Android;
 using Android.Support.V4.App;
 using Android.Content.PM;
-using static Android.Gms.Vision.Detector;
 using System.Text;
 using GroceryMate.Model;
 using Android.Content;
 using System.Collections.Generic;
 using GroceryMate.Services;
-using System;
 using GroceryMate.Helpers;
-using System.Linq;
-using System.Collections.ObjectModel;
 using static GroceryMate.Helpers.Helper;
+using static Android.Gms.Vision.Detector;
+using Android.Graphics;
 
 namespace GroceryMate
 {
@@ -38,10 +35,11 @@ namespace GroceryMate
         AzureService azureService = new AzureService();
 
         ListView ReceiptItems;
-        static ICollection<Item> capturedItems; //was static
+        static ICollection<Item> capturedItems; 
 
         TextView CameraText { get => cameraText; set => cameraText = value; }
 
+        //switch incase more permissions in future
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             switch (requestCode)
@@ -54,7 +52,6 @@ namespace GroceryMate
                         }
                     }
                     break;
-
             }
         }
         
@@ -63,13 +60,13 @@ namespace GroceryMate
             base.OnCreate(savedInstanceState);
             SetContentView(GroceryMate.Resource.Layout.activity_camera);
 
-            //Permission issue displaying camera in app
             cameraView = FindViewById<SurfaceView>(GroceryMate.Resource.Id.camera_View1); 
             CameraText = FindViewById<TextView>(GroceryMate.Resource.Id.camera_TextSense1);
             btn_Capture = FindViewById<Button>(GroceryMate.Resource.Id.btn_Capture);
 
             ReceiptItems = FindViewById<ListView>(GroceryMate.Resource.Id.listViewReceipt);
 
+            // Detection logic
             TextRecognizer textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
             if (!textRecognizer.IsOperational)
                 Log.Error("Camera Error", "Vision Detector dependencies are not available");
@@ -97,10 +94,10 @@ namespace GroceryMate
                 {
                     CreateAlert(AlertType.Load, GetString(Resource.String.Load_ReceiptScan), null);
 
-                    //below captures used for testing
+                    //read in receipt as string seperated by /n
                     capture = CameraText.Text;
-                    capture = "TESCO/nOranges/n2.40";
 
+                    //pass to receipt logic class
                     Receipt r = Sorter.DetermineStore(capture);
                     SurfaceDestroyed(cameraView.Holder);
 
@@ -112,15 +109,11 @@ namespace GroceryMate
                     Intent receiptActivity = new Intent(this, typeof(ReceiptActivity));
                     StartActivity(receiptActivity);
 
+                    //close loading alert
                     if (dialog.IsShowing)
                         dialog.Dismiss();
                 }
             };
-        }
-
-        public void SurfaceChanged(ISurfaceHolder holder, [GeneratedEnum] Format format, int width, int height)
-        {
-
         }
 
         public void SurfaceCreated(ISurfaceHolder holder)
@@ -160,9 +153,13 @@ namespace GroceryMate
             }
         }
 
+        //Unused
+        public void SurfaceChanged(ISurfaceHolder holder, [GeneratedEnum] Format format, int width, int height)
+        {
+        }
+
         public void Release()
         {
-
         }
     }
 }

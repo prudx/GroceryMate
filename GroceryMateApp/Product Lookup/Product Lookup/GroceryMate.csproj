@@ -74,14 +74,11 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\Item.cs" />
-    <Compile Include="Deprecated\Receipt_Lidl.cs" />
     <Compile Include="Model\Quicktype.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Resources\adapters\ListViewReceipt_Adapter.cs" />
-    <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="Helpers\ReceiptSorter.cs" />
-    <Compile Include="Deprecated\Receipt_Tesco.cs" />
     <Compile Include="ReceiptActivity.cs" />
     <Compile Include="Resources\adapters\ProductSearch_Adapter.cs" />
     <Compile Include="Resources\adapters\ListViewItem_Adapter.cs" />
