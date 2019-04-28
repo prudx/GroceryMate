@@ -3,7 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>Android_Accelerated_x86_Oreo</SelectedDevice>
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
-    <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
+    <AndroidDesignerPreferredTheme>Theme.AppCompat.Light.DarkActionBar</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>

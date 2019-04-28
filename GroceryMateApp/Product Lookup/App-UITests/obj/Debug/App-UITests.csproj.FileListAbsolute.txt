@@ -1,0 +1,9 @@
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\bin\Debug\App-UITests.dll
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\bin\Debug\App-UITests.pdb
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\bin\Debug\nunit.framework.dll
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\bin\Debug\Xamarin.UITest.dll
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\obj\Debug\App-UITests.csprojAssemblyReference.cache
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\obj\Debug\App-UITests.csproj.CoreCompileInputs.cache
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\obj\Debug\App-UITests.csproj.CopyComplete
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\obj\Debug\App-UITests.dll
+C:\Users\dnlma\Documents\Code\Project\GroceryMateApp\Product Lookup\App-UITests\obj\Debug\App-UITests.pdb
