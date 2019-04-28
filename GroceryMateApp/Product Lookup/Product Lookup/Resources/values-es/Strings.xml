@@ -80,4 +80,26 @@
   </string-array>
   <string name="cheapest">Mas barato</string>
   <string name="searchBtnItem">ffff</string>
+
+  <!-- ERRORS -->
+  <string name="Error_LoggedOutTitle">Error de inicio de sesión.</string>
+  <string name="Error_LoggedOut">No se puede escanear el recibo, se ha desconectado!</string>
+
+  <string name="Error_NoDetectionsTitle">Texto no encontrado.</string>
+  <string name="Error_NoDetections">No se puede escanear el recibo, texto no detectado.</string>
+
+  <string name="Error_NoConnectionTitle">Sin conexión a Internet.</string>
+  <string name="Error_NoConnection">Se requiere internet para buscar productos.</string>
+
+  <string name="Error_EnterProductTitle">Error del producto</string>
+  <string name="Error_EnterProduct">Por favor, introduzca un producto en el cuadro de abajo.</string>
+
+
+  <!-- LOAD -->
+  <string name="Load_ReceiptScan">Escaneando el recibo ...</string>
+  <string name="Load_Analysis">Cargando página de análisis</string>
+
+
+
+
 </resources>

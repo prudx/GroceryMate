@@ -72,4 +72,24 @@
   </string-array>
   <string name="cheapest">Le moins cher</string>
   <string name="searchBtnItem">ffff</string>
+
+  <!-- ERRORS -->
+  <string name="Error_LoggedOutTitle">Erreur d'identification.</string>
+  <string name="Error_LoggedOut">Impossible de scanner le reçu, vous êtes déconnecté!</string>
+
+  <string name="Error_NoDetectionsTitle">Texte non trouvé.</string>
+  <string name="Error_NoDetections">Impossible de numériser le reçu, texte non détecté.</string>
+
+  <string name="Error_NoConnectionTitle">Pas de connexion Internet.</string>
+  <string name="Error_NoConnection">Internet requis pour rechercher des produits.</string>
+
+  <string name="Error_EnterProductTitle">Erreur de produit</string>
+  <string name="Error_EnterProduct">Veuillez entrer un produit dans la case ci-dessous.</string>
+
+
+  <!-- LOAD -->
+  <string name="Load_ReceiptScan">Numérisation du ticket ....</string>
+  <string name="Load_Analysis">Chargement de la page d'analyse</string>
+
+
 </resources>
